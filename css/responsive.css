@@ -1,0 +1,154 @@
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .container {
+    width: 100%;
+  }
+
+  .content-area {
+    margin: 0 80px;
+  }
+
+  .tribal-decorations {
+    width: 80px;
+  }
+}
+
+@media (max-width: 992px) {
+  .top-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .main-nav ul {
+    flex-wrap: wrap;
+  }
+
+  .main-nav ul li {
+    width: 33.33%;
+    text-align: center;
+  }
+
+  .content-area {
+    margin: 0 60px;
+  }
+
+  .tribal-decorations {
+    width: 60px;
+  }
+
+  .slide-content {
+    width: 50%;
+  }
+
+  .slide img {
+    width: 50%;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .official-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .main-nav ul li {
+    width: 50%;
+  }
+
+  .content-area {
+    margin: 0 40px;
+  }
+
+  .tribal-decorations {
+    width: 40px;
+  }
+
+  .slide {
+    flex-direction: column;
+  }
+
+  .slide-content {
+    width: 100%;
+    height: 50%;
+  }
+
+  .slide img {
+    width: 100%;
+    height: 50%;
+  }
+}
+
+@media (max-width: 576px) {
+  .main-nav ul li {
+    width: 100%;
+  }
+
+  .content-area {
+    margin: 0 20px;
+  }
+
+  .tribal-decorations {
+    width: 20px;
+  }
+
+  .slider {
+    height: 400px;
+  }
+
+  .official-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .official-card img {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .tribal-banner-container {
+        flex-direction: column;
+    }
+    
+    .tribal-banner-wrapper {
+        height: 300px;
+    }
+    
+    .tribal-banner-content {
+        flex-direction: column;
+    }
+    
+    .tribal-info-panel, .tribal-image-panel {
+        flex: 1;
+    }
+    
+    .tribal-main-title {
+        font-size: 20px;
+    }
+    
+    .tribal-description {
+        font-size: 12px;
+    }
+}

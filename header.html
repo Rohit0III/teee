@@ -1,0 +1,346 @@
+<style>
+  /* Header Styles */
+        header {
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 5%;
+            background-color: #fff;
+            flex-wrap: wrap;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-right: 15px;
+            object-fit: contain;
+        }
+
+        .logo-text h1 {
+            color: #d35400;
+            font-size: 22px;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+
+        .logo-text h2 {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.2;
+        }
+
+        .govt-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .govt-logo h2 {
+            color: #333;
+            font-size: 18px;
+            margin: 0 5px;
+        }
+
+        .govt-logo img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .search-box input {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            width: 100%;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .search-btn {
+            background-color: #8b4513;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            white-space: nowrap;
+            min-width: 80px;
+        }
+
+        /* Navigation Styles */
+        .menu-container {
+            display: none;
+            background-color: #2e7d32;
+            background-image: url('/images/nav-bg.png');
+            padding: 10px 20px;
+            text-align: right;
+        }
+
+        .menu-toggle {
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .main-nav {
+            background-color: #2e7d32;
+            background-image: url('/images/nav-bg.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center top;
+            padding: 7px 0;
+            min-height: 100%;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 0 5%;
+            margin: 0;
+        }
+
+        .main-nav ul li {
+            margin: 0 5px;
+        }
+
+        .main-nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            display: block;
+            font-size: 14px;
+            transition: background-color 0.3s;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .main-nav ul li a:hover {
+            background-color: #1b5e20;
+            border-radius: 4px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 1200px) {
+            .main-nav ul {
+                padding: 0 2%;
+            }
+            
+            .main-nav ul li a {
+                padding: 8px 8px;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .top-header {
+                justify-content: center;
+                text-align: center;
+            }
+            
+            .logo-section, .govt-logo, .search-box {
+                margin: 10px 20px;
+            }
+            
+            .main-nav ul li a {
+                font-size: 12px;
+                padding: 8px 6px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-header {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .logo-section, .govt-logo, .search-box {
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 15px;
+            }
+            
+            .logo {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .logo-text h1 {
+                font-size: 20px;
+            }
+            
+            .logo-text h2 {
+                font-size: 14px;
+            }
+            
+            .govt-logo img {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .govt-logo h2 {
+                font-size: 16px;
+            }
+            
+            .menu-container {
+                display: block;
+            }
+            
+            .main-nav {
+                background-image: none;
+            }
+            
+            .main-nav ul {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                padding: 0;
+            }
+            
+            .main-nav ul.show {
+                display: flex;
+            }
+            
+            .main-nav ul li {
+                width: 100%;
+                border-top: 1px solid rgba(255, 255, 255, 0.2);
+                margin: 0;
+            }
+            
+            .main-nav ul li a {
+                width: 100%;
+                padding: 12px;
+                font-size: 14px;
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-right: 0;
+                margin-bottom: 10px;
+                width: 60px;
+                height: 60px;
+            }
+            
+            .logo-text h1 {
+                font-size: 18px;
+            }
+            
+            .logo-text h2 {
+                font-size: 12px;
+            }
+            
+            .govt-logo {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .govt-logo h2 {
+                font-size: 14px;
+                margin: 0 3px;
+            }
+            
+            .govt-logo img {
+                width: 40px;
+                height: 40px;
+                margin: 5px;
+            }
+            
+            .search-box {
+                flex-direction: row;
+                align-items: stretch;
+                justify-content: space-between;
+                margin: auto auto;
+                padding-right: 10px;
+            }
+            
+            .search-box input {
+                margin-right: 0;
+                margin-bottom: 10px;
+                width: 70%;
+            }
+            
+            .search-btn {
+                width: 20%;
+                border-radius: 10px;
+            }
+        }
+
+</style>
+ <header>
+        <div class="top-header">
+            <div class="logo-section">
+                <img src="images/Adivasi-logo.png" alt="Tribal Development Logo" class="logo">
+                <div class="logo-text">
+                    <h1>एकात्मिक आदिवासी विकास</h1>
+                    <h2>रत्नगिरी, मावल</h2>
+                </div>
+            </div>
+            <div class="govt-logo">
+                <h2>महाराष्ट्र</h2>
+                <img src="images/emblem-logo.png" alt="Government Logo">
+                <h2>शासन</h2>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="शोध...">
+                <button class="search-btn">लॉगिन</button>
+            </div>
+        </div>
+
+        <div class="menu-container">
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </div>
+
+        <nav class="main-nav">
+            <ul id="main-menu">
+                <li><a href="/index.html"><i class="fas fa-home"></i> मुख्यपृष्ठ</a></li>
+                <li><a href="/saskiya-vastigrah.html">प्रशासन</a></li>
+                <li><a href="/anudati-ashramshala.html">ऑनलाइन आवेदन</a></li>
+                <li><a href="/ekathmik-adivashi-vikash-prakal.html">योजना विभाग</a></li>
+                <li><a href="/varshik-arakhad.html">वित्तीय विभाग</a></li>
+                <li><a href="/केंद्रवर्ती अर्थसंकल्प योजना.html">शिक्षण विभाग</a></li>
+                <li><a href="/vahanak-kayda.html">लेखा विभाग</a></li>
+                <li><a href="/अनुच्छेद 275 (1).html">रजिस्ट्रेशन</a></li>
+                <li><a href="/sakharacha-mahatvacha-patra.html">नागरिका अधिकार</a></li>
+                <li><a href="/prashaskiy-adhesh-manyta.html">उपक्रम</a></li>
+                <li><a href="/Pgmaay.html">भर</a></li>
+                <li><a href="/mukhyaadhyapik-sampark-number.html">अन्य</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('main-menu').classList.toggle('show');
+        }
+    </script>

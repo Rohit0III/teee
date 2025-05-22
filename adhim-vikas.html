@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="mr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>शासकीय आश्रमशाळा</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+           
+            flex-direction: column;
+        }
+
+        .ashramshala-header {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px 0;
+            margin: 0 auto;
+
+        }
+
+        .mandala-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 5% auto;
+        }
+
+        .ashramshala-title {
+            color: #8B4513;
+            font-size: 42px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .mandala {
+            width: 40px;
+            height: 40px;
+            background-image: url('/images/mandala.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Add a decorative dot pattern around the first letter */
+        .ashramshala-title::first-letter {
+            position: relative;
+        }
+
+        .ashramshala-title::before {
+            content: "◌";
+            position: absolute;
+            left: -15px;
+            top: 0;
+            color: #8B4513;
+            font-size: 42px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .mandala-container {
+                gap: 10px;
+            }
+
+            .ashramshala-title {
+                font-size: 32px;
+            }
+
+            .mandala {
+                width: 80px;
+                height: 80px;
+            }
+
+            .ashramshala-title::before {
+                font-size: 32px;
+                left: -10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ashramshala-header{
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+            .ashramshala-title {
+                font-size: 24px;
+            }
+
+            .mandala {
+                width: 30px;
+                height: 30px;
+            }
+
+            .ashramshala-title::before {
+                font-size: 24px;
+                left: -8px;
+            }
+        }
+
+
+
+        .ashram-content-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            margin: 5% auto;
+        }
+
+        .ashram-content-box {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 30px 40px;
+            position: relative;
+            width: 100%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Left and right borders */
+        .ashram-content-box::before,
+        .ashram-content-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: #8B4513;
+        }
+
+        .ashram-content-box::before {
+            left: 0;
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+
+        .ashram-content-box::after {
+            right: 0;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .ashram-paragraph {
+            margin-bottom: 20px;
+            text-align: justify;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .ashram-paragraph:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .ashram-content-box {
+                padding: 20px 30px;
+            }
+
+            .ashram-paragraph {
+                font-size: 15px;
+                line-height: 1.7;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .ashram-content-box {
+                padding: 15px 25px;
+            }
+
+            .ashram-paragraph {
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        }
+
+
+
+        .tribal-header {
+            width: 100%;
+            padding: 15px 0;
+            background-color: #ffffff;
+        }
+
+        .tribal-header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 5% auto;
+        }
+
+        .tribal-title {
+            color: #8B4513;
+            font-size: 24px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .tribal-mandala {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            background-image: url('/images/mandala.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .tribal-title {
+                font-size: 20px;
+            }
+
+            .tribal-mandala {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .tribal-title {
+                font-size: 16px;
+            }
+
+            .tribal-mandala {
+                width: 25px;
+                height: 25px;
+            }
+
+            .tribal-header-container {
+                gap: 10px;
+                padding: 0 10px;
+            }
+        }
+
+
+        .tribal-table-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Tribal Border Pattern */
+        .tribal-border-left,
+        .tribal-border-right {
+            width: 20px;
+            background-repeat: repeat-y;
+            flex-shrink: 0;
+
+
+        }
+
+        .tribal-border-left {
+            background-image: url('/images/V-border.png');
+        }
+
+        .tribal-border-right {
+            background-image: url('/images/V-border.png');
+        }
+
+        /* Table Wrapper */
+        .tribal-table-wrapper {
+            flex-grow: 1;
+            overflow-x: auto;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin: auto 3%;
+        }
+
+        /* Table Styles */
+        .tribal-schools-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .tribal-schools-table thead {
+            background-color: #8B4513;
+            color: white;
+        }
+
+        .tribal-schools-table th {
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .tribal-schools-table th:last-child {
+            border-right: none;
+        }
+
+        .tribal-schools-table td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #eee;
+            border-right: 1px solid #eee;
+        }
+
+        .tribal-schools-table td:last-child {
+            border-right: none;
+        }
+
+        .tribal-schools-table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .tribal-schools-table tbody tr:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .tribal-schools-table {
+                font-size: 13px;
+            }
+
+            .tribal-schools-table th,
+            .tribal-schools-table td {
+                padding: 8px 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .tribal-border-left,
+            .tribal-border-right {
+                width: 15px;
+            }
+
+            .tribal-schools-table {
+                font-size: 12px;
+            }
+
+            .tribal-schools-table th,
+            .tribal-schools-table td {
+                padding: 6px 8px;
+            }
+        }
+
+        @media (max-width: 576px) {
+
+            .tribal-border-left,
+            .tribal-border-right {
+                display: none;
+            }
+
+            .tribal-table-container {
+                padding: 0;
+            }
+        }
+
+        h1 {
+            color: #005e2f;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            margin-bottom: 10px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .level-1 {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        .level-2 {
+            list-style-type: circle;
+            margin-left: 40px;
+        }
+
+        .level-3 {
+            list-style-type: square;
+            margin-left: 60px;
+        }
+
+        .stats {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div data-include="header.html"></div>
+        
+    </div>
+    <header class="ashramshala-header">
+        <div class="mandala-container">
+            <div class="mandala left-mandala"></div>
+            <h1 class="ashramshala-title">आदिम जमातीचे संरक्षण तथा विकासाच्या योजना</h1>
+            <div class="mandala right-mandala"></div>
+        </div>
+        <div class="ashram-content-container">
+            <div class="ashram-content-box">
+                <div class="tribal-container">
+                    <h1 class="tribal-heading">योजनेचे स्वरूप</h1>
+
+                    <p class="tribal-description">सदर योजना ही केंद्रीय सहाय्य योजना असून या अंतर्गत अग्रक्रमाच्या
+                        अनुषंगाने आदिम समाजाच्या लाभार्थ्यांना लाभ मिळणेकरिता नवीनतम व कार्योपयोगी योजनेचा यामध्ये
+                        समावेश केला जातो. तसेच आदिम जमातीची योजना ही चंद्रपूर, गडचिरोली, अहेरी व भामरागड या प्रकल्प
+                        कार्यालयातील माडिया, कोलाम व कालकरी या जमातीकरिता राबविली जाताता. या योजनेअंतर्गत दरवर्षी नवीन
+                        योजना घेण्यात येतात. खालील योजना यापूर्वीच्या वर्षांमध्ये मंजूर झालेल्या आहेत तेथे इत्यादी.</p>
+
+                    <div class="tribal-schemes-container">
+                        <ul class="tribal-schemes-list">
+                            <li class="tribal-scheme-item">आरोग्य मार्गदर्शन शिबीर</li>
+                            <li class="tribal-scheme-item">अंगणवाड्यांना अतिरिक्त सहाय्य</li>
+                            <li class="tribal-scheme-item">वैद्य प्रशिक्षण व वैद्यकीय सेवा</li>
+                            <li class="tribal-scheme-item">हेल्थ एनिमेटर प्रशिक्षण</li>
+                            <li class="tribal-scheme-item">घरकुल/आवास</li>
+                            <li class="tribal-scheme-item">शाळाबाह्य विद्यार्थ्यांसाठी शैक्षणिक वर्ग सुरू करणे</li>
+                            <li class="tribal-scheme-item">आधुनिक तंत्रज्ञानासंबंधित मार्गदर्शन शिबीर</li>
+                            <li class="tribal-scheme-item">सांस्कृतिक कार्यक्रम प्रदर्शनासाठी सहाय्य</li>
+                            <li class="tribal-scheme-item">हातचलित बोअरवेल, उथळी विहीर खोदणे, नवीन विहीर खोदणे</li>
+                            <li class="tribal-scheme-item">भूमिहीनांना जमीन</li>
+                            <li class="tribal-scheme-item">औषधी वनस्पतींची लागवड व फलोद्यान</li>
+                            <li class="tribal-scheme-item">शेतीसाठी अवजारांचा पुरवठा</li>
+                            <li class="tribal-scheme-item">रोप वाटिका</li>
+                            <li class="tribal-scheme-item">उपसा सिंचन</li>
+                            <li class="tribal-scheme-item">ठिबक व तुषार सिंचन</li>
+                            <li class="tribal-scheme-item">मल्हणी यंत्राचा पुरवठा करणे</li>
+                            <li class="tribal-scheme-item">जनावरांचा कृत्रिम रेतन कॅम्प आयोजन, लसीकरण व आरोग्य तपासणी
+                            </li>
+                            <li class="tribal-scheme-item">दुधाळ जनावरांकरिता गोठा शेड</li>
+                            <li class="tribal-scheme-item">बेरोजगारांना आधुनिक संगणक प्रशिक्षण</li>
+                            <li class="tribal-scheme-item">दुधाड पालनासाठी अर्थसहाय्य</li>
+                            <li class="tribal-scheme-item">हँडीक्राफ्ट युनिट स्थापना</li>
+                            <li class="tribal-scheme-item">सोली गट वाटप</li>
+                            <li class="tribal-scheme-item">स्थानिकरित पोटीजीकरिता उत्पादन विक्री केंद्र स्थापना</li>
+                            <li class="tribal-scheme-item">पाच किलोमिटर लांबीचे जोडरस्ते, छोटे तलावपट व सिंचनांक बांधणे
+                            </li>
+                            <li class="tribal-scheme-item">पाणलोट क्षेत्र विकास कार्यक्रम (नालाबंधी शेततळे, वनतळे, जमीन
+                                सपाटीकरण, चेक डॅम बांधणे)</li>
+                            <li class="tribal-scheme-item">वायुसौर हायब्रीड ऊर्जा प्रकल्पास 10 टक्के अनुदान</li>
+                            <li class="tribal-scheme-item">आदिम जमातीच्या 8 वी ते 10 वीच्या विद्यार्थ्यांना शैक्षणिक
+                                प्रवाहात टिकवून ठेवण्यासाठी आर्थिक सहाय्य देणे</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <ul>
+                    <li>शासन निर्णय व शासनाने निर्गमित करून दिलेल्या मार्गदर्शक सुचनेनुसार.</li>
+                    <li>2. दिवसूची, ओटीएफसी, माडा, मिनीमाडा या क्षेत्रात असलेली आदिम जमातींची गावे अंतर्गत येत असलेले व
+                        आदिम जमाती अंतर्गत येत असलेले लाभार्थी</li>
+
+                    <li>आरोग्य विषयक योजना:
+                        <ul>
+                            <li>1. ज्या गावामध्ये आदिम जमातीचे वास्तव्य मोठ्या प्रमाणात आहे</li>
+                            <li>2. ज्या गावात अजी शिबीरे झालेली नाही.</li>
+                            <li>3. कुपोषण व तत्सम दुर्बल आजार उद्भवलेले आहेत अशी गावे.</li>
+                        </ul>
+                    </li>
+
+                    <li>रोजगार व उद्योग वाढीच्या योजना:
+                        <ul>
+                            <li>1. लाभार्थी आदिम जमातीचा असावा.</li>
+                            <li>2. लाभार्थीचे कमीत कमी 10 वी पर्यंत शिक्षण असावे.</li>
+                        </ul>
+                    </li>
+
+                    <li>कृषी व फलोत्पादन योजना:
+                        <ul>
+                            <li>1. लाभार्थी आदिम जमातीचा असावा.</li>
+                            <li>2. पात्र व गरजू आदिम जमातीचे शेतकरी व शेतमजुरांना योजनेचा लाभ देण्यात येईल.</li>
+                            <li>3. वन जमिनीवर पट्टे मिळालेल्या शेतक-यांना प्राधान्य देण्यात येईल.</li>
+                            <li>4. शासन निर्णय व शासनाने वेळोवेळी निर्गमित करून दिलेल्या मार्गदर्शक सुचनेप्रमाणे
+                                योजनेच्या निकषानुसार आवश्यक कागदपत्रे.</li>
+                        </ul>
+                    </li>
+
+                    <li>पिण्याचे पाणी / सिंचाई योजना:
+                        <ul>
+                            <li>1. लाभार्थी आदिम जमातीचा असावा.</li>
+                            <li>2. स्वतः कडे किमान स्वत: ची वीट एकर जमीन असावी.</li>
+                            <li>3. लाभार्थ्याची जमीन असल्याबाबत सत्यत्याबाबत त्याचे गावे 7/12 उतारा असणे आवश्यक.</li>
+                            <li>4. लाभार्थ्याच्या स्वत: च्या जमीनीत बोअरवेल नसावी.</li>
+                        </ul>
+                    </li>
+
+                    <li>घरकुल:
+                        <ul>
+                            <li>1. लाभार्थी हा कालकरी, कोलाम, माडिया गोंड या आदिम जमातीचा असावा.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+
+
+                <h1>आवश्यक कागदपत्रे</h1>
+
+                <ul>
+                    <li>शासन निर्णय व शासनाने निर्गमित करून दिलेल्या मार्गदर्शक सुचनेनुसार व कालकरी, माडिया व कोलाम गोंड
+                        जमातीचे लाभार्थी</li>
+                    <li>2. दिवसूची, ओटीएफसी, माडा, मिनीमाडा या क्षेत्रात असलेली आदिम जमातींची गावे अंतर्गत येत असलेले व
+                        आदिम जमाती अंतर्गत येत असलेले लाभार्थी</li>
+
+                    <li>आरोग्य विषयक योजना:
+                        <ul>
+                            <li>1. ज्या गावामध्ये आदिम जमातीचे वास्तव्य मोठ्या प्रमाणात आहे.</li>
+                            <li>2. ज्या गावात अजी शिबीरे झालेली नाही.</li>
+                            <li>3. कुपोषण व तत्सम दुर्बल आजार उद्भवलेले आहेत अशी गावे.</li>
+                        </ul>
+                    </li>
+
+                    <li>रोजगार व उद्योग वाढीच्या योजना:
+                        <ul>
+                            <li>1. लाभार्थी आदिम जमातीचा असावा. अपंग व महिला उमेदवारांना प्राधान्य देण्यात येईल.</li>
+                            <li>2. लाभार्थीचे कमीत कमी 10 वी पर्यंत शिक्षण असावे.</li>
+                        </ul>
+                    </li>
+
+                    <li>कृषी व फलोत्पादन योजना:
+                        <ul>
+                            <li>1. लाभार्थी आदिम जमातीचा असावा. अपंग व महिला उमेदवारांना प्राधान्य देण्यात येईल.</li>
+                            <li>2. पात्र व गरजू आदिम जमातीचे शेतकरी व शेतमजुरांना योजनेचा लाभ देण्यात येईल.</li>
+                            <li>3. वन जमिनीवर पट्टे मिळालेल्या शेतक-यांना प्राधान्य देण्यात येईल.</li>
+                            <li>4. शासन निर्णय व शासनाने वेळोवेळी निर्गमित करून दिलेल्या मार्गदर्शक सुचनेप्रमाणे
+                                योजनेच्या निकषानुसार आवश्यक कागदपत्रे.</li>
+                        </ul>
+                    </li>
+
+                    <li>पिण्याचे पाणी / सिंचाई योजना:
+                        <ul>
+                            <li>1. लाभार्थी आदिम जमातीचा असावा.</li>
+                            <li>2. स्वतः कडे किमान स्वत: ची वीट एकर जमीन असावी.</li>
+                            <li>3. लाभार्थ्याची जमीन असल्याबाबत सत्यत्याबाबत त्याचे गावे 7/12 उतारा असणे आवश्यक.</li>
+                            <li>4. लाभार्थ्याच्या स्वत: च्या जमीनीत बोअरवेल नसावी.</li>
+                        </ul>
+                    </li>
+
+                    <li>घरकुल:
+                        <ul>
+                            <li>1. लाभार्थी हा कालकरी, कोलाम, माडिया गोंड या आदिम जमातीचा असावा.</li>
+                            <li>2. स्वतः स्वत: ची किंवा शासनाने दिलेली जागा असावी.</li>
+                            <li>3. लाभार्थ्यांस पक्के घर नसावे.</li>
+                            <li>4. शासनाच्या कोणत्याही विभागामार्फत अथवा जिल्हा परिषदेमार्फत घरकुल योजनेचा लाभ घेतलेला
+                                नसावा.</li>
+                            <li>5. लाभार्थी हा कालकरी, कोलाम व माडिया या जमातीचा असल्याचा अद्ययावत पुरावा/ कागदपत्रे.
+                            </li>
+                            <li>6. शासन निर्णय व शासनाने वेळोवेळी निर्गमित करून दिलेल्या मार्गदर्शक सुचनेप्रमाणे
+                                योजनेच्या निकषानुसार आवश्यक कागदपत्रे.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div>
+                    <p>संपर्काचे पत्ते</p>
+                    <p>फोन नंबर: (02584) 252433</p>
+                    <p>ईमेल: poitdp_yawal-mh@gov.in</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </header>
+</header>
+<div>
+
+    <div data-include="footer.html"></div>
+</div>
+
+
+     <script src="/load-layout.js"></script>
+
+
+</body>
+
+</html>

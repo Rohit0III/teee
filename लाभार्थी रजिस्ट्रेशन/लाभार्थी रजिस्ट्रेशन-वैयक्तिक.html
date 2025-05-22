@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>महाराष्ट्र शासन - आदिवासी विकास विभाग</title>
+</head>
+<style>
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.gov-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    text-align: center;
+    padding: 20px;
+    margin: 0 auto;
+    /* Removed: 
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+}
+
+.emblem-container {
+    margin-bottom: 15px;
+}
+
+.emblem {
+    height: 120px;
+    width: auto;
+}
+
+.header-text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.govt-title {
+    color: #8B4513;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.dept-title {
+    color: #8B4513;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.registration-title {
+    color: #8B4513;
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .govt-title {
+        font-size: 28px;
+    }
+    
+    .dept-title {
+        font-size: 24px;
+    }
+    
+    .registration-title {
+        font-size: 20px;
+    }
+    
+    .emblem {
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .govt-title {
+        font-size: 24px;
+    }
+    
+    .dept-title {
+        font-size: 20px;
+    }
+    
+    .registration-title {
+        font-size: 18px;
+    }
+    
+    .emblem {
+        height: 80px;
+    }
+    
+    .gov-header {
+        padding: 15px;
+    }
+}
+
+body {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.page-container {
+    width: 100%;
+    max-width: 1200px;
+    
+}
+
+/* Border container with positioning */
+.border-container {
+    position: relative;
+    padding: 30px;
+    background-color: #f8f0e3;
+    border-radius: 25px;
+}
+
+/* Border elements */
+.border-top, .border-bottom, .border-left, .border-right {
+    position: absolute;
+    background-repeat: repeat;
+    z-index: 1;
+    margin: 20px 20px;
+}
+
+/* Top and bottom borders */
+.border-top, .border-bottom {
+    left: 0;
+    right: 0;
+    height: 25px;
+    
+}
+
+/* Left and right borders */
+.border-left, .border-right {
+    top: 0;
+    bottom: 0;
+    width: 20px;
+}
+
+/* Position each border */
+.border-top {
+    top: 0;
+     background-image: url('/images/v-border2.png'); 
+}
+
+.border-bottom {
+    bottom: 0;
+    background-image: url('/images/v-border2.png'); 
+    }
+
+.border-left {
+    left: 0;
+    background-image: url('/images/v-border2.png'); 
+    }
+
+.border-right {
+    right: 0;
+    background-image: url('/images/v-border2.png'); 
+    }
+
+/* Form container */
+.form-container {
+    position: relative;
+    z-index: 2;
+    background-color: #f8f0e3;
+    margin: 10% 5%;
+}
+
+.form-section {
+    margin-bottom: 30px;
+}
+
+.section-title {
+    color: #8B4513;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.divider {
+    height: 2px;
+    background-color: #c9a97d;
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+    gap: 20px;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.full-width {
+    flex-basis: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #5a3d1c;
+}
+
+.marathi {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+select.form-control {
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="6" viewBox="0 0 12 6"><path d="M0 0l6 6 6-6z" fill="%23333"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
+}
+
+.file-upload {
+    display: flex;
+    align-items: center;
+}
+
+.file-input {
+    position: absolute;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.file-upload-info {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.file-upload-btn {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    border-right: 1px solid #ccc;
+}
+
+.file-name {
+    padding: 8px 12px;
+    color: #666;
+    font-size: 14px;
+    flex-grow: 1;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 10px 30px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-submit {
+    background-color: #b17a3f;
+    color: white;
+}
+
+.btn-submit:hover {
+    background-color: #8B4513;
+}
+
+.btn-reset {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.btn-reset:hover {
+    background-color: #e0e0e0;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .border-container {
+        padding: 20px;
+    }
+    
+    .border-top, .border-bottom {
+        height: 20px;
+    }
+    
+    .border-left, .border-right {
+        width: 20px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .form-group {
+        width: 100%;
+    }
+    
+    .form-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .border-container {
+        padding: 15px;
+    }
+    
+    .border-top, .border-bottom {
+        height: 15px;
+         margin: 7px 7px;
+    }
+    
+    .border-left, .border-right {
+        width: 15px;
+         margin: 5px 5px;
+    }
+
+    .form-container{
+        padding: 10px;
+    } 
+}
+
+.main-div{
+    max-width: 1000px;
+    width: 100%;
+}
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // File upload handling
+    const fileInput = document.getElementById('profileImage');
+    const fileUploadBtn = document.querySelector('.file-upload-btn');
+    const fileName = document.querySelector('.file-name');
+    
+    fileUploadBtn.addEventListener('click', function() {
+        fileInput.click();
+    });
+    
+    fileInput.addEventListener('change', function() {
+        if (fileInput.files.length > 0) {
+            fileName.textContent = fileInput.files[0].name;
+        } else {
+            fileName.textContent = 'No file chosen';
+        }
+    });
+    
+    // Form validation
+    const form = document.getElementById('registrationForm');
+    
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        // Basic validation
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        
+        if (password !== confirmPassword) {
+            alert('Passwords do not match!');
+            return;
+        }
+        
+        // You can add more validation here
+        
+        // If validation passes, you can submit the form
+        alert('Form submitted successfully!');
+        // form.submit(); // Uncomment this to actually submit the form
+    });
+    
+    // Dynamic dropdowns for state, district, and taluka
+    const stateSelect = document.getElementById('state');
+    const districtSelect = document.getElementById('district');
+    const talukaSelect = document.getElementById('taluka');
+    
+    // Sample data for dropdowns
+    const locations = {
+        'maharashtra': {
+            districts: ['Mumbai', 'Pune', 'Nagpur', 'Thane', 'Nashik'],
+            talukas: {
+                'Mumbai': ['Mumbai City', 'Mumbai Suburban'],
+                'Pune': ['Pune City', 'Haveli', 'Mulshi', 'Maval'],
+                'Nagpur': ['Nagpur Urban', 'Nagpur Rural', 'Kamptee'],
+                'Thane': ['Thane', 'Kalyan', 'Ambernath', 'Bhiwandi'],
+                'Nashik': ['Nashik', 'Malegaon', 'Sinnar', 'Igatpuri']
+            }
+        },
+        'gujarat': {
+            districts: ['Ahmedabad', 'Surat', 'Vadodara', 'Rajkot'],
+            talukas: {
+                'Ahmedabad': ['Ahmedabad City', 'Daskroi', 'Sanand'],
+                'Surat': ['Surat City', 'Choryasi', 'Olpad'],
+                'Vadodara': ['Vadodara City', 'Padra', 'Savli'],
+                'Rajkot': ['Rajkot City', 'Lodhika', 'Jasdan']
+            }
+        }
+    };
+    
+    // Update districts when state changes
+    stateSelect.addEventListener('change', function() {
+        const selectedState = stateSelect.value;
+        
+        // Clear existing options
+        districtSelect.innerHTML = '<option value="">-- तालुका निवडा --</option>';
+        talukaSelect.innerHTML = '<option value="">Select</option>';
+        
+        if (selectedState && locations[selectedState]) {
+            const districts = locations[selectedState].districts;
+            
+            districts.forEach(district => {
+                const option = document.createElement('option');
+                option.value = district.toLowerCase();
+                option.textContent = district;
+                districtSelect.appendChild(option);
+            });
+        }
+    });
+    
+    // Update talukas when district changes
+    districtSelect.addEventListener('change', function() {
+        const selectedState = stateSelect.value;
+        const selectedDistrict = districtSelect.value;
+        
+        // Clear existing options
+        talukaSelect.innerHTML = '<option value="">Select</option>';
+        
+        if (selectedState && selectedDistrict && 
+            locations[selectedState] && 
+            locations[selectedState].talukas[selectedDistrict.charAt(0).toUpperCase() + selectedDistrict.slice(1)]) {
+            
+            const talukas = locations[selectedState].talukas[selectedDistrict.charAt(0).toUpperCase() + selectedDistrict.slice(1)];
+            
+            talukas.forEach(taluka => {
+                const option = document.createElement('option');
+                option.value = taluka.toLowerCase();
+                option.textContent = taluka;
+                talukaSelect.appendChild(option);
+            });
+        }
+    });
+    
+    // Reset button functionality
+    const resetButton = document.querySelector('.btn-reset');
+    resetButton.addEventListener('click', function() {
+        fileName.textContent = 'No file chosen';
+        districtSelect.innerHTML = '<option value="">-- तालुका निवडा --</option>';
+        talukaSelect.innerHTML = '<option value="">Select</option>';
+    });
+});
+</script>
+<body>
+    <div class="main-div">
+
+    
+    <div class="gov-header">
+        <div class="emblem-container">
+            <img src="/images/emblem-logo.png" alt="भारताचे राष्ट्रीय चिन्ह" class="emblem">
+        </div>
+        <div class="header-text">
+            <h1 class="govt-title">महाराष्ट्र शासन</h1>
+            <h2 class="dept-title">आदिवासी विकास विभाग</h2>
+            <h3 class="registration-title">प्रशिक्षार्थी रजिस्ट्रेशन-वैयक्तिक</h3>
+        </div>
+         </div>
+   
+
+ <div class="page-container">
+        <!-- Border container with separate divs for each border element -->
+        <div class="border-container">
+            <!-- Top border -->
+            <div class="border-top"></div>
+            
+            <!-- Left border -->
+            <div class="border-left"></div>
+            
+            <!-- Right border -->
+            <div class="border-right"></div>
+            
+            <!-- Bottom border -->
+            <div class="border-bottom"></div>
+            
+            <!-- Form content container -->
+            <div class="form-container">
+                <form id="registrationForm">
+                    <!-- Basic Details Section -->
+                    <div class="form-section">
+                        <h2 class="section-title">Basic Details/<span class="marathi">मूलभूत तपशील</span></h2>
+                        <div class="divider"></div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="applicantFirstNameEng">अर्जदाराचे First Name / <span class="marathi">पहिले नांव (इंग्रजी)</span></label>
+                                <input type="text" id="applicantFirstNameEng" name="applicantFirstNameEng" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="applicantFirstNameMar">अर्जदाराचे First Name / <span class="marathi">पहिले नांव (मराठी)</span></label>
+                                <input type="text" id="applicantFirstNameMar" name="applicantFirstNameMar" class="form-control">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="applicantMiddleNameEng">अर्जदाराचे Middle Name / <span class="marathi">मधले नांव (इंग्रजी)</span></label>
+                                <input type="text" id="applicantMiddleNameEng" name="applicantMiddleNameEng" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="applicantMiddleNameMar">अर्जदाराचे Middle Name / <span class="marathi">मधले नांव (मराठी)</span></label>
+                                <input type="text" id="applicantMiddleNameMar" name="applicantMiddleNameMar" class="form-control">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="applicantSurnameEng">अर्जदाराचे Surname / <span class="marathi">आडनाव (इंग्रजी)</span></label>
+                                <input type="text" id="applicantSurnameEng" name="applicantSurnameEng" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="applicantSurnameMar">अर्जदाराचे Surname / <span class="marathi">आडनाव (मराठी)</span></label>
+                                <input type="text" id="applicantSurnameMar" name="applicantSurnameMar" class="form-control">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label for="mobileNo">मोबाईल क्रमांक/Mobile No.</label>
+                                <input type="tel" id="mobileNo" name="mobileNo" class="form-control">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label for="email">ईमेल/Email</label>
+                                <input type="email" id="email" name="email" class="form-control">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="password">पासवर्ड/Password</label>
+                                <input type="password" id="password" name="password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">पुष्टी करा पासवर्ड/Confirm Password</label>
+                                <input type="password" id="confirmPassword" name="confirmPassword" class="form-control">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label for="profileImage">Profile Image/Passport Image</label>
+                                <div class="file-upload">
+                                    <input type="file" id="profileImage" name="profileImage" class="file-input">
+                                    <div class="file-upload-info">
+                                        <button type="button" class="file-upload-btn">Choose File</button>
+                                        <span class="file-name">No file chosen</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional Details Section -->
+                    <div class="form-section">
+                        <h2 class="section-title">Additional Details/<span class="marathi">अतिरिक्त तपशील</span></h2>
+                        <div class="divider"></div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="aadhaarNo">आधार क्रमांक/Aadhaar no.</label>
+                                <input type="text" id="aadhaarNo" name="aadhaarNo" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="panNo">पॅन क्रमांक/Pan no.</label>
+                                <input type="text" id="panNo" name="panNo" class="form-control">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="gender1">लिंगत्व</label>
+                                <select id="gender1" name="gender1" class="form-control">
+                                    <option value="ST">ST</option>
+                                    <option value="SC">SC</option>
+                                    <option value="OBC">OBC</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="gender2">लिंगत्व</label>
+                                <select id="gender2" name="gender2" class="form-control">
+                                    <option value="">Select</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label for="address">पत्ता</label>
+                                <input type="text" id="address" name="address" class="form-control">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="state">जिल्हा</label>
+                                <select id="state" name="state" class="form-control">
+                                    <option value="">Select</option>
+                                    <option value="maharashtra">Maharashtra</option>
+                                    <option value="gujarat">Gujarat</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="district">तालुका</label>
+                                <select id="district" name="district" class="form-control">
+                                    <option value="">-- तालुका निवडा --</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="taluka">गाव/शहर</label>
+                                <select id="taluka" name="taluka" class="form-control">
+                                    <option value="">Select</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="village">पिनकोड क्रमांक</label>
+                                <input type="text" id="village" name="village" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Form Buttons -->
+                    <div class="form-buttons">
+                        <button type="submit" class="btn btn-submit">Submit</button>
+                        <button type="reset" class="btn btn-reset">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
