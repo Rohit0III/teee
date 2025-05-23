@@ -109,6 +109,8 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 20px;
+    flex-direction: column;
+    width: 100%;
 }
 
 .page-container {
@@ -493,6 +495,7 @@ select.form-control {
 });
 </script>
 <body>
+    <div data-include="header.html"></div>
     <div class="main-div">
 
     
@@ -685,6 +688,8 @@ select.form-control {
             </div>
         </div>
     </div>
+     <div data-include="footer.html"></div>
+    <script src="/load-layout.js"></script>
 
 </body>
 </html>

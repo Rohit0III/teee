@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="mr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>शासकीय आश्रमशाळा</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .ashramshala-header {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px 0;
+            margin: 0 auto;
+
+        }
+
+        .mandala-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 5% auto;
+        }
+
+        .ashramshala-title {
+            color: #8B4513;
+            font-size: 42px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .mandala {
+            width: 40px;
+            height: 40px;
+            background-image: url('/images/mandala.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Add a decorative dot pattern around the first letter */
+        .ashramshala-title::first-letter {
+            position: relative;
+        }
+
+        .ashramshala-title::before {
+            content: "◌";
+            position: absolute;
+            left: -15px;
+            top: 0;
+            color: #8B4513;
+            font-size: 42px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .mandala-container {
+                gap: 10px;
+            }
+
+            .ashramshala-title {
+                font-size: 32px;
+            }
+
+            .mandala {
+                width: 80px;
+                height: 80px;
+            }
+
+            .ashramshala-title::before {
+                font-size: 32px;
+                left: -10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ashramshala-title {
+                font-size: 24px;
+            }
+
+            .mandala {
+                width: 30px;
+                height: 30px;
+            }
+
+            .ashramshala-title::before {
+                font-size: 24px;
+                left: -8px;
+            }
+        }
+
+
+
+        .ashram-content-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            margin: 5% auto;
+        }
+
+        .ashram-content-box {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 30px 40px;
+            position: relative;
+            width: 100%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Left and right borders */
+        .ashram-content-box::before,
+        .ashram-content-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: #8B4513;
+        }
+
+        .ashram-content-box::before {
+            left: 0;
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+
+        .ashram-content-box::after {
+            right: 0;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .ashram-paragraph {
+            margin-bottom: 20px;
+            text-align: justify;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .ashram-paragraph:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .ashram-content-box {
+                padding: 20px 30px;
+            }
+
+            .ashram-paragraph {
+                font-size: 15px;
+                line-height: 1.7;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .ashram-content-box {
+                padding: 15px 25px;
+            }
+
+            .ashram-paragraph {
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        }
+
+
+
+        .tribal-header {
+            width: 100%;
+            padding: 15px 0;
+            background-color: #ffffff;
+        }
+
+        .tribal-header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 5% auto;
+        }
+
+        .tribal-title {
+            color: #8B4513;
+            font-size: 24px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .tribal-mandala {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            background-image: url('/images/mandala.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .tribal-title {
+                font-size: 20px;
+            }
+
+            .tribal-mandala {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .tribal-title {
+                font-size: 16px;
+            }
+
+            .tribal-mandala {
+                width: 25px;
+                height: 25px;
+            }
+
+            .tribal-header-container {
+                gap: 10px;
+                padding: 0 10px;
+            }
+
+            .ashram-content-container {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #000;
+            font-weight: bold;
+        }
+        
+        h3 {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #000;
+            font-weight: bold;
+        }
+        
+        ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        .application-link {
+            display: block;
+            text-align: center;
+            margin: 25px 0;
+        }
+        
+        .application-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        .application-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .contact-info {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .phone-number {
+            text-align: center;
+            margin-top: 10px;
+        }    </style>
+</head>
+
+<body>
+    <div data-include="header.html"></div>
+    <header class="ashramshala-header">
+        <div class="mandala-container">
+            <div class="mandala left-mandala"></div>
+            <h1 class="ashramshala-title">ठक्कर बाप्पा आदिवासी वस्ती सुधार योजना
+            </h1>
+            <div class="mandala right-mandala"></div>
+        </div>
+        <div class="ashram-content-container">
+            <div class="ashram-content-box">
+                <div class="tribal-container">
+ <h2>योजनेचे स्वरूप.</h2>
+    
+    <ul>
+        <li>मुख्य वस्तीपासून जोडरस्ते</li>
+        <li>सिमेंट काँक्रिट अंतर्गत रस्ते</li>
+        <li>डांबरीकरणाचे अंतर्गत रस्ते</li>
+        <li>शाळेचे कंपाऊंड</li>
+        <li>पिण्याच्या शुद्ध पाण्याची सोय करणे</li>
+        <li>जुन्या विहीरीची दुरुस्ती</li>
+        <li>बंद गटार बांधणे</li>
+        <li>आदिवासी वस्तीचे विद्युतीकरण</li>
+        <li>समाजमंदिर</li>
+        <li>सार्वजनिक शौचालय</li>
+        <li>स्मशानभूमी बांधकाम</li>
+        <li>नदीकाठ संरक्षण भिंत</li>
+        <li>घाट बांधकाम</li>
+        <li>तीर्थक्षेत्र व पर्यटन विकास</li>
+        <li>ग्रामपंचायत कार्यालय / ग्रामसचिवालय</li>
+    </ul>
+    
+    <h3>लाभार्थी अर्ज (नमुना)</h3>
+    
+    <div class="application-link">
+        <a href="#">ठक्कर् बाप्पा योजना</a>
+    </div>
+    
+    <h3>संपर्काचे पत्ते</h3>
+    
+    <div class="phone-number">
+        फोन नंबर: (०२५८५) २६४४३२
+    </div>
+    </header>
+    </header>
+    <div data-include="footer.html"></div>
+    <script src="load-layout.js"></script>
+
+</body>
+
+</html>
