@@ -1552,7 +1552,7 @@ footer {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 590px) {
   .mrt-header-content {
     gap: 8px;
   }
