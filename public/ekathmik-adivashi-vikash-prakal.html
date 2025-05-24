@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Residential School</title>
+</head>
+
+<style>
+     @import url('https://fonts.googleapis.com/css2?family=Yatra+One&display=swap');
+     @import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;300;400;500;600;700;800&family=Yatra+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+      .yatra-one-regular {
+            font-family: "Yatra One", system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .mukta-vaani-regular {
+            font-family: "Mukta Vaani", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+    
+
+   
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Noto Sans Devanagari', Arial, sans-serif;
+        background-color: #ffffff;
+        color: #333;
+        line-height: 1.6;
+    }
+
+    .ashram-header {
+        padding: 20px 0;
+
+    }
+
+    .header-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .mandala-left,
+    .mandala-right {
+        width: 40px;
+        height: 40px;
+        background-image: url('/images/mandala.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: left center;
+    }
+
+    .mandala-left {
+        background-position: 0% center;
+    }
+
+    .mandala-right {
+        background-position: 100% center;
+    }
+
+    .ashram-title {
+        font-size:32px;
+        color: #8B4513;
+        margin: 0 20px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    /* .content-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+} */
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+        .ashram-title {
+            font-size: 1.8rem;
+            margin: 0 10px;
+        }
+
+        .mandala-left,
+        .mandala-right {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .ashram-title {
+            font-size: 1.5rem;
+            margin: 0 8px;
+        }
+
+        .mandala-left,
+        .mandala-right {
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+main {
+    width: 70%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 0% auto;
+}
+
+/* Bordered container styles */
+.bordered-container {
+    position: relative;
+    width: 95%;
+    height: 95vh;
+    max-width: 1400px;
+}
+
+/* Border styles */
+.border {
+    position: absolute;
+    border-image: url('/images/v-border.png');
+    
+}
+
+.border-top {
+    top: -30px;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+}
+
+.border-right {
+    top: -30px;
+   
+    width: 30px;
+    height: calc(100% + 60px);
+    background-repeat: repeat-y;
+    background-size: 100% auto;
+}
+
+.border-bottom {
+    bottom: -30px;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+}
+
+.border-left {
+    top: -30px;
+    left: -30px;
+    width: 30px;
+    height: calc(100% + 60px);
+    background-repeat: repeat-y;
+    background-size: 100% auto;
+}
+
+/* PDF viewer container */
+.pdf-viewer-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.pdf-content {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.pdf-document {
+    flex: 1;
+    overflow-y: auto; /* Make it scrollable */
+    padding: 20px;
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+    background-color: #f5f5f5;
+}
+
+.pdf-document::-webkit-scrollbar {
+    width: 12px;
+}
+
+.pdf-document::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.pdf-document::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 6px;
+}
+
+.pdf-document::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+#pdf-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    font-size: 18px;
+    color: #666;
+}
+
+#pdf-pages-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.pdf-page {
+    margin: 0 auto;
+    display: block;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.pdf-page canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.page-number {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.pdf-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ddd;
+}
+
+.pdf-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: 'Noto Sans Devanagari', Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.pdf-btn i {
+    margin-right: 8px;
+}
+
+.pdf-btn:hover {
+    color: #0066cc;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .bordered-container {
+        width: 98%;
+        height: 98vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .bordered-container {
+        width: 100%;
+        height: 100vh;
+    }
+    
+    .border-top, .border-bottom {
+        height: 20px;
+    }
+    
+    .border-left, .border-right {
+        width: 20px;
+    }
+    
+    .border-top {
+        top: -20px;
+    }
+    
+    .border-bottom {
+        bottom: -20px;
+    }
+    
+    .border-left {
+        left: -20px;
+        top: -20px;
+        height: calc(100% + 40px);
+    }
+    
+    .border-right {
+        right: -20px;
+        top: -20px;
+        height: calc(100% + 40px);
+    }
+    
+    .pdf-document {
+        padding: 15px;
+    }
+    
+    .pdf-controls {
+        padding: 10px;
+        flex-wrap: wrap;
+    }
+    
+    .pdf-btn {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    main {
+        padding: 10px;
+    }
+    
+    .border-top, .border-bottom {
+        height: 15px;
+    }
+    
+    .border-left, .border-right {
+        width: 15px;
+    }
+    
+    .border-top {
+        top: -15px;
+    }
+    
+    .border-bottom {
+        bottom: -15px;
+    }
+    
+    .border-left {
+        left: -15px;
+        top: -15px;
+        height: calc(100% + 30px);
+    }
+    
+    .border-right {
+        right: -15px;
+        top: -15px;
+        height: calc(100% + 30px);
+    }
+    
+    .pdf-document {
+        padding: 10px;
+    }
+    
+    #pdf-pages-container {
+        padding: 10px 0;
+    }
+    
+    .pdf-btn {
+        flex: 1;
+        min-width: 100px;
+        font-size: 11px;
+        padding: 5px 10px;
+    }
+}
+</style>
+
+<script>
+   // Import PDF.js library
+const pdfjsLib = window['pdfjs-dist/build/pdf'];
+
+document.addEventListener('DOMContentLoaded', function() {
+    // PDF.js setup
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+    
+    // PDF file URL - replace with your actual PDF file
+    const pdfUrl = 'https://example.com/path/to/your/document.pdf';
+    
+    // Elements
+    const pdfContainer = document.getElementById('pdf-container');
+    const pdfLoader = document.getElementById('pdf-loader');
+    const pdfPagesContainer = document.getElementById('pdf-pages-container');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+    const zoomInBtn = document.getElementById('zoomInBtn');
+    const zoomOutBtn = document.getElementById('zoomOutBtn');
+    const pdfContent = document.querySelector('.pdf-content');
+    
+    // PDF.js variables
+    let pdfDoc = null;
+    let scale = 1.5; // Initial scale
+    let currentZoom = 100; // Current zoom percentage
+    
+    /**
+     * Load the PDF document
+     */
+    function loadPdf() {
+        pdfjsLib.getDocument(pdfUrl).promise.then(function(pdf) {
+            pdfDoc = pdf;
+            
+            // Hide loader
+            pdfLoader.style.display = 'none';
+            
+            // Render all pages
+            renderAllPages();
+        }).catch(function(error) {
+            console.error('Error loading PDF:', error);
+            pdfLoader.textContent = 'Error loading PDF. Please try again later.';
+        });
+    }
+    
+    /**
+     * Render all pages of the PDF
+     */
+    function renderAllPages() {
+        // Clear the container
+        pdfPagesContainer.innerHTML = '';
+        
+        // Get total pages
+        const numPages = pdfDoc.numPages;
+        
+        // Render each page
+        for (let i = 1; i <= numPages; i++) {
+            renderPage(i);
+        }
+    }
+    
+    /**
+     * Render a specific page of the PDF
+     */
+    function renderPage(pageNumber) {
+        // Create page container
+        const pageContainer = document.createElement('div');
+        pageContainer.className = 'pdf-page';
+        pageContainer.id = `page-${pageNumber}`;
+        pdfPagesContainer.appendChild(pageContainer);
+        
+        // Create canvas for this page
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        pageContainer.appendChild(canvas);
+        
+        // Add page number indicator
+        const pageNumberDiv = document.createElement('div');
+        pageNumberDiv.className = 'page-number';
+        pageNumberDiv.textContent = `Page ${pageNumber}`;
+        pageContainer.appendChild(pageNumberDiv);
+        
+        // Get the page
+        pdfDoc.getPage(pageNumber).then(function(page) {
+            // Adjust canvas size to page size with scale
+            const viewport = page.getViewport({ scale: scale });
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+            
+            // Set width of page container
+            pageContainer.style.width = `${viewport.width}px`;
+            
+            // Render PDF page into canvas context
+            const renderContext = {
+                canvasContext: ctx,
+                viewport: viewport
+            };
+            
+            page.render(renderContext);
+        });
+    }
+    
+    /**
+     * Change zoom level
+     */
+    function changeZoom(zoomIn) {
+        if (zoomIn) {
+            currentZoom += 25;
+            if (currentZoom > 300) currentZoom = 300; // Max zoom 300%
+        } else {
+            currentZoom -= 25;
+            if (currentZoom < 50) currentZoom = 50; // Min zoom 50%
+        }
+        
+        // Calculate new scale
+        scale = currentZoom / 100 * 1.0;
+        
+        // Re-render all pages with new scale
+        renderAllPages();
+    }
+    
+    // Zoom buttons event listeners
+    zoomInBtn.addEventListener('click', function() {
+        changeZoom(true);
+    });
+    
+    zoomOutBtn.addEventListener('click', function() {
+        changeZoom(false);
+    });
+    
+    // Download PDF functionality
+    downloadBtn.addEventListener('click', function() {
+        // Create a temporary link to download the PDF
+        const link = document.createElement('a');
+        link.href = pdfUrl;
+        link.download = 'document.pdf';
+        link.target = '_blank';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    });
+    
+    // Fullscreen functionality
+    fullscreenBtn.addEventListener('click', function() {
+        if (!document.fullscreenElement) {
+            if (pdfContent.requestFullscreen) {
+                pdfContent.requestFullscreen();
+            } else if (pdfContent.mozRequestFullScreen) { // Firefox
+                pdfContent.mozRequestFullScreen();
+            } else if (pdfContent.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                pdfContent.webkitRequestFullscreen();
+            } else if (pdfContent.msRequestFullscreen) { // IE/Edge
+                pdfContent.msRequestFullscreen();
+            }
+            fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i> Exit Full Screen';
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.mozCancelFullScreen) { // Firefox
+                document.mozCancelFullScreen();
+            } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) { // IE/Edge
+                document.msExitFullscreen();
+            }
+            fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i> Open Full Screen';
+        }
+    });
+    
+    // Listen for fullscreen change
+    document.addEventListener('fullscreenchange', updateFullscreenButton);
+    document.addEventListener('webkitfullscreenchange', updateFullscreenButton);
+    document.addEventListener('mozfullscreenchange', updateFullscreenButton);
+    document.addEventListener('MSFullscreenChange', updateFullscreenButton);
+    
+    function updateFullscreenButton() {
+        if (document.fullscreenElement) {
+            fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i> Exit Full Screen';
+        } else {
+            fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i> Open Full Screen';
+        }
+    }
+    
+    // Keyboard shortcuts
+    document.addEventListener('keydown', function(e) {
+        // Zoom in: Ctrl + Plus
+        if (e.ctrlKey && (e.key === '+' || e.key === '=')) {
+            e.preventDefault();
+            changeZoom(true);
+        }
+        // Zoom out: Ctrl + Minus
+        else if (e.ctrlKey && e.key === '-') {
+            e.preventDefault();
+            changeZoom(false);
+        }
+    });
+    
+    // Load the PDF when the page loads
+    loadPdf();
+});
+</script>
+
+<body>
+    <div data-include="header.html"></div>
+    <header class="ashram-header">
+        <div class="header-container">
+            <div class="mandala-left "></div>
+            <h1 class="ashram-title yatra-one-regular">सरकारच्या महत्वाच्या पत्र</h1>
+            <div class="mandala-right"></div>
+        </div>
+        <main>
+        <!-- Outer container with borders -->
+        <div class="bordered-container">
+            <!-- Border elements -->
+           
+            <div class="border border-right"></div>
+           
+            <div class="border border-left"></div>
+            
+            <!-- PDF viewer container -->
+            <div class="pdf-viewer-container">
+                <div class="pdf-content">
+                    <div class="pdf-document" id="pdf-container">
+                        <div id="pdf-loader">Loading PDF...</div>
+                        <div id="pdf-pages-container"></div>
+                    </div>
+                    
+                    <div class="pdf-controls">
+                        <button id="zoomInBtn" class="pdf-btn">
+                            <i class="fas fa-search-plus"></i> Zoom In
+                        </button>
+                        <button id="zoomOutBtn" class="pdf-btn">
+                            <i class="fas fa-search-minus"></i> Zoom Out
+                        </button>
+                        <button id="downloadBtn" class="pdf-btn">
+                            <i class="fas fa-download"></i> Download PDF
+                        </button>
+                        <button id="fullscreenBtn" class="pdf-btn">
+                            <i class="fas fa-expand"></i> Open Full Screen
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+        <div data-include="footer.html"></div>
+
+    <script src="/load-layout.js"></script>
+    </header>
+
+</body>
+
+</html>

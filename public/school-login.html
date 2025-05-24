@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="mr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>महाराष्ट्र शासन - आदिवासी विकास विभाग</title>
+</head>
+<style>
+        
+        /* Login Container */
+        .tribal-login-container {
+            background-color: #f0e6d6;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+            text-align: center;
+            margin: 5% auto;
+        }
+        
+        /* Header Section */
+        .tribal-login-header {
+            margin-bottom: 30px;
+        }
+        
+        .tribal-login-school-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+        
+        .tribal-login-school-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: #8B4513;
+        }
+        
+        .tribal-login-title-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        .tribal-login-title {
+            color: #8B4513;
+            font-size: 32px;
+            font-weight: bold;
+            margin: 0 60px;
+        }
+        
+        .tribal-login-mandala {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+        }
+        
+        .tribal-login-mandala-left {
+            left: 0;
+        }
+        
+        .tribal-login-mandala-right {
+            right: 0;
+        }
+        
+        .tribal-login-subtitle {
+            color: #333;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+        
+        /* Form Elements */
+        .tribal-login-form {
+            text-align: left;
+        }
+        
+        .tribal-login-form-group {
+            margin-bottom: 25px;
+        }
+        
+        .tribal-login-label {
+            display: block;
+            color: #8B4513;
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        
+        .tribal-login-input-container {
+            display: flex;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: white;
+        }
+        
+        .tribal-login-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            font-size: 16px;
+            outline: none;
+        }
+        
+        .tribal-login-input-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            background-color: #f8f8f8;
+            color: #8B4513;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        .tribal-login-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #8B4513;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .tribal-login-button:hover {
+            background-color: #7c3c10;
+        }
+        
+        /* Signup Section */
+        .tribal-login-signup {
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .tribal-login-signup-text {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .tribal-login-signup-button {
+            padding: 10px 30px;
+            background-color: #8B4513;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .tribal-login-signup-button:hover {
+            background-color: #7c3c10;
+        }
+        
+        /* Error Messages */
+        .tribal-login-error {
+            color: #d9534f;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 480px) {
+            .tribal-login-container {
+                padding: 30px 20px;
+            }
+            
+            .tribal-login-title {
+                font-size: 28px;
+                margin: 0 40px;
+            }
+            
+            .tribal-login-mandala {
+                width: 30px;
+                height: 30px;
+            }
+        }
+        </style>
+
+<script>
+     document.addEventListener('DOMContentLoaded', function() {
+            // Get form elements
+            const loginForm = document.getElementById('tribalLoginForm');
+            const usernameInput = document.getElementById('username');
+            const passwordInput = document.getElementById('password');
+            const togglePassword = document.getElementById('togglePassword');
+            const usernameError = document.getElementById('usernameError');
+            const passwordError = document.getElementById('passwordError');
+            const signupButton = document.getElementById('signupButton');
+            
+            // Toggle password visibility
+            togglePassword.addEventListener('click', function() {
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    togglePassword.textContent = '👁️';
+                } else {
+                    passwordInput.type = 'password';
+                    togglePassword.textContent = '👁️';
+                }
+            });
+            
+            // Form validation
+            loginForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                let isValid = true;
+                
+                // Validate username
+                if (usernameInput.value.trim() === '') {
+                    usernameError.style.display = 'block';
+                    usernameError.textContent = 'Username cannot be empty';
+                    isValid = false;
+                } else if (usernameInput.value.trim().length < 3) {
+                    usernameError.style.display = 'block';
+                    usernameError.textContent = 'Username must be at least 3 characters';
+                    isValid = false;
+                } else {
+                    usernameError.style.display = 'none';
+                }
+                
+                // Validate password
+                if (passwordInput.value === '') {
+                    passwordError.style.display = 'block';
+                    passwordError.textContent = 'Password cannot be empty';
+                    isValid = false;
+                } else if (passwordInput.value.length < 6) {
+                    passwordError.style.display = 'block';
+                    passwordError.textContent = 'Password must be at least 6 characters';
+                    isValid = false;
+                } else {
+                    passwordError.style.display = 'none';
+                }
+                
+                // If form is valid, proceed with login
+                if (isValid) {
+                    // For demo purposes, show an alert
+                    alert('Login successful! Redirecting to dashboard...');
+                    
+                    // In a real application, you would submit the form to a server
+                    // loginForm.submit();
+                    
+                    // For demo, simulate redirect
+                    setTimeout(function() {
+                        window.location.href = '#dashboard';
+                    }, 1000);
+                }
+            });
+            
+            // Real-time validation
+            usernameInput.addEventListener('input', function() {
+                if (usernameInput.value.trim() !== '' && usernameInput.value.trim().length >= 3) {
+                    usernameError.style.display = 'none';
+                }
+            });
+            
+            passwordInput.addEventListener('input', function() {
+                if (passwordInput.value !== '' && passwordInput.value.length >= 6) {
+                    passwordError.style.display = 'none';
+                }
+            });
+            
+            // Signup button
+            signupButton.addEventListener('click', function() {
+                // Redirect to signup page
+                window.location.href = 'school-registration-form.html';
+            });
+        });
+</script>
+
+<body>
+    <div data-include="header.html"></div>
+ <div class="tribal-login-container">
+        <!-- Header Section -->
+        <div class="tribal-login-header">
+            <div class="tribal-login-school-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z"/>
+                </svg>
+            </div>
+            
+            <div class="tribal-login-title-container">
+                <img src="/images/mandala.svg" 
+                     class="tribal-login-mandala tribal-login-mandala-left" alt="Decorative mandala">
+                <h1 class="tribal-login-title">School Login</h1>
+                <img src="/images/mandala.svg" 
+                     class="tribal-login-mandala tribal-login-mandala-right" alt="Decorative mandala">
+            </div>
+            
+            <p class="tribal-login-subtitle">Access your school dashboard</p>
+        </div>
+        
+        <!-- Login Form -->
+        <form id="tribalLoginForm" class="tribal-login-form">
+            <div class="tribal-login-form-group">
+                <label for="username" class="tribal-login-label">Username</label>
+                <div class="tribal-login-input-container">
+                    <input 
+                        type="text" 
+                        id="username" 
+                        class="tribal-login-input" 
+                        placeholder="Enter your username" 
+                        required
+                    >
+                    <div class="tribal-login-input-icon">👤</div>
+                </div>
+                <div id="usernameError" class="tribal-login-error">Please enter a valid username</div>
+            </div>
+            
+            <div class="tribal-login-form-group">
+                <label for="password" class="tribal-login-label">Password</label>
+                <div class="tribal-login-input-container">
+                    <input 
+                        type="password" 
+                        id="password" 
+                        class="tribal-login-input" 
+                        placeholder="Enter your password" 
+                        required
+                    >
+                    <div class="tribal-login-input-icon" id="togglePassword">👁️</div>
+                </div>
+                <div id="passwordError" class="tribal-login-error">Please enter your password</div>
+            </div>
+            
+            <button type="submit" class="tribal-login-button">Login</button>
+        </form>
+        
+        <!-- Signup Section -->
+        <div class="tribal-login-signup">
+            <p class="tribal-login-signup-text">Don't have an account?</p>
+            <button type="button" class="tribal-login-signup-button" id="signupButton">Signup</button>
+        </div>
+    </div>
+
+    <div data-include="footer.html"></div>
+    <script src="load-layout.js"></script>
+
+
+</body>
+
+</html>

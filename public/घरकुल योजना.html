@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="mr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>शासकीय आश्रमशाळा</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .ashramshala-header {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px 0;
+            margin: 0 auto;
+
+        }
+
+        .mandala-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 5% auto;
+        }
+
+        .ashramshala-title {
+            color: #8B4513;
+            font-size: 42px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .mandala {
+            width: 40px;
+            height: 40px;
+            background-image: url('/images/mandala.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Add a decorative dot pattern around the first letter */
+        .ashramshala-title::first-letter {
+            position: relative;
+        }
+
+        .ashramshala-title::before {
+            content: "◌";
+            position: absolute;
+            left: -15px;
+            top: 0;
+            color: #8B4513;
+            font-size: 42px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .mandala-container {
+                gap: 10px;
+            }
+
+            .ashramshala-title {
+                font-size: 32px;
+            }
+
+            .mandala {
+                width: 80px;
+                height: 80px;
+            }
+
+            .ashramshala-title::before {
+                font-size: 32px;
+                left: -10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ashramshala-title {
+                font-size: 24px;
+            }
+
+            .mandala {
+                width: 30px;
+                height: 30px;
+            }
+
+            .ashramshala-title::before {
+                font-size: 24px;
+                left: -8px;
+            }
+        }
+
+
+
+        .ashram-content-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            margin: 5% auto;
+        }
+
+        .ashram-content-box {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 30px 40px;
+            position: relative;
+            width: 100%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Left and right borders */
+        .ashram-content-box::before,
+        .ashram-content-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: #8B4513;
+        }
+
+        .ashram-content-box::before {
+            left: 0;
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+
+        .ashram-content-box::after {
+            right: 0;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .ashram-paragraph {
+            margin-bottom: 20px;
+            text-align: justify;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .ashram-paragraph:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .ashram-content-box {
+                padding: 20px 30px;
+            }
+
+            .ashram-paragraph {
+                font-size: 15px;
+                line-height: 1.7;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .ashram-content-box {
+                padding: 15px 25px;
+            }
+
+            .ashram-paragraph {
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        }
+
+
+
+        .tribal-header {
+            width: 100%;
+            padding: 15px 0;
+            background-color: #ffffff;
+        }
+
+        .tribal-header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 5% auto;
+        }
+
+        .tribal-title {
+            color: #8B4513;
+            font-size: 24px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .tribal-mandala {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            background-image: url('/images/mandala.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .tribal-title {
+                font-size: 20px;
+            }
+
+            .tribal-mandala {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .tribal-title {
+                font-size: 16px;
+            }
+
+            .tribal-mandala {
+                width: 25px;
+                height: 25px;
+            }
+
+            .tribal-header-container {
+                gap: 10px;
+                padding: 0 10px;
+            }
+
+            .ashram-content-container{
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+
+
+        .scheme-page-body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #333;
+        }
+
+        .scheme-main-title {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .scheme-section-title {
+            text-align: center;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .scheme-description-text {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .eligibility-list,
+        .cost-limit-list,
+        .documents-list {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+
+        .eligibility-item,
+        .cost-limit-item,
+        .document-item {
+            margin-bottom: 8px;
+        }
+
+        .eligibility-list .eligibility-item {
+            list-style-type: disc;
+        }
+
+        .income-criteria-list {
+            padding-left: 20px;
+        }
+
+        .income-criteria-item {
+            list-style-type: circle;
+            margin-top: 5px;
+        }
+
+        .scheme-link {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .scheme-link:hover {
+            text-decoration: underline;
+        }
+
+        .contact-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .contact-phone,
+        .contact-email {
+            margin-bottom: 5px;
+        }
+
+        .application-links {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .rural-scheme-link,
+        .urban-scheme-link {
+            display: block;
+            margin: 10px 0;
+        }
+
+        .cost-limit-description {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+    </style>
+</head>
+
+<body>
+    <div data-include="header.html"></div>
+    <header class="ashramshala-header">
+        <div class="mandala-container">
+            <div class="mandala left-mandala"></div>
+            <h1 class="ashramshala-title">घरकुल योजना</h1>
+            <div class="mandala right-mandala"></div>
+        </div>
+        <div class="ashram-content-container">
+            <div class="ashram-content-box">
+                <div class="tribal-container">
+                    <h2 class="scheme-main-title">योजनेचे स्वरूप</h2>
+
+                    <p class="scheme-description-text">आदिवासी उपयोजनेअंतर्गत आदिवासी क्षेत्रात देण्यात येणाऱ्या
+                        विद्यार्थीनि अनुसूचित जमातीच्या लाभार्थ्यांसाठी तसेच आदिवासी क्षेत्र देशात देण्यात येणाऱ्या
+                        विद्यार्थीनि अनुसूचित जमातीच्या पात्र लाभार्थ्यांना घरचे २००.०० चौ. फू. क्षेत्र असलेले पक्के
+                        घरकुल उपलब्ध करून देणे.</p>
+
+                    <h3 class="scheme-section-title">लाभार्थी पात्रता</h3>
+
+                    <ul class="eligibility-list">
+                        <li class="eligibility-item">संपूर्ण महाराष्ट्र राज्यातील अनुसूचित जमाती वर्गातील असावा.</li>
+                        <li class="eligibility-item">लाभार्थीचे महाराष्ट्र राज्यातील अस्थाय्य निवास १५ वर्षांचे असावे.
+                        </li>
+                        <li class="eligibility-item">लाभार्थीचे स्वत: वा त्यांच्या कुटुंबाने शेतीची जमीन अथवा घरासाठी
+                            जागा.</li>
+                        <li class="eligibility-item">लाभार्थीचे उत्पन्न हे शिक्षा कुटुंबासाठी एकूण घर नसावे.</li>
+                        <li class="eligibility-item">शिक्षा, प्रशिक्षण, निवारा, कृषी भागातील लाभार्थीना प्राधान्य
+                            देण्यात येईल.</li>
+                        <li class="eligibility-item">अर्जदाराच्या कुटुंबाची वार्षिक उत्पन्न मर्यादा खालीलप्रमाणे :</li>
+                        <ul class="income-criteria-list">
+                            <li class="income-criteria-item">अ) ग्रामीण क्षेत्र - रु. १.०० लाख</li>
+                            <li class="income-criteria-item">ब) नगरपालिका क्षेत्र - रु. १.५० लाख</li>
+                            <li class="income-criteria-item">क) महानगरपालिका क्षेत्र - रु. २.०० लाख</li>
+                        </ul>
+                    </ul>
+
+                    <h3 class="scheme-section-title">घराची किंमत मर्यादा</h3>
+
+                    <p class="cost-limit-description">घराच्या बांधकामासाठी ठेवण्यात आलेल्या खर्चाची मर्यादा पुढील
+                        प्रमाणे आहे.</p>
+
+                    <ul class="cost-limit-list">
+                        <li class="cost-limit-item">अ) ग्रामीण व्यापारी क्षेत्र - रु. १.२५ लाख न्युनतम व अधिकतम
+                            क्षेत्रफळ - रु. १.४२ लाख</li>
+                        <li class="cost-limit-item">ब) नगरपालिका क्षेत्र - रु. १.५० लाख</li>
+                        <li class="cost-limit-item">क) महानगरपालिका क्षेत्र - रु. २.०० लाख</li>
+                    </ul>
+
+                    <h3 class="scheme-section-title">आवश्यक कागदपत्रे</h3>
+
+                    <ul class="documents-list">
+                        <li class="document-item">अर्जदाराचे नवीनतम छायाचित्र तीन पासपोर्टसाईझ फोटो</li>
+                        <li class="document-item">जातीचे प्रमाणपत्र</li>
+                        <li class="document-item">रहिवासी प्रमाणपत्र</li>
+                        <li class="document-item">7/12 उतारा व मुळा ८-अ</li>
+                        <li class="document-item">जागेचा वैधानिका दाखल्याचा पुरावा</li>
+                        <li class="document-item">जागा उपलब्धतेचे प्रमाणपत्र</li>
+                        <li class="document-item">नगरपरिषद सर्व्हेक्षण क्रमांकाचा दाखला अथवा</li>
+                        <li class="document-item">जागेत कोणतीही विक्री करणार नाही अशी हमीपत्री</li>
+                        <li class="document-item">उत्पन्नाचा दाखला</li>
+                    </ul>
+
+                    <h3 class="scheme-section-title">लाभार्थी अर्ज (नमुना)</h3>
+
+                    <div class="application-links">
+                        <a href="#" class="scheme-link rural-scheme-link">नवीन ग्रामीण घरकुल योजना</a>
+                        <a href="#" class="scheme-link urban-scheme-link">नवीन शहरी घरकुल योजना</a>
+                    </div>
+
+                    <h3 class="scheme-section-title">संपर्काचे पत्ते</h3>
+
+                    <div class="contact-section">
+                        <div class="contact-phone">फोन नंबर: ०२४५२) २२३४१२</div>
+                        <div class="contact-email">ईमेल: poltdp.yawal-mh@gov.in</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    </header>
+    <div data-include="footer.html"></div>
+    <script src="load-layout.js"></script>
+
+</body>
+
+</html>

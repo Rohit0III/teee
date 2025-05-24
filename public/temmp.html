@@ -1,0 +1,2011 @@
+<!DOCTYPE html>
+<html lang="mr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>एकात्मिक आदिवासी विकास</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+  
+/* Header styles */
+.header-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    gap: 1rem;
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.logo-img {
+    height: 20px;
+    width: auto;
+}
+
+
+.title {
+    font-weight: bold;
+    font-size: 14px;
+    color: #E2550B;
+}
+
+.subtitle {
+    color: #2e7d32;
+    font-size: 0.875rem;
+}
+
+.header-center {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    order: 3;
+}
+
+.state-name {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.emblem-img {
+    height: 40px;
+    width: auto;
+}
+
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    order: 2;
+}
+
+.search-input {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #999;
+    border-radius: 20px;
+    outline: none;
+    width: 100%;
+}
+
+.search-button {
+    background-color: #6d3b00;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Navigation styles */
+.nav-bar {
+    background: linear-gradient(to right, #a0522d, #8b4513);
+    padding: 0.5rem;
+    overflow-x: auto;
+}
+
+.nav-list {
+    display: flex;
+    flex-wrap: nowrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 1rem;
+    justify-content: flex-start;
+    min-width: max-content;
+    padding: 0 1rem;
+    white-space: nowrap;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.25rem 0.5rem;
+    transition: background 0.3s;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+/* Tribal container styles */
+.tribal-container {
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 200px);
+    perspective: 1000px;
+    overflow: hidden;
+}
+
+.tribal-side {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.tribal-side.left {
+    left: 0;
+}
+
+.tribal-side.right {
+    right: 0;
+}
+
+.tribal-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+}
+
+.tribal {
+    width: 25px;
+    opacity: 0.85;
+    transition: transform 1s ease-in-out;
+}
+
+/* Content styles */
+.content {
+    padding: 1rem;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding-top: 2rem;
+}
+
+/* Main section styles */
+.main-1 {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Slider styles */
+.slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.slides {
+    display: flex;
+    width: 400%;
+    transition: transform 0.6s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.text-section {
+    width: 100%;
+    background: linear-gradient(to right, #8e4b1f, #c48757);
+    padding: 1rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text-section h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+}
+
+.green-text {
+    color: #00dd88;
+}
+
+.orange-text {
+    color: #ffaa00;
+}
+
+.text-section p {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+
+.img-section {
+    width: 100%;
+    height: 200px;
+}
+
+.img-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 1;
+    transition: background 0.3s;
+}
+
+.nav-button:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.nav-button.left {
+    left: 0.5rem;
+}
+
+.nav-button.right {
+    right: 0.5rem;
+}
+
+.indicators {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+}
+
+.indicator {
+    width: 0.5rem;
+    height: 0.5rem;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.indicator.active {
+    background: #ffaa00;
+}
+
+/* Card styles */
+.main-p-1 {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.sahyog-card-container {
+    background: white;
+    border-radius: 0.375rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    height: 300px;
+}
+
+.sahyog-card-header {
+    background: #2e641e;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.sahyog-card-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.sahyog-item-left {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-weight: bold;
+    color: #5b2b0a;
+    font-size: 0.875rem;
+}
+
+.sahyog-item-left img {
+    width: 1rem;
+    height: 1rem;
+}
+
+.sahyog-btn {
+    padding: 0.375rem 0.625rem;
+    font-size: 0.8125rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    color: white;
+    transition: opacity 0.3s;
+    width: 90px;
+    
+}
+
+.sahyog-btn:hover {
+    opacity: 0.9;
+}
+
+.sahyog-btn-green {
+    background-color: #9cbf7c;
+}
+
+.sahyog-btn-brown {
+    background-color: #6a370a;
+}
+
+/* START OF INSERTED CSS: main-part2 styles */
+.main-part2 {
+  display: flex;
+  flex-direction: column;
+  max-width: 1450px;
+  margin: auto;
+  gap: 15px;
+  margin-bottom: 15px;
+  margin-top: 2rem;
+}
+
+/* Portal Container Styles */
+.mrt-portal-container {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Header Section */
+.mrt-header-section {
+  background-color: #2e7d32;
+  color: white;
+  padding: 15px 20px;
+}
+
+.mrt-header-content {
+  display: flex;
+  align-items: center;
+}
+
+.mrt-header-icon {
+  margin-right: 10px;
+}
+
+.mrt-header-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Options Container */
+.mrt-options-container {
+  padding: 10px 0;
+}
+
+.mrt-option-row {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.mrt-option-row:last-child {
+  border-bottom: none;
+}
+
+.mrt-option-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+}
+
+.mrt-circle-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #d7b78f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mrt-triangle-icon {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 26px solid #d7b78f;
+}
+
+.mrt-option-text {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.mrt-option-number {
+  color: #2e7d32;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.mrt-option-label {
+  font-size: 16px;
+  color: #333;
+}
+
+.mrt-option-action {
+  margin-left: 10px;
+  align-items: center;
+}
+
+.mrt-action-button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.mrt-green-button {
+  background-color: #7d8f6b;
+}
+
+.mrt-green-button:hover {
+  background-color: #6a7a5a;
+}
+
+.mrt-brown-button {
+  background-color: #8b4513;
+}
+
+.mrt-brown-button:hover {
+  background-color: #7a3b10;
+}
+
+/* Main Container Styles */
+.mrt-main-container {
+  width: 90%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 20px;
+  max-height: 470px;
+  overflow-y: auto;
+}
+
+/* Navigation */
+.mrt-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.mrt-nav-button {
+  flex: 1;
+  padding: 5px 7px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: opacity 0.3s;
+  min-width: 100px;
+}
+
+.mrt-nav-button:hover {
+  opacity: 0.9;
+}
+
+.mrt-nav-green {
+  background-color: #2e7d32;
+}
+
+.mrt-nav-brown {
+  background-color: #8b4513;
+}
+
+/* Content Box */
+.mrt-content-box {
+  padding: 5px;
+}
+
+.mrt-decorative-border {
+  position: relative;
+  border: 1px solid transparent;
+  padding: 2px;
+  background-color: white;
+}
+
+.mrt-decorative-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><path fill="%23d7b78f" d="M15,3c-1.1,0-2,0.9-2,2v1c0,1.1,0.9,2,2,2s2-0.9,2-2V5C17,3.9,16.1,3,15,3z M8,8c-0.6,0-1,0.4-1,1s0.4,1,1,1h1c0.6,0,1-0.4,1-1s-0.4-1-1-1H8z M21,8c-0.6,0-1,0.4-1,1s0.4,1,1,1h1c0.6,0,1-0.4,1-1s-0.4-1-1-1H21z"/></svg>');
+  background-repeat: repeat;
+  background-position: center;
+  border: 20px solid white;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.mrt-content-inner {
+  position: relative;
+  z-index: 2;
+  background-color: white;
+  padding: 20px;
+  padding-top: 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Title */
+.mrt-title {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.mrt-title-green {
+  color: #2e7d32;
+}
+
+.mrt-title-orange {
+  color: #ff8f00;
+}
+
+/* Divider */
+.mrt-divider {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 15px 0 25px;
+}
+
+.mrt-divider-line {
+  flex: 1;
+  height: 1px;
+  background-color: #ccc;
+}
+
+.mrt-divider-ornament {
+  width: 40px;
+  height: 20px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="20" viewBox="0 0 40 20"><path fill="%23999" d="M20,0c-5.5,0-10,4.5-10,10s4.5,10,10,10s10-4.5,10-10S25.5,0,20,0z M20,15c-2.8,0-5-2.2-5-5s2.2-5,5-5s5,2.2,5,5S22.8,15,20,15z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 10px;
+}
+
+/* Profile */
+.mrt-profile {
+  margin-bottom: 20px;
+}
+
+.mrt-profile-image-container {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 10px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.mrt-profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mrt-profile-name {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Description */
+.mrt-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 25px;
+  max-width: 600px;
+  text-align: justify;
+}
+
+/* Button */
+.mrt-button-container {
+  margin-top: 10px;
+}
+
+.mrt-read-more-button {
+  background-color: #8b4513;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.mrt-read-more-button:hover {
+  background-color: #7a3b10;
+}
+
+/* Department Grid */
+.mrt-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.mrt-department-card {
+  text-align: center;
+}
+
+.mrt-department-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.mrt-caption {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Stats Section */
+.mrt-stats-section {
+  width: 100%;
+}
+
+.mrt-percentage-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.mrt-percentage-card {
+  text-align: center;
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  min-width: 100px;
+}
+
+.mrt-percentage {
+  font-size: 24px;
+  font-weight: bold;
+  color: #8b4513;
+  margin-bottom: 5px;
+}
+
+.mrt-label {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Links Container */
+.links-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.tribal-links {
+  list-style: none;
+  padding: 0;
+}
+
+.tribal-links li {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.tribal-links li:hover {
+  background-color: #e0e0e0;
+}
+
+.tribal-links a {
+  color: #333;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+}
+
+/* Profile Container Styles */
+.mrth-container {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-top: 20px;
+  height: 500px;
+}
+
+.mrth-header {
+  background-color: #2e7d32;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+}
+
+.mrth-header-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.mrth-profiles-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.mrth-profile-card {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.mrth-profile-accent {
+  height: 8px;
+  background-color: #8b4513;
+}
+
+.mrth-profile-content {
+  padding: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.mrth-profile-hashtag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #f0f0f0;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #666;
+}
+
+.mrth-profile-image-container {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  overflow: hidden;
+  border: 3px solid #f0f0f0;
+}
+
+.mrth-profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mrth-profile-details {
+  text-align: center;
+}
+
+.mrth-profile-name {
+  font-size: 14px;
+  color: #333;
+  margin: 0 0 5px;
+}
+
+.mrth-profile-position {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 15px;
+}
+
+.mrth-social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.mrth-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  color: #666;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.mrth-social-link:hover {
+  background-color: #8b4513;
+  color: white;
+}
+
+/* News Container Styles */
+.mrnews-container {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-top: 20px;
+  height: 500px;
+}
+
+.mrnews-header {
+  background-color: #2e7d32;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mrnews-header-icon {
+  font-size: 20px;
+}
+
+.mrnews-header-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.mrnews-updates-list {
+  padding: 15px;
+}
+
+.mrnews-item {
+  display: flex;
+  margin-bottom: 15px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.mrnews-item-accent {
+  width: 6px;
+  background-color: #8b4513;
+}
+
+.mrnews-item-content {
+  padding: 15px;
+  flex: 1;
+}
+
+.mrnews-item-title {
+  font-size: 16px;
+  color: #333;
+  margin: 0 0 10px;
+}
+
+.mrnews-item-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mrnews-item-date {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  color: #666;
+}
+
+.mrnews-item-tag {
+  background-color: #e0e0e0;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #333;
+}
+
+.mrnews-view-all {
+  text-align: center;
+  padding: 0 15px 15px;
+}
+
+.mrnews-view-all-button {
+  background-color: #8b4513;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.mrnews-view-all-button:hover {
+  background-color: #7a3b10;
+}
+
+/* Tribal figures */
+.tribal-figure {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* END OF INSERTED CSS: main-part2 styles */
+
+/* Scrollbar styles */
+.nav-bar::-webkit-scrollbar {
+    height: 3px;
+}
+
+.nav-bar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-bar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+.sahyog-card-container::-webkit-scrollbar,
+.mrt-main-container::-webkit-scrollbar {
+    width: 5px;
+}
+
+.sahyog-card-container::-webkit-scrollbar-track,
+.mrt-main-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.sahyog-card-container::-webkit-scrollbar-thumb,
+.mrt-main-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.sahyog-card-container::-webkit-scrollbar-thumb:hover,
+.mrt-main-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Media queries for responsive design */
+@media (min-width: 576px) {
+    .header-left {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .logo-img {
+        height: 100px;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .header-right {
+        flex-direction: row;
+    }
+
+    .search-input {
+        width: 200px;
+    }
+
+    .search-button {
+        width: 60px;
+    }
+
+    
+     .mrt-main-container {
+        width: 30%;
+    }
+
+}
+
+@media (min-width: 768px) {
+    .header-top {
+        flex-direction: row;
+        padding: 1rem 2rem;
+    }
+
+    .header-left {
+        margin-bottom: 0;
+    }
+
+    .header-center {
+        order: 2;
+        margin-bottom: 0;
+    }
+
+    .header-right {
+        order: 3;
+        width: auto;
+    }
+
+    .title {
+        font-size: 1.75rem;
+    }
+
+    .emblem-img {
+        height: 60px;
+    }
+
+    .state-name {
+        font-size: 1.125rem;
+    }
+
+    .nav-list {
+        flex-wrap: wrap;
+        justify-content: center;
+        white-space: normal;
+    }
+
+    .tribal-container {
+        min-height: calc(100vh - 150px);
+    }
+
+    .tribal-side {
+        display: flex;
+        width: 120px;
+    }
+
+    .tribal {
+        width: 50px;
+    }
+
+    .content {
+        padding: 2rem;
+        padding-left: 120px;
+        padding-right: 120px;
+    }
+
+    .slide {
+        flex-direction: row;
+    }
+
+    .text-section {
+        width: 40%;
+        padding: 2rem;
+    }
+
+    .text-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .text-section p {
+        font-size: 1rem;
+    }
+
+    .img-section {
+        width: 60%;
+        height: 300px;
+    }
+
+    .nav-button {
+        padding: 0.75rem 1rem;
+        font-size: 1.125rem;
+    }
+
+    .indicator {
+        width: 0.75rem;
+        height: 0.75rem;
+    }
+
+    .main-part2 {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .mrt-main-container {
+        width: 100%;
+    }
+
+    .mrth-container, 
+    .mrnews-container {
+        width: 48%;
+    }
+}
+
+@media (min-width: 992px) {
+    .main-1 {
+        flex-direction: row;
+    }
+
+    .slider {
+        width: 65%;
+    }
+
+    .main-p-1 {
+        width: 35%;
+        margin-top: 0;
+    }
+
+    .search-input {
+        width: 300px;
+    }
+
+    .mrt-main-container {
+        width: 300px;
+    }
+
+    .mrth-container, 
+    .mrnews-container {
+        width: 300px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .header-top {
+        padding: 5px 5%;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+    
+    .mrt-main-container {
+        width:43%;
+    }
+    
+    .mrth-container, 
+    .mrnews-container {
+        width: 320px;
+    }
+
+    .logo-img {
+    height: 80px;
+    width: auto;
+}
+}
+
+/* -----------------------------------------------scroll------------------------------------------- */
+.mrth-profiles-container {
+  max-height: 600px; /* Adjust height as per your design */
+  overflow-y: auto;
+  padding-right: 10px; /* Space for scrollbar */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #965320 #fefaf5; /* Firefox */
+}
+
+/* Optional: Customize scrollbar for WebKit browsers */
+.mrth-profiles-container::-webkit-scrollbar {
+  width: 6px;
+}
+.mrth-profiles-container::-webkit-scrollbar-track {
+  background: #fefaf5;
+}
+.mrth-profiles-container::-webkit-scrollbar-thumb {
+  background-color: #965320;
+  border-radius: 4px;
+}
+
+
+.mrnews-updates-list {
+  max-height: 350px; /* Adjust as needed */
+  overflow-y: auto;
+  padding-right: 5px; /* space for scrollbar if needed */
+}
+
+/* Optional: style scrollbar (for modern browsers) */
+.mrnews-updates-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.mrnews-updates-list::-webkit-scrollbar-thumb {
+  background-color: #965320;
+  border-radius: 4px;
+}
+
+    
+/* Footer Styles */
+footer {
+  background-color: #7B3F00;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-links {
+  margin-bottom: 15px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer-info p {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.footer-info a {
+  color: #ffa500;
+  text-decoration: none;
+}
+
+
+        /* -------------------------------------------------------------- */
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-top">
+            <div class="header-left">
+                <img src="images/Adivasi-logo.png" alt="Logo" class="logo-img">
+                <div>
+                    <div class="title">एकात्मिक आदिवासी विकास</div>
+                    <div class="subtitle">रावळ, यावल</div>
+                </div>
+            </div>
+            <div class="header-center">
+                <div class="state-name">महाराष्ट्र</div>
+                <img src="images/emblem-logo.png" alt="Emblem" class="emblem-img">
+                <div class="state-name">शासन</div>
+            </div>
+            <div class="header-right">
+                <input type="text" placeholder="शोधा..." class="search-input">
+                <button class="search-button">शोध</button>
+            </div>
+        </div>
+
+        <nav class="nav-bar">
+            <ul class="nav-list">
+                <li><a href="#" class="nav-link">मुख्यपृष्ठ</a></li>
+                <li><a href="#" class="nav-link">शासन</a></li>
+                <li><a href="#" class="nav-link">ऑनलाइन अर्ज</a></li>
+                <li><a href="#" class="nav-link">योजना विभाग</a></li>
+                <li><a href="#" class="nav-link">विकास विभाग</a></li>
+                <li><a href="#" class="nav-link">वित्त विभाग</a></li>
+                <li><a href="#" class="nav-link">ठेवा विभाग</a></li>
+                <li><a href="#" class="nav-link">नोंदणी</a></li>
+                <li><a href="#" class="nav-link">अधिकारा अधिकार</a></li>
+                <li><a href="#" class="nav-link">उपक्रम</a></li>
+                <li><a href="#" class="nav-link">अभिप्राय</a></li>
+                <li><a href="#" class="nav-link">संपर्क</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="tribal-container">
+        <!-- Left side tribal patterns -->
+        <div class="tribal-side left">
+            <div class="tribal-grid">
+                <!-- 24 tribal images will be added by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Right side tribal patterns -->
+        <div class="tribal-side right">
+            <div class="tribal-grid">
+                <!-- 24 tribal images will be added by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Center content -->
+        <div class="content">
+            <div class="main-1">
+                <!-- Slider -->
+                <div class="slider">
+                    <div class="slides" id="slides">
+                        <!-- Slide 1 -->
+                        <div class="slide">
+                            <div class="text-section">
+                                <h2>
+                                    <span class="green-text">एकात्मिक आदिवासी विकास</span><br>
+                                    <span class="orange-text">संकल्प यावल</span>
+                                </h2>
+                                <p>
+                                    महाराष्ट्र शासन, आदिवासी विकास विभाग, प्रकल्प अधिकारी,<br>
+                                    एकात्मिक आदिवासी विकास प्रकल्प,<br>
+                                    यावल, जि. जळगाव
+                                </p>
+                            </div>
+                            <div class="img-section">
+                                <img src="images/pexels-melaudelo-28558960.jpg" alt="Slide 1">
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="slide">
+                            <div class="text-section">
+                                <h2>
+                                    <span class="green-text">एकात्मिक आदिवासी विकास</span><br>
+                                    <span class="orange-text">सत्र दुसरा</span>
+                                </h2>
+                                <p>यावल, महाराष्ट्र - विकास प्रकल्पावर चर्चा</p>
+                            </div>
+                            <div class="img-section">
+                                <img src="images/tribal-development-program.png" alt="Slide 2">
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="slide">
+                            <div class="text-section">
+                                <h2>
+                                    <span class="green-text">आदिवासी समाजासाठी</span><br>
+                                    <span class="orange-text">सशक्त उपक्रम</span>
+                                </h2>
+                                <p>शिक्षण, आरोग्य आणि रोजगार संधी</p>
+                            </div>
+                            <div class="img-section">
+                                <img src="images/tribal-education-health.jpg" alt="Slide 3">
+                            </div>
+                        </div>
+
+                        <!-- Slide 4 -->
+                        <div class="slide">
+                            <div class="text-section">
+                                <h2>
+                                    <span class="green-text">समावेशी विकासाची दिशा</span><br>
+                                    <span class="orange-text">विचारमंथन</span>
+                                </h2>
+                                <p>आदिवासी विकास परिषद - २०२५</p>
+                            </div>
+                            <div class="img-section">
+                                <img src="images/tribal-development-council.jpg" alt="Slide 4">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="nav-button left" onclick="changeSlide(-1)" aria-label="Previous slide">&lt;</button>
+                    <button class="nav-button right" onclick="changeSlide(1)" aria-label="Next slide">&gt;</button>
+
+                    <div class="indicators" id="indicators">
+                        <!-- Indicators will be added by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Card -->
+                <div class="main-p-1">
+                    <div class="sahyog-card-container">
+                        <div class="sahyog-card-header">
+                            <img src="https://img.icons8.com/ios-filled/24/ffffff/line-chart.png" alt="icon">
+                            आता सहभागी व्हा
+                        </div>
+
+                        <div class="sahyog-card-item">
+                            <div class="sahyog-item-left">
+                                <img src="https://img.icons8.com/emoji/16/bead-emoji.png" alt="beads">
+                                सहभागी रजिस्ट्रेशन
+                            </div>
+                            <button class="sahyog-btn sahyog-btn-green">वैयक्तिक बचत गट</button>
+                        </div>
+
+                        <div class="sahyog-card-item">
+                            <div class="sahyog-item-left">
+                                <img src="https://img.icons8.com/ios-filled/16/hut.png" alt="hut">
+                                लघुपूर उपक्रम
+                            </div>
+                            <button class="sahyog-btn sahyog-btn-brown">योजना पहा</button>
+                        </div>
+
+                        <div class="sahyog-card-item">
+                            <div class="sahyog-item-left">
+                                <img src="https://img.icons8.com/emoji/16/bead-emoji.png" alt="beads">
+                                प्रमुख योजना
+                            </div>
+                            <button class="sahyog-btn sahyog-btn-green">योजना पहा</button>
+                        </div>
+
+                        <div class="sahyog-card-item">
+                            <div class="sahyog-item-left">
+                                <img src="https://img.icons8.com/ios-filled/16/hut.png" alt="hut">
+                                ई-आवेदन स्थिती
+                            </div>
+                            <button class="sahyog-btn sahyog-btn-brown">योजना पहा</button>
+                        </div>
+
+                        <div class="sahyog-card-item">
+                            <div class="sahyog-item-left">
+                                <img src="https://img.icons8.com/emoji/16/bead-emoji.png" alt="beads">
+                                नवीन उपक्रम
+                            </div>
+                            <button class="sahyog-btn sahyog-btn-green">शुभेच्छा</button>
+                        </div>
+
+                        <div class="sahyog-card-item">
+                            <div class="sahyog-item-left">
+                                <img src="https://img.icons8.com/ios-filled/16/hut.png" alt="hut">
+                                दुसरे टप्पे
+                            </div>
+                            <button class="sahyog-btn sahyog-btn-brown">पहा</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- START OF INSERTED CODE: main-part2 -->
+            <div class="main-part2">
+                <div class="tribal-bg"></div>
+              
+                <!-- Animated tribal figures - moved inside main-part2 -->
+                <div class="tribal-figure tribal-figure-1"></div>
+                <div class="tribal-figure tribal-figure-2"></div>
+                <div class="tribal-figure tribal-figure-3"></div>
+                <div class="tribal-figure tribal-figure-4"></div>
+                <div class="tribal-figure tribal-figure-5"></div>
+                <div class="tribal-figure tribal-figure-6"></div>
+                
+                
+                <div class="mrt-main-container">
+                    <nav class="mrt-navigation">
+                        <div class="mrt-nav-button mrt-nav-green" onclick="showCard(0)">आमच्या विजय</div>
+                        <div class="mrt-nav-button mrt-nav-brown" onclick="showCard(1)">आमचे विभाग</div>
+                        <div class="mrt-nav-button mrt-nav-brown" onclick="showCard(2)">आमचे प्रमाण</div>
+                        <div class="mrt-nav-button mrt-nav-brown" onclick="showCard(3)">इतर दुवा</div>
+                    </nav>
+
+                    <div class="mrt-content-box">
+                        <div class="mrt-decorative-border mrt-card" id="card-0">
+                            <div class="mrt-content-inner">
+                                <h1 class="mrt-title"><span class="mrt-title-green">आमच्या</span> <span
+                                        class="mrt-title-orange">विजय</span></h1>
+                                <div class="mrt-profile">
+                                    <div class="mrt-profile-image-container">
+                                        <img src="images/arun-pawar.jpeg" alt="टी.अरुण पवार" class="mrt-profile-image">
+                                    </div>
+                                    <h2 class="mrt-profile-name">टी.अरुण पवार</h2>
+                                </div>
+                                <p class="mrt-description">विजय संबंधी माहिती...</p>
+                            </div>
+                        </div>
+
+                        <div class="mrt-decorative-border mrt-card" id="card-1" style="display: none;">
+                            <div class="mrt-content-inner">
+                                <h1 class="mrt-title">
+                                    <span class="mrt-title-green">आमचे</span>
+                                    <span class="mrt-title-orange">विभाग</span>
+                                </h1>
+
+                                <div class="mrt-grid">
+                                    <div class="mrt-department-card">
+                                        <img src="images/a-1.svg" alt="आश्रमशाळा">
+                                        <p class="mrt-caption">आश्रमशाळा</p>
+                                    </div>
+                                    <div class="mrt-department-card">
+                                        <img src="images/a-2.svg" alt="वसतीगृह">
+                                        <p class="mrt-caption">वसतीगृह</p>
+                                    </div>
+                                    <div class="mrt-department-card">
+                                        <img src="images/a-3.svg" alt="विकास योजना">
+                                        <p class="mrt-caption">विकास योजना</p>
+                                    </div>
+                                    <div class="mrt-department-card">
+                                        <img src="images/a-4.svg" alt="धक काम">
+                                        <p class="mrt-caption">धक काम</p>
+                                    </div>
+                                    <div class="mrt-department-card">
+                                        <img src="images/a-5.svg" alt="डूल किचन">
+                                        <p class="mrt-caption">डूल किचन</p>
+                                    </div>
+                                    <div class="mrt-department-card">
+                                        <img src="images/a-6.svg" alt="अनुदानित">
+                                        <p class="mrt-caption">अनुदानित</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mrt-decorative-border mrt-card" id="card-2" style="display: none;">
+                            <div class="mrt-content-inner">
+                                <h1 class="mrt-title">
+                                    <span class="mrt-title-green">आमचे</span>
+                                    <span class="mrt-title-orange">प्रमाण</span>
+                                </h1>
+
+                                <div class="mrt-stats-section">
+                                    <h2 style="text-align: center; color: #7B430F; font-size: 24px;">
+                                        <strong>2912093</strong> आदिवासी लाभार्थ्यांचा सहभाग
+                                    </h2>
+                                    <p class="mrt-description" style="text-align: center; margin-top: 10px;">
+                                        एकात्मिक आदिवासी विकास प्रकल्पांतर्गत आदिवासी समाजासाठी विविध शैक्षणिक, सामाजिक, आणि
+                                        आर्थिक योजनांची अंमलबजावणी करण्यात येते.
+                                        व्यवस्थापन प्रक्रियेत पारदर्शकता, सहभाग, आणि उत्तरदायित्व हे घटक महत्त्वाचे ठरतात.
+                                        एकत्रित प्रयत्नांमुळे आदिवासी बांधवांचा
+                                        सर्वांगीण विकास साधला जात आहे.
+                                    </p>
+
+                                    <div class="mrt-percentage-cards">
+                                        <div class="mrt-percentage-card">
+                                            <div class="mrt-percentage">85%</div>
+                                            <div class="mrt-label">आश्रमशाळा</div>
+                                        </div>
+                                        <div class="mrt-percentage-card">
+                                            <div class="mrt-percentage">90%</div>
+                                            <div class="mrt-label">वसतीगृह</div>
+                                        </div>
+                                        <div class="mrt-percentage-card">
+                                            <div class="mrt-percentage">80%</div>
+                                            <div class="mrt-label">विकास योजना</div>
+                                        </div>
+                                        <div class="mrt-percentage-card">
+                                            <div class="mrt-percentage">65%</div>
+                                            <div class="mrt-label">धक काम</div>
+                                        </div>
+                                    </div>
+
+                                    <div style="text-align: center; margin-top: 20px;">
+                                        <button class="mrt-read-more-button">आता सहभागी व्हा</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mrt-decorative-border mrt-card" id="card-3" style="display: none;">
+                            <div class="mrt-content-inner">
+                                <h1 class="mrt-title">
+                                    <span class="mrt-title-green">इतर</span>
+                                    <span class="mrt-title-orange">दुवा</span>
+                                </h1>
+                                <p class="mrt-description">संबंधित दुवे आणि संस्थांची यादी:</p>
+
+                                <div class="links-container">
+                                    <ul class="tribal-links">
+                                        <li><a href="#">महाराष्ट्र शासन</a></li>
+                                        <li><a href="#">भारत सरकार, आदिवासी कार्य मंत्रालय</a></li>
+                                        <li><a href="#">आयुक्तालय, नाशिक</a></li>
+                                        <li><a href="#">आदिवासी संशोधन व प्रशिक्षण संस्था, पुणे</a></li>
+                                        <li><a href="#">ई-टेंडर</a></li>
+                                        <li><a href="#">शासन निर्णय</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mrth-container">
+        <header class="mrth-header">
+            <h2 class="mrth-header-title">महत्वाच व्यक्त</h2>
+            
+        </header>
+
+        <div class="mrth-profiles-container">
+            <!-- Profile Card 1 -->
+            <div class="mrth-profile-card">
+                <div class="mrth-profile-accent"></div>
+                <div class="mrth-profile-content">
+                    <div class="mrth-profile-image-container">
+                        <img src="images/Devendra-f.png" alt="देवेंद्र फडणवीस" class="mrth-profile-image">
+                    </div>
+                    <div class="mrth-profile-details">
+                        <h2 class="mrth-profile-name">श्री. देवेंद्र फडणवीस</h2>
+                        <p class="mrth-profile-position">मानीय मुख्यमंत्री</p>
+                        <div class="mrth-social-icons">
+                          <a href="#" class="mrth-social-link"><i class="fab fa-facebook-f"> <img src="/images/face-b.svg" height="15" width="15" ></i></a>
+                            <a href="#" class="mrth-social-link"><i class="fab fa-twitter"><img src="/images/twitter.svg" height="15" width="15" ></i></a>
+                            <a href="#" class="mrth-social-link"><i class="fab fa-instagram"><img src="/images/instagram.svg" height="15" width="15" ></i></a>
+                            <a href="#" class="mrth-social-link"><i class="fab fa-linkedin-in"><img src="/images/linkdein.svg" height="15" width="15" ></i></a>
+                          </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Card 2 -->
+            <div class="mrth-profile-card">
+                <div class="mrth-profile-accent"></div>
+                <div class="mrth-profile-content">
+                    <div class="mrth-profile-image-container">
+                        <img src="images/eknath-s.png" alt="एकनाथ शिंदे" class="mrth-profile-image">
+                    </div>
+                    <div class="mrth-profile-details">
+                        <h2 class="mrth-profile-name">श्री. एकनाथ शिंदे</h2>
+                        <p class="mrth-profile-position">मानीय उपमुख्यमंत्री</p>
+                        <div class="mrth-social-icons">
+                           <a href="#" class="mrth-social-link"><i class="fab fa-facebook-f"> <img src="/images/face-b.svg" height="15" width="15" ></i></a>
+                            <a href="#" class="mrth-social-link"><i class="fab fa-twitter"><img src="/images/twitter.svg" height="15" width="15" ></i></a>
+                            <a href="#" class="mrth-social-link"><i class="fab fa-instagram"><img src="/images/instagram.svg" height="15" width="15" ></i></a>
+                            <a href="#" class="mrth-social-link"><i class="fab fa-linkedin-in"><img src="/images/linkdein.svg" height="15" width="15" ></i></a>
+                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Card 3 -->
+            <div class="mrth-profile-card">
+                <div class="mrth-profile-accent"></div>
+                <div class="mrth-profile-content">
+                    <div class="mrth-profile-image-container">
+                        <img src="images/ajit-p.png" alt="अजित पवार" class="mrth-profile-image">
+                    </div>
+                    <div class="mrth-profile-details">
+                        <h2 class="mrth-profile-name">श्री. अजित पवार</h2>
+                        <p class="mrth-profile-position">मानीय उपमुख्यमंत्री</p>
+                        <div class="mrth-social-icons">
+                            <a href="#" class="mrth-social-link"><i class="fab fa-facebook-f"> <img src="/images/face-b.svg" height="15" width="15" ></i></a>
+                            <a href="#" class="mrth-social-link"><i class="fab fa-twitter"><img src="/images/twitter.svg" height="15" width="15" ></i></a>
+                            <a href="#" class="mrth-social-link"><i class="fab fa-instagram"><img src="/images/instagram.svg" height="15" width="15" ></i></a>
+                            <a href="#" class="mrth-social-link"><i class="fab fa-linkedin-in"><img src="/images/linkdein.svg" height="15" width="15" ></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Card 4 -->
+            <div class="mrth-profile-card">
+                <div class="mrth-profile-accent"></div>
+                <div class="mrth-profile-content">
+                    <div class="mrth-profile-image-container">
+                        <img src="images/ajit-p.png" alt="अजित पवार" class="mrth-profile-image">
+                    </div>
+                    <div class="mrth-profile-details">
+                        <h2 class="mrth-profile-name">श्री. अजित पवार</h2>
+                        <p class="mrth-profile-position">मानीय उपमुख्यमंत्री</p>
+                        <div class="mrth-social-icons">
+                           <a href="#" class="mrth-social-link"><i class="fab fa-facebook-f"> <img src="/images/face-b.svg" height="15" width="15" ></i></a>
+                            <a href="#" class="mrth-social-link"><i class="fab fa-twitter"><img src="/images/twitter.svg" height="15" width="15" ></i></a>
+                            <a href="#" class="mrth-social-link"><i class="fab fa-instagram"><img src="/images/instagram.svg" height="15" width="15" ></i></a>
+                            <a href="#" class="mrth-social-link"><i class="fab fa-linkedin-in"><img src="/images/linkdein.svg" height="15" width="15" ></i></a>
+                         </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional profile cards for demonstrating scroll -->
+            <div class="mrth-profile-card">
+                <div class="mrth-profile-accent"></div>
+                <div class="mrth-profile-content">
+                    <div class="mrth-profile-image-container">
+                        <img src="images/ashok-r.png" alt="Profile 5" class="mrth-profile-image">
+                    </div>
+                    <div class="mrth-profile-details">
+                        <h2 class="mrth-profile-name">श्री. राजेश टोपे</h2>
+                        <p class="mrth-profile-position">मंत्री</p>
+                        <div class="mrth-social-icons">
+                            <a href="#" class="mrth-social-link"><i class="fab fa-facebook-f"> <img src="/images/face-b.svg" height="15" width="15" ></i></a>
+                            <a href="#" class="mrth-social-link"><i class="fab fa-twitter"><img src="/images/twitter.svg" height="15" width="15" ></i></a>
+                            <a href="#" class="mrth-social-link"><i class="fab fa-instagram"><img src="/images/instagram.svg" height="15" width="15" ></i></a>
+                            <a href="#" class="mrth-social-link"><i class="fab fa-linkedin-in"><img src="/images/linkdein.svg" height="15" width="15" ></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mrth-profile-card">
+                <div class="mrth-profile-accent"></div>
+                <div class="mrth-profile-content">
+                    <div class="mrth-profile-image-container">
+                        <img src="images/sandeep-g.png" alt="Profile 6" class="mrth-profile-image">
+                    </div>
+                    <div class="mrth-profile-details">
+                        <h2 class="mrth-profile-name">श्री. सुनील केदार</h2>
+                        <p class="mrth-profile-position">मंत्री</p>
+                        <div class="mrth-social-icons">
+                            <a href="#" class="mrth-social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="mrth-social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="mrth-social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="mrth-social-link"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-dots"></div>
+        </div>
+    </div>
+
+                <div class="mrnews-container">
+                    <header class="mrnews-header">
+                        <div class="mrnews-header-icon">
+                            <i class="far fa-newspaper"></i>
+                        </div>
+                        <h2 class="mrnews-header-title">जुन्या बातम्या आणि महत्वाचे अपडेट्स</h2>
+                    </header>
+
+                    <div class="mrnews-updates-list">
+                        <!-- News Item 1 -->
+                        <div class="mrnews-item">
+                            <div class="mrnews-item-accent"></div>
+                            <div class="mrnews-item-content">
+                                <h3 class="mrnews-item-title">परीक्षा सूचना: परीक्षा १५ एप्रिल ते १६ एप्रिल दरम्यान घेतल्या
+                                    जातील.</h3>
+                                <div class="mrnews-item-meta">
+                                    <div class="mrnews-item-date">
+                                        <i class="far fa-calendar-alt"></i>
+                                        <span>०१/०४/२०२४</span>
+                                    </div>
+                                    <div class="mrnews-item-tag">परीक्ष</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- News Item 2 -->
+                        <div class="mrnews-item">
+                            <div class="mrnews-item-accent"></div>
+                            <div class="mrnews-item-content">
+                                <h3 class="mrnews-item-title">स्वेच्छेचे प्रशिक्षण: प्रवेशपत्र आता पोर्टलवरून डाउनलोड करा.
+                                </h3>
+                                <div class="mrnews-item-meta">
+                                    <div class="mrnews-item-date">
+                                        <i class="far fa-calendar-alt"></i>
+                                        <span>०१/०४/२०२४</span>
+                                    </div>
+                                    <div class="mrnews-item-tag">परीक्ष</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- News Item 3 -->
+                        <div class="mrnews-item">
+                            <div class="mrnews-item-accent"></div>
+                            <div class="mrnews-item-content">
+                                <h3 class="mrnews-item-title">परीक्षा सूचना: परीक्षा १५ एप्रिल ते १६ एप्रिल दरम्यान घेतल्या
+                                    जातील.</h3>
+                                <div class="mrnews-item-meta">
+                                    <div class="mrnews-item-date">
+                                        <i class="far fa-calendar-alt"></i>
+                                        <span>०१/०४/२०२४</span>
+                                    </div>
+                                    <div class="mrnews-item-tag">परीक्ष</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- News Item 4 -->
+                        <div class="mrnews-item">
+                            <div class="mrnews-item-accent"></div>
+                            <div class="mrnews-item-content">
+                                <h3 class="mrnews-item-title">परीक्षा सूचना: परीक्षा १५ एप्रिल ते १६ एप्रिल दरम्यान घेतल्या
+                                    जातील.</h3>
+                                <div class="mrnews-item-meta">
+                                    <div class="mrnews-item-date">
+                                        <i class="far fa-calendar-alt"></i>
+                                        <span>०१/०४/२०२४</span>
+                                    </div>
+                                    <div class="mrnews-item-tag">परीक्ष</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mrnews-view-all">
+                        <button class="mrnews-view-all-button">View All</button>
+                    </div>
+                </div>
+            </div>
+            <!-- END OF INSERTED CODE: main-part2 -->
+
+        </div>
+    </div>
+
+
+    
+ <footer>
+            <div class="footer-links">
+                <a href="#">Home</a> |
+                <a href="#">About Ayushman Bharat</a> |
+                <a href="#">Contact Us</a> |
+                <a href="#">Sitemap</a> |
+                <a href="#">Department</a> |
+                <a href="#">Terms & Condition</a>
+            </div>
+            <div class="footer-info">
+                <p>Last Reviewed & Updated: 10 Aug, 2020</p>
+                <p>Total Visitors: Total Visitors : 1020323</p>
+                <p>Copyright 2019. All Rights Reserved. Designed & Developed by <a href="#">BSSS</a></p>
+            </div>
+        </footer>
+
+
+
+    <script>
+        function randomOffset(max) {
+            return Math.floor(Math.random() * max * 2) - max;
+        }
+
+        function animateRandomMovement(img) {
+            setInterval(() => {
+                const offsetX = randomOffset(30); // pixels
+                const offsetY = randomOffset(30);
+                const rotateZ = randomOffset(15); // degrees
+
+                img.style.transform = `translate(${offsetX}px, ${offsetY}px) rotate(${rotateZ}deg)`;
+            }, 2000 + Math.random() * 1000); // every 2–3 sec
+        }
+
+        document.querySelectorAll('.tribal').forEach(animateRandomMovement);
+
+
+        // -------------------------slider-------------------------------       // Initialize variables
+// Initialize variables
+let currentIndex = 0;
+const totalSlides = 4;
+
+// DOM elements
+const slidesElement = document.getElementById('slides');
+const indicatorsElement = document.getElementById('indicators');
+
+// Function to update slide position
+function updateSlide() {
+    slidesElement.style.transform = `translateX(-${currentIndex * 100}%)`;
+    updateIndicators();
+}
+
+// Function to change slide
+function changeSlide(dir) {
+    currentIndex = (currentIndex + dir + totalSlides) % totalSlides;
+    updateSlide();
+}
+
+// Function to go to a specific slide
+function goToSlide(index) {
+    currentIndex = index;
+    updateSlide();
+}
+
+// Function to create and update indicators
+function updateIndicators() {
+    indicatorsElement.innerHTML = '';
+    for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('span');
+        dot.className = i === currentIndex ? 'indicator active' : 'indicator';
+        dot.onclick = () => goToSlide(i);
+        indicatorsElement.appendChild(dot);
+    }
+}
+
+// Function to create tribal pattern images
+function createTribalPatterns() {
+    const leftGrid = document.querySelector('.tribal-side.left .tribal-grid');
+    const rightGrid = document.querySelector('.tribal-side.right .tribal-grid');
+    
+    // Clear existing content
+    leftGrid.innerHTML = '';
+    rightGrid.innerHTML = '';
+    
+    // Create 24 tribal images for each side
+    for (let i = 0; i < 18; i++) {
+        const imgNumber = (i % 4) + 1;
+        
+        // Left side
+        const leftImg = document.createElement('img');
+        leftImg.src = `images/tribal-${imgNumber}.svg`;
+        leftImg.alt = 'Tribal pattern';
+        leftImg.className = 'tribal';
+        leftGrid.appendChild(leftImg);
+        
+        // Right side
+        const rightImg = document.createElement('img');
+        rightImg.src = `images/tribal-${imgNumber}.svg`;
+        rightImg.alt = 'Tribal pattern';
+        rightImg.className = 'tribal';
+        rightGrid.appendChild(rightImg);
+    }
+}
+
+// Function to animate tribal patterns with random movement
+function animateTribalPatterns() {
+    const tribalElements = document.querySelectorAll('.tribal');
+    
+    function randomOffset(max) {
+        return Math.floor(Math.random() * max * 2) - max;
+    }
+    
+    tribalElements.forEach(img => {
+        setInterval(() => {
+            const offsetX = randomOffset(30);
+            const offsetY = randomOffset(30);
+            const rotateZ = randomOffset(15);
+            
+            img.style.transform = `translate(${offsetX}px, ${offsetY}px) rotate(${rotateZ}deg)`;
+        }, 2000 + Math.random() * 2000);
+    });
+}
+
+// Function to show card in the main-part2 section
+function showCard(index) {
+    // Hide all cards
+    document.querySelectorAll('.mrt-card').forEach(card => {
+        card.style.display = 'none';
+    });
+    
+    // Show the selected card
+    document.getElementById(`card-${index}`).style.display = 'block';
+    
+    // Update nav buttons
+    document.querySelectorAll('.mrt-nav-button').forEach((btn, i) => {
+        if (i === index) {
+            btn.classList.add('mrt-nav-green');
+            btn.classList.remove('mrt-nav-brown');
+        } else {
+            btn.classList.add('mrt-nav-brown');
+            btn.classList.remove('mrt-nav-green');
+        }
+    });
+}
+
+// Initialize the page
+function initPage() {
+    createTribalPatterns();
+    updateIndicators();
+    animateTribalPatterns();
+    
+    // Auto-rotate slides every 5 seconds
+    setInterval(() => {
+        changeSlide(1);
+    }, 5000);
+}
+
+// Run initialization when DOM is fully loaded
+document.addEventListener('DOMContentLoaded', initPage);
+
+    </script>
+</body>
+
+</html>

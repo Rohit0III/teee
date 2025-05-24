@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="mr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>अनुदानित आश्रमशाळा</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Yatra+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;300;400;500;600;700;800&family=Yatra+One&display=swap');
+
+        .yatra-one-regular {
+            font-family: "Yatra One", system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .mukta-vaani-regular {
+            font-family: "Mukta Vaani", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+
+            flex-direction: column;
+        }
+
+        .ashramshala-header {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px 0;
+            margin: 0 auto;
+
+
+        }
+
+        .mandala-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 5% auto;
+        }
+
+        .ashramshala-title {
+            color: #8B4513;
+            font-size: 32px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .mandala {
+            width: 40px;
+            height: 40px;
+            background-image: url('/images/mandala.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Add a decorative dot pattern around the first letter */
+        .ashramshala-title::first-letter {
+            position: relative;
+        }
+
+        .ashramshala-title::before {
+            content: "◌";
+            position: absolute;
+            left: -15px;
+            top: 0;
+            color: #8B4513;
+            font-size: 42px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .mandala-container {
+                gap: 10px;
+            }
+
+            .ashramshala-title {
+                font-size: 32px;
+            }
+
+            .mandala {
+                width: 80px;
+                height: 80px;
+            }
+
+            .ashramshala-title::before {
+                font-size: 32px;
+                left: -10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ashramshala-title {
+                font-size: 24px;
+            }
+
+            .mandala {
+                width: 30px;
+                height: 30px;
+            }
+
+            .ashramshala-title::before {
+                font-size: 24px;
+                left: -8px;
+            }
+        }
+
+
+
+        .ashram-content-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .ashram-content-box {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 30px 40px;
+            position: relative;
+            width: 100%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Left and right borders */
+        .ashram-content-box::before,
+        .ashram-content-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: #8B4513;
+        }
+
+        .ashram-content-box::before {
+            left: 0;
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+
+        .ashram-content-box::after {
+            right: 0;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .ashram-paragraph {
+            margin-bottom: 20px;
+            text-align: justify;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .ashram-paragraph:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .ashram-content-box {
+                padding: 20px 30px;
+            }
+
+            .ashram-paragraph {
+                font-size: 15px;
+                line-height: 1.7;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .ashram-content-box {
+                padding: 15px 25px;
+            }
+
+            .ashram-paragraph {
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        }
+
+
+
+        .tribal-header {
+            width: 100%;
+            padding: 15px 0;
+            background-color: #ffffff;
+        }
+
+        .tribal-header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 5% auto;
+        }
+
+        .tribal-title {
+            color: #8B4513;
+            font-size: 24px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .tribal-mandala {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            background-image: url('/images/mandala.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .tribal-title {
+                font-size: 20px;
+            }
+
+            .tribal-mandala {
+                width: 25px;
+                height: 25px;
+            }
+
+            .mandala {
+                width: 25px;
+                height: 25px;
+            }
+
+        }
+
+        @media (max-width: 576px) {
+            .tribal-title {
+                font-size: 16px;
+            }
+
+            .tribal-mandala {
+                width: 25px;
+                height: 25px;
+            }
+
+            .tribal-header-container {
+                gap: 10px;
+                padding: 0 10px;
+            }
+
+            .mandala {
+                width: 25px;
+                height: 25px;
+            }
+
+        }
+
+
+        .tribal-table-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Tribal Border Pattern */
+        .tribal-border-left,
+        .tribal-border-right {
+            width: 20px;
+            background-repeat: repeat-y;
+            flex-shrink: 0;
+
+
+        }
+
+        .tribal-border-left {
+            background-image: url('/images/V-border.png');
+        }
+
+        .tribal-border-right {
+            background-image: url('/images/V-border.png');
+        }
+
+        /* Table Wrapper */
+        .tribal-table-wrapper {
+            flex-grow: 1;
+            overflow-x: auto;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin: auto 3%;
+        }
+
+        /* Table Styles */
+        .tribal-schools-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .tribal-schools-table thead {
+            background-color: #8B4513;
+            color: white;
+        }
+
+        .tribal-schools-table th {
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .tribal-schools-table th:last-child {
+            border-right: none;
+        }
+
+        .tribal-schools-table td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #eee;
+            border-right: 1px solid #eee;
+        }
+
+        .tribal-schools-table td:last-child {
+            border-right: none;
+        }
+
+        .tribal-schools-table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .tribal-schools-table tbody tr:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .tribal-schools-table {
+                font-size: 13px;
+            }
+
+            .tribal-schools-table th,
+            .tribal-schools-table td {
+                padding: 8px 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .tribal-border-left,
+            .tribal-border-right {
+                width: 15px;
+            }
+
+            .tribal-schools-table {
+                font-size: 12px;
+            }
+
+            .tribal-schools-table th,
+            .tribal-schools-table td {
+                padding: 6px 8px;
+            }
+        }
+
+        @media (max-width: 576px) {
+
+            .tribal-border-left,
+            .tribal-border-right {
+                display: none;
+            }
+
+            .tribal-table-container {
+                padding: 0;
+            }
+
+            .ashramshala-header {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div data-include="header.html"></div>
+    <header class="ashramshala-header">
+        <div class="mandala-container">
+            <div class="mandala left-mandala"></div>
+            <h1 class="ashramshala-title yatra-one-regular">शासकीय आश्रमशाळा</h1>
+            <div class="mandala right-mandala"></div>
+        </div>
+        <div class="ashram-content-container">
+            <div class="ashram-content-box">
+
+
+                <p class="ashram-paragraph mukta-vaani-regular">
+                    दुर्गम व डोंगाराळ भागात वास्तव्य असलेल्या आदिवासींच्या शैक्षणिक विकासाच्या हेतूने 1972-73 या
+                    वर्षापासून शासकीय आश्रमशाळा समूह योजना राबविण्यात येत आहे. या शाळेत आदिवासी विद्यार्थ्यांना इयत्ता 1
+                    ली ते 10 वी पर्यंत शिक्षणाची सोय उपलब्ध आहे. आदिवासी समाज हा आर्थिक व शैक्षणिक दृष्ट्या मागासलेला
+                    असून अतिदुर्गम व डोंगराळ भागात राहतो. या आदिवासींची शैक्षणिक प्रगती व्हावी त्यांच्या मुलांमुलींना
+                    शिक्षण मिळणे सहज शक्य व्हावे या करिता शासनाने आदिवासी भागात शासकीय आश्रमशाळा उघडल्या आहेत।
+
+                    <br>आश्रमशाळेतील विद्यार्थ्यांना निवास, भोजन, गणवेश, अंथरुण-पांघरुण, पुस्तके व इतर लेखन साहित्य
+                    नियमानुसार मोफत पुरविण्यात येते. या प्रकल्पाच्या अधिनस्त एकूण 41 शासकीय आश्रमशाळा असून 4 प्राथमिक व
+                    37 माध्यमिक आश्रमशाळा आहेत।
+                </p>
+            </div>
+        </div>
+        <header class="tribal-header">
+            <div class="tribal-header-container">
+                <div class="tribal-mandala"></div>
+                <h1 class="tribal-title yatra-one-regular">एकात्मिक आदिवासी विकास प्रकल्प, यावल जि. जळगाव शासकीय
+                    आश्रमशाळा</h1>
+                <div class="tribal-mandala"></div>
+            </div>
+            <div class="tribal-table-container">
+                <div class="tribal-border-left"></div>
+
+                <div class="tribal-table-wrapper">
+                    <table class="tribal-schools-table mukta-vaani-regular">
+                        <thead>
+    <tr>
+      <th>अ.क्र</th>
+      <th>शाळेचे नाव</th>
+      <th>तालुका</th>
+      <th>शाळेचा प्रकार</th>
+      <th>मुख्याध्यापकाचे नाव</th>
+      <th>फोन नंबर</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>वाघझिरा</td><td>यावल</td><td>उच्च माध्य शाळा</td><td>श्री. के. ए. महाजन</td><td>9403311075</td></tr>
+    <tr><td>2</td><td>डोंगरकठोरा</td><td>यावल</td><td>माध्य शाळा</td><td>श्री. एस. एन. वानखेडे</td><td>9421889803</td></tr>
+    <tr><td>3</td><td>मालोद</td><td>यावल</td><td>प्राथ. शाळा</td><td>श्री. नांदुरे (प्र)</td><td>9921565732</td></tr>
+    <tr><td>4</td><td>वैजापुर</td><td>चोपडा</td><td>उच्च माध्य</td><td>श्री. व्ही. बी. माळी</td><td>9623075642</td></tr>
+    <tr><td>5</td><td>देवझिरी</td><td>चोपडा</td><td>माध्य. शाळा</td><td>श्री. अविनाश साळंखे</td><td>9604299191</td></tr>
+    <tr><td>6</td><td>कृष्णापूर</td><td>चोपडा</td><td>प्राथ. शाळा</td><td>श्री. एन. सी. चौधरी</td><td></td></tr>
+    <tr><td>7</td><td>विष्णापूर</td><td>चोपडा</td><td>प्राथ. शाळा</td><td></td><td></td></tr>
+    <tr><td>8</td><td>लालमाती</td><td>रावेर</td><td>माध्य. शाळा</td><td>श्री. मनिष रज्जाक तडवी (प्र)</td><td>9975287786</td></tr>
+    <tr><td>9</td><td>पिंगळवाडे</td><td>अमळनेर</td><td>माध्य. शाळा</td><td>श्री. डी. एन. मोरे</td><td></td></tr>
+    <tr><td>10</td><td>दहिवद</td><td>अमळनेर</td><td>माध्य. शाळा</td><td>श्री. एन. व्ही. शिरसाठ</td><td></td></tr>
+    <tr><td>11</td><td>चांदसर</td><td>धरणगाव</td><td>माध्य. शाळा</td><td>श्री. बी.एन. देशपांडे</td><td></td></tr>
+    <tr><td>12</td><td>गंगापूरी</td><td>जामनेर</td><td>माध्य. शाळा</td><td>श्री. एम.जी. तायडे</td><td></td></tr>
+    <tr><td>13</td><td>पळासखेडा</td><td>बोदवड</td><td>माध्य. शाळा</td><td>श्री. आर.एस. तायडे</td><td></td></tr>
+    <tr><td>14</td><td>जोंधनखेडा</td><td>मु. नगर</td><td>माध्य. शाळा</td><td>श्री. एस. एस. गायकवाड</td><td></td></tr>
+    <tr><td>15</td><td>वलठाण</td><td>४० गाव</td><td>माध्य. शाळा</td><td>श्रीम. एस. के. देशमुख</td><td></td></tr>
+    <tr><td>16</td><td>सार्व</td><td>पाचोरा</td><td>माध्य. शाळा</td><td>श्री. बी. बी. पाटील (प्र)</td><td></td></tr>
+    <tr><td>17</td><td>सोनबर्डी</td><td>एरंडोल</td><td>माध्य. शाळा</td><td>श्री. पी. जे. पाटील</td><td></td></tr>
+  </tbody>
+
+                    </table>
+                </div>
+
+                <div class="tribal-border-right"></div>
+            </div>
+        </header>
+    </header>
+
+    <div data-include="footer.html"></div>
+
+    <script src="/load-layout.js"></script>
+
+
+</body>
+
+</html>

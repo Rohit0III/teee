@@ -1,0 +1,499 @@
+<head>
+   <link href="https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@400;700&family=Yatra+One&display=swap" rel="stylesheet">
+
+<style>
+  /* Header Styles */
+        
+ body {
+      font-family: 'Mukta Vaani', sans-serif;
+    }
+
+    .yatra-text {
+      font-family: 'Yatra One', cursive;
+    }
+
+    .mukta-bold {
+      font-family: 'Mukta Vaani', sans-serif;
+      font-weight: 700;
+    }
+/* Header styles */
+.header-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    gap: 1rem;
+    margin: 0 10%;
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.logo-img {
+    height: 100px;
+    width: auto;
+    padding: 10px
+}
+
+.title {
+    font-weight: bold;
+    font-size: 0.5rem;
+    color: #E2550B;
+    font-family: 'yatra', outfit;
+}
+
+.subtitle {
+    color: #2e7d32;
+    font-size: 0.875rem;
+}
+
+.header-center {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    order: 3;
+}
+
+.state-name {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.emblem-img {
+    height: 40px;
+    width: auto;
+}
+
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    order: 2;
+}
+
+.search-input {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #999;
+    border-radius: 20px;
+    outline: none;
+    width: 100%;
+}
+
+.search-button {
+    background-color: #6d3b00;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Navigation styles */
+.nav-bar {
+    background: linear-gradient(to right, #a0522d, #8b4513);
+    background-image: url('/images/tt-b.svg');
+    background-size: cover;
+    overflow-x: auto;
+    padding: 10px;
+}
+
+.nav-list {
+    display: flex;
+    flex-wrap: nowrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 1rem;
+    justify-content: flex-start;
+    min-width: max-content;
+    padding: 0 1rem;
+    white-space: nowrap;
+    font-size: smaller;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.25rem 0.5rem;
+    transition: background 0.3s;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+
+/* Media queries for responsive design */
+@media (min-width: 576px) {
+    .header-left {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .logo-img {
+        height: 100px;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .header-right {
+        flex-direction: row;
+    }
+
+    .search-input {
+        width: 200px;
+    }
+
+    .search-button {
+        width: 60px;
+    }
+
+    
+     .mrt-main-container {
+        width: 30%;
+    }
+
+}
+
+@media (min-width: 768px) {
+    .header-top {
+        flex-direction: row;
+        padding: 1rem 2rem;
+    }
+
+    .header-left {
+        margin-bottom: 0;
+    }
+
+    .header-center {
+        order: 2;
+        margin-bottom: 0;
+    }
+
+    .header-right {
+        order: 3;
+        width: auto;
+    }
+
+    .title {
+        font-size: 1.75rem;
+    }
+
+    .emblem-img {
+        height: 60px;
+    }
+
+    .state-name {
+        font-size: 1.125rem;
+    }
+
+    .nav-list {
+        flex-wrap: wrap;
+        justify-content: center;
+        white-space: normal;
+    }
+
+    .tribal-container {
+        min-height: calc(100vh - 150px);
+    }
+
+    .tribal-side {
+        display: flex;
+        width: 120px;
+    }
+
+    .tribal {
+        width: 50px;
+    }
+
+    .content {
+        padding: 2rem;
+        padding-left: 120px;
+        padding-right: 120px;
+    }
+
+    .slide {
+        flex-direction: row;
+    }
+
+    .text-section {
+        width: 40%;
+        padding: 2rem;
+    }
+
+    .text-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .text-section p {
+        font-size: 1rem;
+    }
+
+    .img-section {
+        width: 60%;
+        height: 300px;
+    }
+
+    .nav-button {
+        padding: 0.75rem 1rem;
+        font-size: 1.125rem;
+    }
+
+    .indicator {
+        width: 0.75rem;
+        height: 0.75rem;
+    }
+
+    .main-part2 {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .mrt-main-container {
+        width: 100%;
+    }
+
+    .mrth-container, 
+    .mrnews-container {
+        width: 48%;
+    }
+}
+
+@media (min-width: 992px) {
+    .main-1 {
+        flex-direction: row;
+    }
+
+    .slider {
+        width: 65%;
+    }
+
+    .main-p-1 {
+        width: 35%;
+        margin-top: 0;
+    }
+
+    .search-input {
+        width: 300px;
+    }
+
+    .mrt-main-container {
+        width: 300px;
+    }
+
+    .mrth-container, 
+    .mrnews-container {
+        width: 300px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .header-top {
+        
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+    
+    .mrt-main-container {
+        width:43%;
+    }
+    
+    .mrth-container, 
+    .mrnews-container {
+        width: 320px;
+    }
+
+    .logo-img{
+        height: 80px;
+    }
+}
+.dropdown {
+    position: relative;
+}
+
+.nav-submenu {
+    display: none;
+    position: absolute;
+    background-color: #8b4513;
+    padding: 0.5rem;
+    list-style: none;
+    margin: 0;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    white-space: nowrap;
+    border-radius: 4px;
+    min-width: 150px;
+}
+
+.nav-submenu li {
+    margin-bottom: 0.25rem;
+}
+
+.nav-submenu li:last-child {
+    margin-bottom: 0;
+}
+
+.nav-submenu .nav-link {
+    padding: 0.25rem 0.5rem;
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.nav-submenu .nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+/* Show submenu on hover (for desktop) */
+.nav-dropdown:hover .nav-submenu {
+    display: block;
+}
+
+/* Show submenu when toggled by JS */
+.show-submenu {
+    display: block !important;
+}
+
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-submenu {
+  display: none;
+  position: absolute;
+  background-color: #8b4513;
+  padding: 0.5rem 0;
+  list-style: none;
+  margin: 0;
+  top: 100%;
+  left: 0;
+  z-index: 999;
+  white-space: nowrap;
+  border-radius: 4px;
+  min-width: 150px;
+}
+
+.nav-submenu li {
+  margin: 0;
+}
+
+.nav-submenu .nav-link {
+  display: block;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
+.nav-submenu .nav-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.nav-dropdown:hover .nav-submenu {
+  display: block; /* Hover works on desktop */
+}
+
+.show-submenu {
+  display: block !important;
+}
+
+</style>
+  <header>
+        <div class="header-top">
+            <div class="header-left">
+                <img src="images/Adivasi-logo.png" alt="Logo" class="logo-img">
+                <div>
+                    <div class="title yatra-text">एकात्मिक आदिवासी विकास</div>
+                    <div class="subtitle yatra-text">रावळ, यावल</div>
+                </div>
+            </div>
+            <div class="header-center">
+                <div class="state-name mukta-bold">महाराष्ट्र</div>
+                <img src="images/emblem-logo.png" alt="Emblem" class="emblem-img">
+                <div class="state-name mukta-bold">शासन</div>
+            </div>
+            <div class="header-right">
+                <input type="text" placeholder="शोधा..." class="search-input">
+                <button class="search-button">शोध</button>
+            </div>
+        </div>
+
+       <nav class="nav-bar">
+    <ul class="nav-list">
+        <li><a href="/index.html" class="nav-link">मुख्यपृष्ठ</a></li>
+        <li><a href="/anudati-ashramshala.html" class="nav-link">शासन</a></li>
+        <li><a href="/saskiya-vastigrah.html" class="nav-link">ऑनलाइन अर्ज</a></li>
+
+        <li class="nav-dropdown">
+            <a  href="/ashram-vidhyarthi-patsankhya.html" class="nav-link" onclick="toggleDropdown(event)">योजना विभाग ▾</a>
+            <ul class="nav-submenu">
+                <li><a href="/scheme1.html" class="nav-link">योजना १</a></li>
+                <li><a href="/scheme2.html" class="nav-link">योजना २</a></li>
+                <li><a href="/scheme3.html" class="nav-link">योजना ३</a></li>
+            </ul>
+        </li>
+
+        <li><a href="/anudati-ashramshala.html" class="nav-link">विकास विभाग</a></li>
+        <li><a href="/ठक्कर बाप्पा आदिवासी वस्ती सुधार योजना.html" class="nav-link">वित्त विभाग</a></li>
+        <li><a href="/घरकुल योजना.html" class="nav-link">ठेवा विभाग</a></li>
+        <li><a href="/घरकुल योजना.html" class="nav-link">नोंदणी</a></li>
+        <li><a href="/1-!o-7-login.html" class="nav-link">अधिकारा अधिकार</a></li>
+        <li><a href="/कन्यादान योजना.html" class="nav-link">उपक्रम</a></li>
+        <li><a href="/ठक्कर बाप्पा आदिवासी वस्ती सुधार योजना.html" class="nav-link">अभिप्राय</a></li>
+        <li><a href="/इंग्रजी माध्यमाच्या नामांकित निवासी शाळा.html" class="nav-link">संपर्क</a></li>
+    </ul>
+</nav>
+
+    </header>
+
+    <script>
+        document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      // Close other open submenus
+      document.querySelectorAll('.nav-submenu').forEach(menu => {
+        if (menu !== this.nextElementSibling) {
+          menu.classList.remove('show-submenu');
+        }
+      });
+
+      // Toggle current submenu
+      const submenu = this.nextElementSibling;
+      submenu.classList.toggle('show-submenu');
+    });
+  });
+
+  // Close dropdowns when clicking outside
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.nav-dropdown')) {
+      document.querySelectorAll('.nav-submenu').forEach(menu => {
+        menu.classList.remove('show-submenu');
+      });
+    }
+  });
+    </script>

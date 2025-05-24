@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>शासकीय वसतिगृहे</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+     @import url('https://fonts.googleapis.com/css2?family=Yatra+One&display=swap');
+     @import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;300;400;500;600;700;800&family=Yatra+One&display=swap');
+
+      .yatra-one-regular {
+            font-family: "Yatra One", system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        .mukta-vaani-regular {
+            font-family: "Mukta Vaani", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+           
+            
+        }
+
+        .tdw-ashramshala-header {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px 0;
+            align-self: center;
+        }
+
+        .tdw-mandala-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 5% auto;
+        }
+
+        .tdw-ashramshala-title {
+            color: #8B4513;
+            font-size: 32px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .tdw-mandala {
+            width: 40px;
+            height: 40px;
+            background-image: url('/images/mandala.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Add a decorative dot pattern around the first letter */
+        .tdw-ashramshala-title::first-letter {
+            position: relative;
+        }
+
+        .tdw-ashramshala-title::before {
+            content: "◌";
+            position: absolute;
+            left: -15px;
+            top: 0;
+            color: #8B4513;
+            font-size: 42px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .tdw-mandala-container {
+                gap: 10px;
+            }
+
+            .tdw-ashramshala-title {
+                font-size: 32px;
+            }
+
+            .tdw-mandala {
+                width: 40px;
+                height: 40px;
+            }
+
+            .tdw-ashramshala-title::before {
+                font-size: 32px;
+                left: -10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tdw-ashramshala-title {
+                font-size: 24px;
+            }
+
+            .tdw-mandala {
+                width: 25px;
+                height: 25px;
+            }
+
+            .tdw-ashramshala-title::before {
+                font-size: 24px;
+                left: -8px;
+            }
+        }
+
+        .tdw-content-container {
+            max-width: 1100px;
+            margin:  auto;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .tdw-content-box {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 30px 40px;
+            position: relative;
+            width: 100%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Left and right borders */
+        .tdw-content-box::before,
+        .tdw-content-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: #8B4513;
+        }
+
+        .tdw-content-box::before {
+            left: 0;
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+
+        .tdw-content-box::after {
+            right: 0;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .tdw-paragraph {
+            margin-bottom: 20px;
+            text-align: justify;
+            text-align: center;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .tdw-paragraph:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .tdw-content-box {
+                padding: 20px 30px;
+            }
+
+            .tdw-paragraph {
+                font-size: 15px;
+                line-height: 1.7;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .tdw-content-box {
+                padding: 15px 25px;
+            }
+
+            .tdw-paragraph {
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        }
+
+        .tdw-section-header {
+            width: 100%;
+            padding: 15px 0;
+            
+        }
+
+        .tdw-section-header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 5% auto;
+        }
+
+        .tdw-section-title {
+            color: #8B4513;
+            font-size: 24px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .tdw-section-mandala {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            background-image: url('/images/mandala.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .tdw-section-title {
+                font-size: 20px;
+            }
+
+            .tdw-section-mandala {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .tdw-section-title {
+                font-size: 16px;
+            }
+
+            .tdw-section-mandala {
+                width: 25px;
+                height: 25px;
+            }
+
+            .tdw-section-header-container {
+                gap: 10px;
+                padding: 0 10px;
+            }
+        }
+
+        .tdw-table-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Tribal Border Pattern */
+        .tdw-border-left,
+        .tdw-border-right {
+            width: 20px;
+            background-repeat: repeat-y;
+            flex-shrink: 0;
+        }
+
+        .tdw-border-left {
+            background-image: url('/images/V-border.png');
+        }
+
+        .tdw-border-right {
+            background-image: url('/images/V-border.png');
+        }
+
+        /* Table Wrapper */
+        .tdw-table-wrapper {
+            flex-grow: 1;
+            overflow-x: auto;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin: auto 3%;
+        }
+
+        /* Table Styles */
+        .tdw-schools-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .tdw-schools-table thead {
+            background-color: #8B4513;
+            color: white;
+        }
+
+        .tdw-schools-table th {
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .tdw-schools-table th:last-child {
+            border-right: none;
+        }
+
+        .tdw-schools-table td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #eee;
+            border-right: 1px solid #eee;
+        }
+
+        .tdw-schools-table td:last-child {
+            border-right: none;
+        }
+
+        .tdw-schools-table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .tdw-schools-table tbody tr:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .tdw-schools-table {
+                font-size: 13px;
+            }
+
+            .tdw-schools-table th,
+            .tdw-schools-table td {
+                padding: 8px 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .tdw-border-left,
+            .tdw-border-right {
+                width: 15px;
+            }
+
+            .tdw-schools-table {
+                font-size: 12px;
+            }
+
+            .tdw-schools-table th,
+            .tdw-schools-table td {
+                padding: 6px 8px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .tdw-border-left,
+            .tdw-border-right {
+                display: none;
+            }
+
+            .tdw-table-container {
+                padding: 0;
+            }
+        }
+
+        .head{
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+     
+    <div class="head">
+    <div data-include="header.html"></div>
+
+    <main>
+        
+        <div class="tdw-content-container">
+            <header class="tdw-ashramshala-header">
+                <div class="tdw-mandala-container">
+                    <div class="tdw-mandala tdw-left-mandala"></div>
+                    <h1 class="tdw-ashramshala-title yatra-one-regular">दिनांक 09 /08/2024 जागतिक आदिवासी /अस्मिता दिन प्रास्ताविक</h1>
+                    <div class="tdw-mandala tdw-right-mandala"></div>
+                </div>
+            </header>
+            <div class="tdw-content-box">
+                <p class="tdw-paragraph mukta-vaani-regular">
+                   विषयानुरूप उपक्रमाची माहिती
+                </p>
+            </div>
+        </div>
+        
+        <div class="tdw-section-header">
+            <div class="tdw-section-header-container">
+                <div class="tdw-section-mandala"></div>
+                <h2 class="tdw-section-title yatra-one-regular">प्रकल्प कार्यालय अंतर्गत कार्यरत असलेल्या तालुकानिहाय एकूण अनुदानित आश्रमशाळा</h2>
+                <div class="tdw-section-mandala"></div>
+            </div>
+            
+            <div class="tdw-table-container">
+                <div class="tdw-border-left"></div>
+                <div class="tdw-table-wrapper mukta-vaani-regular">
+                    <table class="tdw-schools-table">
+                        <thead>
+      <tr>
+        <th>अ.क्र.</th>
+        <th>विषय</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>जिल्हा आदिवासी घटक कार्यक्रमाचा सन 2023-24 चा 100 टक्के निधी खर्च करुन प्रकल्प कार्यालय यावल हे महाराष्ट्र राज्यात सुरवातीपासून प्रथम क्रमांकावर राहिलेले आहे.</td></tr>
+      <tr><td>2</td><td>या प्रकल्पांतर्गत एकूण 17 शासकीय आश्रमशाळा असुन त्यामध्ये मुले 2845 व मुली 2868 असे एकूण 5713 विद्यार्थी शिक्षण घेत आहेत. इयत्ता 10 वी मार्च 2024 चा शालांत परिक्षा निकाल 96.36 टक्के लागला असुन त्यामध्ये 5 शाळांचा 100 टक्के निकाल लागलेला आहे. तसेच इ.12 वी च्या 2 शाळा असून निकाल 90.91 टक्के लागला आहे.</td></tr>
+      <tr><td>3</td><td>शासकीय आदिवासी विद्यार्थ्यांसाठी 12 मुलांचे व 5 मुलींचे असे एकूण 17 वसतीगृह असुन त्यामध्ये एकूण 2022 विद्यार्थी प्रवेशित आहेत.</td></tr>
+      <tr><td>4</td><td>प्रकल्पांर्तगत 34 अनुदानित आश्रमशाळा स्वंयसेवी संस्थेमार्फत चालविल्या जातात. त्यामध्ये मुले 12875 व 8011 मुली असे एकूण 20886 विद्यार्थी शिक्षण घेत आहेत. इयत्ता 10 वी मार्च 2024 चा शालांत परिक्षा निकाल 94.13 टक्के लागला असुन त्यामध्ये 12 शाळांचा 100 टक्के निकाल लागलेला आहे. तसेच इ.12 वी च्या 12 शाळा असुन निकाल 98.16 टक्के लागला आहे.</td></tr>
+      <tr><td>5</td><td>माझी शाळा सुदर शाळा:- या अभियाना अंर्तगत शाळेमध्ये हॅन्डवॉश स्टेशन, क्रिडा मैदान, परसबाग, शालेय परिसर स्वच्छता, वर्ग खोल्यांना रंगरंगोटी व सजावट इत्यादी कामे करण्यात येत आहे.तसेच दिवस भराचे सर्व फोटो ग्रुपवर टाकले जातात.</td></tr>
+      <tr><td>6</td><td>गुरुशाला:- प्रत्येक शाळेमध्ये गुरूशाळा उपक्रम राबविण्यात येत आहे. त्यामध्ये विद्यार्थ्याची गुणवत्ता वाढीसाठी प्रयत्न करण्यात येत आहे.</td></tr>
+      <tr><td>7</td><td>विद्यार्थी आदर्श दिनचर्या नियोजन :- या उपक्रमाखाली सकाळी 6 वाजेपासुन ते रात्री 10 वाजेपर्यंतचे विद्यार्थ्यांच्या दिनचर्याचे नियोजन केले आहे.</td></tr>
+      <tr><td>8</td><td>लालमाती आश्रमशाळेमध्ये नाविन्यपुर्ण उपक्रम राबविण्यात येत असुन, शाळा संपर्ण डिजीटल करण्याचा मानस आहे. सदरील शाळा माहाराष्ट्रतील नामांकित शाळेच्या बरोबरीने आणण्याचा प्रयत्न केला जात आहे.</td></tr>
+      <tr><td>9</td><td>एकूण 17 शाळांपैकी 3 शाळा नविन टाईप प्लॅननुसार आहेत. उर्वरित 14 शाळा जुन्या पत्र्याच्या(टिनच्या) शेडनुसार आहेत. परंतु या वर्षी तब्ब्ल 6 शाळा 1 वसतिगृह बांधकामाकरिता आत्तापर्यंतच्या इतिहासात प्रथमच रु. 101 कोटी निधी मंजुर करण्यात आला आहे.</td></tr>
+      <tr><td>10</td><td>एकही वसतिगृह किंवा शाळा भाडेतत्वावर न ठेवता सर्व ठिकाणी जागा उपलब्ध करुन येत्या डिसेंबर पर्यंत बांधकाम मंजुर करणेकरिता पाठपुरावा करण्यात येत आहे.</td></tr>
+      <tr><td>11</td><td>येत्या वर्षात जास्तीत जास्त वैयक्तिक लाभाच्या योजना राबविणार आहोत. रोजगार, शिक्षण, आरोग्य यावर भ्र देणार आहोत.</td></tr>
+      <tr><td>12</td><td>सिकलसेल:- जिल्हा आरोग्य अधिकारी जळगाव यांच्यामार्फत संपुर्ण शासकीय/अनुदानित आश्रमशाळा तसेच वसतीगृहांमधील 13998 विद्यार्थ्यांची विशेष सिकलसेल तपासणी करण्यात आली आहे.</td></tr>
+      <tr><td>13</td><td>पालकत्व:- प्रत्येक शाळेला पालकत्व अधिकारी नेमण्यात आलेले आहेत. ते सतत शाळेला भेटी देऊन विद्यार्थ्यांना जेवण नाश्ता, आरोग्य तसेच शैक्षणिक गुणवत्ता याबाबत तपासणी करतात.</td></tr>
+      <tr><td>14</td><td>शाळेतील विद्यार्थ्यांचे भोजन, नाश्ता, रात्रपाळीचा अभ्यास इत्यादीचे दररोज नोटकॅम ॲपने फोटो काढून मागविण्यात येतात व त्यावर रितसर सुचना देण्यात येतात किंवा कार्यवाही करण्यात येते.</td></tr>
+      <tr><td>15</td><td>शैक्षणिक गुणवत्ता कक्ष:- प्रत्येक शाळेत शैक्षणिक गुणवत्ता कक्ष स्थापन केलेला असुन त्यामध्ये शैक्षणिक गुणवत्ता समिती, क्रिडा समिती, परिक्षा समिती, कला व सांस्कृतिक समिती तसेच तंत्रस्नेही समिती इत्यादी समित्यांद्वारे विद्यार्थ्यांचे नियोजन व मुल्यांकन केले जाते.</td></tr>
+      <tr><td>16</td><td>वृक्षारोपण:- शासकीय /अनुदानित आश्रमशाळा तसेच वसतीगृहांमध्ये 12 हजार झाडे लावण्यात आली आहेत. व ते 100 टक्के जनत करणार आहोत.</td></tr>
+      <tr><td>17</td><td>शबरी घरकुल :- सन 2023-24 या वर्षाचा शबरी घरकुलचा लक्षांक 5000 पुर्ण करण्यात आला. तसेच शबरी घरकुलचा वाढीव 1000 देण्यात आलेला लक्षांकही पुर्ण झाला असून असे एकूण 6000 चा लक्षांक पुर्णत्वास नेण्यास प्रकल्प कार्यालयाने यशस्वी केलेला आहे.</td></tr>
+      <tr><td>18</td><td>पेसा क्षेत्रातील ग्रामपंचायती अंर्तगत गाव / पाडे येथे निवासी असणाऱ्या परंतु त्यांच्या नावाने निवासी जागा नसलेल्या गावठाण, गावराण, वनजमीन इत्यादींचे प्रस्ताव मागविण्यासाठी आदिवासी विकास निरीक्षक यांच्याकडे जबाबदारी देण्यात आली असुन सदरील अतिक्रमीत जमीन नियमानुकुल करण्याची कार्यवाही करण्यात येत आहे.</td></tr>
+      <tr><td>19</td><td>पेसा क्षेत्रातील गावांचे विद्यापीठातील विद्यार्थ्याकडुन सर्वक्षेण करण्यांत आले असुन, त्या ठिकाणच्या विकासाची कामे करण्यास संबधित यंत्रणेला कळविण्यांत आलेले आहे.</td></tr>
+      <tr><td>20</td><td>न्युकिलअस बजेट योजनेंतर्गत सन 2023-24 या आर्थिक वर्षात 160 लाभार्थ्यांना व पारधी जमातीच्या 75 लाभार्थ्यांना विविध व्यवसाय करण्यासाठी अर्थसहाय्य देण्याची कार्यवाही सुरु आहे. तसेच 11 सामुहिक बचत गटांना व्यवसाय करण्यासाठी अर्थसहाय्य देण्याची कार्यवाही सुरु आहे.</td></tr>
+      <tr><td>21</td><td>ठक्करबाप्पा योजनेंतर्गत :- या कार्यालयाकडुन 25 कोटीपेक्षा जास्त्‍ निधीचे प्रस्ताव शासनास मंजुरीस्तव सादर केलेले आहे.</td></tr>
+      <tr><td>22</td><td>सेवानिवृत्त झालेल्या कर्मचाऱ्यांच्या निवृत्ती वेतन देण्याबाबतचे प्रस्ताव महालेखाकार मुंबई यांचेकडे देण्यात आलेले आहेत.</td></tr>
+      <tr><td>23</td><td>प्रधानमंत्री आदिआदर्श ग्राम विकास यंत्रणेमार्फत पेसा क्षेत्रातील गावांमध्ये जिल्हा परिषद शाळा व अंगणवाडी यांना डिजीटल करण्याचा आराखडा मंजुर आहे. तसेच गावामध्ये सिमेंन्ट रस्ते व गटारी यांची कामे करण्यात येतील.</td></tr>
+    </tbody>                    </table>
+                </div>
+                <div class="tdw-border-right"></div>
+            </div>
+        </div>
+    </main>
+
+    <div data-include="footer.html"></div>
+    </div>
+    <script src="load-layout.js"></script>
+</body>
+</html>

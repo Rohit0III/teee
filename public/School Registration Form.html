@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="mr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>महाराष्ट्र शासन - आदिवासी विकास विभाग</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    .registration-container {
+        max-width: 1000px;
+        margin: 20px auto;
+        padding: 0;
+    }
+
+    .registration-header {
+        background: linear-gradient(to right, #6b3300, #cd7f32, #e6a44d);
+        color: white;
+        text-align: center;
+        padding: 20px;
+        border-radius: 10px;
+        position: relative;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .registration-title-marathi {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .registration-title-english {
+        font-size: 18px;
+        margin-top: 5px;
+    }
+
+    .registration-icon-left {
+        font-size: 24px;
+        margin-right: 15px;
+    }
+
+    .registration-icon-right {
+        font-size: 24px;
+        margin-left: 15px;
+    }
+
+    .registration-cap-icon {
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
+
+
+    .registration-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .registration-steps-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+
+    .registration-step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        width: 25%;
+    }
+
+    .registration-step-circle {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #fff;
+        position: relative;
+        z-index: 2;
+    }
+
+    .registration-step-active .registration-step-circle {
+        background: linear-gradient(135deg, #e6a44d, #cd7f32);
+        box-shadow: 0 4px 8px rgba(205, 127, 50, 0.3);
+    }
+
+    .registration-step-inactive .registration-step-circle {
+        background-color: #d1d1d1;
+        color: #333;
+    }
+
+    .registration-step-label {
+        font-weight: bold;
+        text-align: center;
+        color: #333;
+    }
+
+    .registration-step-active .registration-step-label {
+        color: #8B4513;
+    }
+
+    .registration-step-line {
+        height: 2px;
+        background-color: #d1d1d1;
+        position: absolute;
+        top: 30px;
+        width: 100%;
+        left: -50%;
+        z-index: 1;
+    }
+
+    .registration-step:first-child .registration-step-line {
+        display: none;
+    }
+
+    .registration-step-active .registration-step-line {
+        background-color: #cd7f32;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .registration-steps-wrapper {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .registration-step {
+            width: 100%;
+            flex-direction: row;
+            margin-bottom: 15px;
+        }
+
+        .registration-step-circle {
+            margin-right: 15px;
+            margin-bottom: 0;
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+        }
+
+        .registration-step-line {
+            display: none;
+        }
+    }
+
+    .tribal-registration-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #f9f2e7;
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+
+    /* Border implementation using background images */
+    .tribal-registration-border-top,
+    .tribal-registration-border-bottom,
+    .tribal-registration-border-left,
+    .tribal-registration-border-right {
+        position: absolute;
+        background-image: url(/images/v-border2.png);
+        background-repeat: repeat;
+        z-index: 1;
+    }
+
+    .tribal-registration-border-top {
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 30px;
+        background-position: top;
+    }
+
+    .tribal-registration-border-bottom {
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 30px;
+        background-position: bottom;
+    }
+
+    .tribal-registration-border-left {
+        top: 30px;
+        bottom: 30px;
+        left: 0;
+        width: 30px;
+        background-position: left;
+    }
+
+    .tribal-registration-border-right {
+        top: 30px;
+        bottom: 30px;
+        right: 0;
+        width: 30px;
+        background-position: right;
+    }
+
+    .tribal-registration-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    .tribal-registration-section {
+        margin-bottom: 35px;
+    }
+
+    .tribal-registration-section-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        border-bottom: 3px solid #b87333;
+        padding-bottom: 12px;
+    }
+
+    .tribal-registration-section-icon {
+        width: 28px;
+        height: 28px;
+        margin-right: 12px;
+        color: #8B4513;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+    }
+
+    .tribal-registration-section-title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #8B4513;
+    }
+
+    .tribal-registration-row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -12px 20px;
+    }
+
+    .tribal-registration-column {
+        flex: 1;
+        padding: 0 12px;
+        min-width: 280px;
+        margin-bottom: 20px;
+    }
+
+    .tribal-registration-label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #8B4513;
+        font-size: 14px;
+    }
+
+    .tribal-registration-label::before {
+        content: "•";
+        color: #b87333;
+        margin-right: 6px;
+        font-size: 16px;
+    }
+
+    .tribal-registration-input {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #ddd;
+        border-radius: 6px;
+        font-size: 16px;
+        box-sizing: border-box;
+        background-color: white;
+        transition: border-color 0.3s ease;
+    }
+
+    .tribal-registration-input:focus {
+        outline: none;
+        border-color: #b87333;
+        box-shadow: 0 0 0 3px rgba(184, 115, 51, 0.1);
+    }
+
+    .tribal-registration-input.tribal-registration-error {
+        border-color: #ff3333;
+        background-color: #fff8f8;
+    }
+
+    .tribal-registration-error-message {
+        color: #ff3333;
+        font-size: 12px;
+        margin-top: 6px;
+        display: none;
+    }
+
+    .tribal-registration-error-message.tribal-registration-show {
+        display: block;
+    }
+
+    .tribal-registration-select {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #ddd;
+        border-radius: 6px;
+        font-size: 16px;
+        background-color: white;
+        box-sizing: border-box;
+        cursor: pointer;
+        transition: border-color 0.3s ease;
+    }
+
+    .tribal-registration-select:focus {
+        outline: none;
+        border-color: #b87333;
+        box-shadow: 0 0 0 3px rgba(184, 115, 51, 0.1);
+    }
+
+    .tribal-registration-date {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #ddd;
+        border-radius: 6px;
+        font-size: 16px;
+        box-sizing: border-box;
+        background-color: white;
+        transition: border-color 0.3s ease;
+    }
+
+    .tribal-registration-date:focus {
+        outline: none;
+        border-color: #b87333;
+        box-shadow: 0 0 0 3px rgba(184, 115, 51, 0.1);
+    }
+
+    .tribal-registration-email-group {
+        display: flex;
+        border-radius: 6px;
+        overflow: hidden;
+        border: 2px solid #ddd;
+        transition: border-color 0.3s ease;
+    }
+
+    .tribal-registration-email-group:focus-within {
+        border-color: #b87333;
+        box-shadow: 0 0 0 3px rgba(184, 115, 51, 0.1);
+    }
+
+    .tribal-registration-email-input {
+        flex: 1;
+        padding: 12px;
+        border: none;
+        font-size: 16px;
+        background-color: white;
+    }
+
+    .tribal-registration-email-input:focus {
+        outline: none;
+    }
+
+    .tribal-registration-otp-button {
+        padding: 12px 20px;
+        background: linear-gradient(135deg, #b87333, #daa520);
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        white-space: nowrap;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .tribal-registration-otp-button:hover {
+        background: linear-gradient(135deg, #a05f20, #c99417);
+        transform: translateY(-1px);
+    }
+
+    .tribal-registration-otp-button:disabled {
+        background: #cccccc;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    .tribal-registration-register-button {
+        display: block;
+        width: 220px;
+        margin: 40px auto 20px;
+        padding: 15px;
+        background: linear-gradient(135deg, #b87333, #daa520);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .tribal-registration-register-button:hover {
+        background: linear-gradient(135deg, #a05f20, #c99417);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(184, 115, 51, 0.3);
+    }
+
+    .tribal-registration-register-button:disabled {
+        background: #cccccc;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+    }
+
+    .tribal-registration-login-link {
+        text-align: center;
+        margin-top: 20px;
+        color: #8B4513;
+        font-size: 16px;
+    }
+
+    .tribal-registration-login-link a {
+        color: #b87333;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .tribal-registration-login-link a:hover {
+        text-decoration: underline;
+    }
+
+    .tribal-registration-otp-countdown {
+        font-size: 14px;
+        color: #b87333;
+        margin-top: 8px;
+        display: none;
+        font-weight: bold;
+    }
+
+    .tribal-registration-otp-countdown.tribal-registration-show {
+        display: block;
+    }
+
+    .tribal-registration-otp-verified {
+        color: #28a745;
+        font-size: 14px;
+        margin-top: 8px;
+        display: none;
+        font-weight: bold;
+    }
+
+    .tribal-registration-otp-verified.tribal-registration-show {
+        display: block;
+    }
+
+    .tribal-registration-tooltip {
+        position: relative;
+        display: inline-block;
+        margin-left: 8px;
+        cursor: help;
+    }
+
+    .tribal-registration-tooltip-icon {
+        color: #b87333;
+        font-size: 14px;
+        font-weight: bold;
+        width: 18px;
+        height: 18px;
+        border: 2px solid #b87333;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+    }
+
+    .tribal-registration-tooltip-text {
+        visibility: hidden;
+        width: 220px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px;
+        position: absolute;
+        z-index: 1000;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -110px;
+        opacity: 0;
+        transition: opacity 0.3s;
+        font-weight: normal;
+        font-size: 12px;
+    }
+
+    .tribal-registration-tooltip:hover .tribal-registration-tooltip-text {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .tribal-registration-success-message {
+        background-color: #d4edda;
+        border: 1px solid #c3e6cb;
+        color: #155724;
+        padding: 15px;
+        border-radius: 6px;
+        margin-bottom: 20px;
+        display: none;
+    }
+
+    .tribal-registration-success-message.tribal-registration-show {
+        display: block;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .tribal-registration-container {
+            padding: 30px 15px;
+            margin: 10px;
+        }
+
+        .tribal-registration-border-top,
+        .tribal-registration-border-bottom {
+            height: 20px;
+        }
+
+        .tribal-registration-border-left,
+        .tribal-registration-border-right {
+            width: 20px;
+            top: 20px;
+            bottom: 20px;
+        }
+
+        .tribal-registration-column {
+            flex: 100%;
+            min-width: auto;
+        }
+
+        .tribal-registration-email-group {
+            flex-direction: column;
+        }
+
+        .tribal-registration-email-input {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tribal-registration-otp-button {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .tribal-registration-section-title {
+            font-size: 16px;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Form elements
+        const form = document.getElementById('tribalSchoolForm');
+        const generateOtpBtn = document.getElementById('generateOtpBtn');
+        const otpInput = document.getElementById('otpInput');
+        const otpCountdown = document.getElementById('otpCountdown');
+        const countdownTimer = document.getElementById('countdownTimer');
+        const otpVerified = document.getElementById('otpVerified');
+        const registerBtn = document.getElementById('registerBtn');
+        const schoolEmail = document.getElementById('schoolEmail');
+        const successMessage = document.getElementById('successMessage');
+
+        // Form validation
+        const formInputs = form.querySelectorAll('input[required], select[required]');
+
+        // Generate a random 6-digit OTP
+        function generateOTP() {
+            return Math.floor(100000 + Math.random() * 900000).toString();
+        }
+
+        // Validate email format
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // OTP generation and countdown
+        let otpValue = '';
+        let countdownInterval;
+        let isOtpVerified = false;
+
+        generateOtpBtn.addEventListener('click', function () {
+            const email = schoolEmail.value.trim();
+
+            if (!isValidEmail(email)) {
+                showError(schoolEmail, 'कृपया वैध ईमेल आयडी प्रविष्ट करा / Please enter valid email ID');
+                return;
+            }
+
+            // Generate OTP
+            otpValue = generateOTP();
+            console.log('Generated OTP:', otpValue); // In a real app, this would be sent to the server
+
+            // Enable OTP input
+            otpInput.disabled = false;
+            otpInput.value = '';
+            otpInput.focus();
+
+            // Reset verification status
+            isOtpVerified = false;
+            otpVerified.classList.remove('tribal-registration-show');
+
+            // Start countdown
+            let timeLeft = 60;
+            countdownTimer.textContent = timeLeft;
+            otpCountdown.classList.add('tribal-registration-show');
+
+            // Disable generate button during countdown
+            generateOtpBtn.disabled = true;
+            generateOtpBtn.textContent = 'OTP Sent';
+
+            // Clear any existing interval
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+            }
+
+            countdownInterval = setInterval(function () {
+                timeLeft--;
+                countdownTimer.textContent = timeLeft;
+
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    otpValue = '';
+                    generateOtpBtn.disabled = false;
+                    generateOtpBtn.innerHTML = '<span>📨</span> Generate OTP';
+                    otpCountdown.classList.remove('tribal-registration-show');
+                    otpInput.disabled = true;
+                }
+            }, 1000);
+
+            // Show success message
+            showNotification('OTP has been sent to ' + email, 'success');
+        });
+
+        // OTP verification
+        otpInput.addEventListener('input', function () {
+            if (otpInput.value === otpValue && otpValue !== '') {
+                isOtpVerified = true;
+                otpVerified.classList.add('tribal-registration-show');
+                clearInterval(countdownInterval);
+                otpCountdown.classList.remove('tribal-registration-show');
+                generateOtpBtn.disabled = false;
+                generateOtpBtn.innerHTML = '<span>✓</span> Verified';
+                generateOtpBtn.style.background = '#28a745';
+                hideError(otpInput);
+            } else {
+                isOtpVerified = false;
+                otpVerified.classList.remove('tribal-registration-show');
+            }
+        });
+
+        // Form validation functions
+        function showError(input, message) {
+            input.classList.add('tribal-registration-error');
+            const errorElement = input.parentNode.querySelector('.tribal-registration-error-message');
+            if (errorElement) {
+                errorElement.textContent = message;
+                errorElement.classList.add('tribal-registration-show');
+            }
+        }
+
+        function hideError(input) {
+            input.classList.remove('tribal-registration-error');
+            const errorElement = input.parentNode.querySelector('.tribal-registration-error-message');
+            if (errorElement) {
+                errorElement.classList.remove('tribal-registration-show');
+            }
+        }
+
+        function showNotification(message, type = 'info') {
+            // Create a temporary notification
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: ${type === 'success' ? '#d4edda' : '#d1ecf1'};
+                    color: ${type === 'success' ? '#155724' : '#0c5460'};
+                    padding: 15px 20px;
+                    border-radius: 6px;
+                    border: 1px solid ${type === 'success' ? '#c3e6cb' : '#bee5eb'};
+                    z-index: 1000;
+                    max-width: 300px;
+                    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Real-time validation
+        formInputs.forEach(input => {
+            input.addEventListener('blur', function () {
+                validateInput(input);
+            });
+
+            input.addEventListener('input', function () {
+                if (input.classList.contains('tribal-registration-error')) {
+                    validateInput(input);
+                }
+            });
+        });
+
+        function validateInput(input) {
+            let isValid = true;
+            let message = '';
+
+            if (input.type === 'email') {
+                if (!isValidEmail(input.value)) {
+                    isValid = false;
+                    message = 'कृपया वैध ईमेल आयडी प्रविष्ट करा / Please enter valid email ID';
+                }
+            } else if (input.pattern) {
+                const regex = new RegExp(input.pattern);
+                if (!regex.test(input.value)) {
+                    isValid = false;
+                    if (input.id === 'udiseNo') {
+                        message = 'कृपया 11 अंकी UDISE क्रमांक प्रविष्ट करा / Please enter 11-digit UDISE number';
+                    } else if (input.id === 'contactNumber') {
+                        message = 'कृपया 10 अंकी मोबाईल क्रमांक प्रविष्ट करा / Please enter 10-digit mobile number';
+                    }
+                }
+            } else if (input.required && !input.value.trim()) {
+                isValid = false;
+                message = input.parentNode.querySelector('.tribal-registration-error-message').textContent;
+            }
+
+            if (isValid) {
+                hideError(input);
+            } else {
+                showError(input, message);
+            }
+
+            return isValid;
+        }
+
+        // Form submission
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            let isValid = true;
+
+            // Validate all inputs
+            formInputs.forEach(input => {
+                if (!validateInput(input)) {
+                    isValid = false;
+                }
+            });
+
+            // Check if OTP is verified
+            if (!isOtpVerified) {
+                isValid = false;
+                showError(otpInput, 'कृपया OTP सत्यापित करा / Please verify OTP');
+                showNotification('Please verify your email with OTP', 'error');
+            }
+
+            if (isValid) {
+                // Show loading state
+                registerBtn.disabled = true;
+                registerBtn.innerHTML = '<span>⏳</span> Processing...';
+
+                // Simulate form submission
+                setTimeout(() => {
+                    successMessage.classList.add('tribal-registration-show');
+                    form.style.display = 'none';
+                    showNotification('Registration completed successfully!', 'success');
+
+                    // Reset button
+                    registerBtn.disabled = false;
+                    registerBtn.innerHTML = '<span>👤</span> Register';
+                }, 2000);
+            }
+        });
+
+        // Auto-format inputs
+        document.getElementById('udiseNo').addEventListener('input', function (e) {
+            e.target.value = e.target.value.replace(/\D/g, '');
+        });
+
+        document.getElementById('contactNumber').addEventListener('input', function (e) {
+            e.target.value = e.target.value.replace(/\D/g, '');
+        });
+
+        document.getElementById('otpInput').addEventListener('input', function (e) {
+            e.target.value = e.target.value.replace(/\D/g, '');
+        });
+    });
+
+</script>
+
+<body>
+    <div data-include="header.html"></div>
+    <div class="registration-container">
+        <header class="registration-header">
+            <div class="registration-title-marathi">
+                <span class="registration-icon-left registration-cap-icon"></span>
+                शाळा नोंदणी फॉर्म
+                <span class="registration-icon-right registration-cap-icon"></span>
+            </div>
+            <div class="registration-title-english">School Registration Form</div>
+        </header>
+
+        <!-- Rest of the form would go here -->
+
+        <div class="registration-container">
+            <div class="registration-steps-wrapper">
+                <div class="registration-step registration-step-active">
+                    <div class="registration-step-circle">1</div>
+                    <div class="registration-step-line"></div>
+                    <div class="registration-step-label">School Info</div>
+                </div>
+
+                <div class="registration-step registration-step-inactive">
+                    <div class="registration-step-circle">2</div>
+                    <div class="registration-step-line"></div>
+                    <div class="registration-step-label">Headmaster</div>
+                </div>
+
+                <div class="registration-step registration-step-inactive">
+                    <div class="registration-step-circle">3</div>
+                    <div class="registration-step-line"></div>
+                    <div class="registration-step-label">Verification</div>
+                </div>
+
+                <div class="registration-step registration-step-inactive">
+                    <div class="registration-step-circle">4</div>
+                    <div class="registration-step-line"></div>
+                    <div class="registration-step-label">Account</div>
+                </div>
+            </div>
+
+            <!-- Content for the current step would go here -->
+        </div>
+        <div class="tribal-registration-container">
+            <!-- Border elements -->
+            <div class="tribal-registration-border-top"></div>
+            <div class="tribal-registration-border-bottom"></div>
+            <div class="tribal-registration-border-left"></div>
+            <div class="tribal-registration-border-right"></div>
+
+            <div class="tribal-registration-content">
+                <div id="successMessage" class="tribal-registration-success-message">
+                    <strong>यशस्वी! / Success!</strong> Your registration has been completed successfully.
+                </div>
+
+                <form id="tribalSchoolForm" class="tribal-registration-form" novalidate>
+                    <!-- School Information Section -->
+                    <div class="tribal-registration-section">
+                        <div class="tribal-registration-section-header">
+                            <div class="tribal-registration-section-icon"><svg width="134" height="134"
+                                    viewBox="0 0 134 134" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="134" height="134" fill="#EDE5DD" />
+                                    <path
+                                        d="M118.297 67H110.969C110.393 67 109.922 67.4711 109.922 68.0469V109.922H24.0781V24.0781H65.9531C66.5289 24.0781 67 23.607 67 23.0312V15.7031C67 15.1273 66.5289 14.6562 65.9531 14.6562H18.8438C16.5275 14.6562 14.6562 16.5275 14.6562 18.8438V115.156C14.6562 117.472 16.5275 119.344 18.8438 119.344H115.156C117.472 119.344 119.344 117.472 119.344 115.156V68.0469C119.344 67.4711 118.873 67 118.297 67Z"
+                                        fill="#7B3F00" />
+                                    <path
+                                        d="M46.5769 69.9967L46.3283 85.5559C46.3152 86.7205 47.2574 87.6758 48.422 87.6758H48.4744L63.9158 87.2963C64.1775 87.2832 64.4392 87.1785 64.6224 86.9953L119.047 32.6887C119.452 32.283 119.452 31.6156 119.047 31.21L102.781 14.9572C102.572 14.7479 102.31 14.6562 102.035 14.6562C101.76 14.6562 101.499 14.7609 101.289 14.9572L46.8779 69.2639C46.6889 69.4615 46.5814 69.7232 46.5769 69.9967ZM54.8865 73.085L102.035 26.041L107.95 31.9428L60.7751 79.0129L54.7949 79.1568L54.8865 73.085Z"
+                                        fill="#7B3F00" />
+                                </svg>
+
+                            </div>
+                            <div class="tribal-registration-section-title">शाळेची माहिती / School Information</div>
+                        </div>
+
+                        <div class="tribal-registration-row">
+                            <div class="tribal-registration-column">
+                                <label class="tribal-registration-label" for="schoolName">शाळेचे नाव / School
+                                    Name</label>
+                                <select id="schoolName" class="tribal-registration-select" required>
+                                    <option value="">-- शाळा निवडा / Select School --</option>
+                                    <option value="school1">आदिवासी आश्रम शाळा नंबर १</option>
+                                    <option value="school2">एकलव्य निवासी शाळा</option>
+                                    <option value="school3">वनबंधु कल्याण शाळा</option>
+                                    <option value="school4">आदिवासी बालिका निवासी शाळा</option>
+                                </select>
+                                <div class="tribal-registration-error-message">कृपया शाळेचे नाव निवडा / Please select
+                                    school name</div>
+                            </div>
+
+                            <div class="tribal-registration-column">
+                                <label class="tribal-registration-label" for="schoolType">शाळेचा प्रकार / School
+                                    Type</label>
+                                <select id="schoolType" class="tribal-registration-select" required>
+                                    <option value="">-- शाळा निवडा / Select School --</option>
+                                    <option value="type1">आश्रम शाळा / Ashram School</option>
+                                    <option value="type2">निवासी शाळा / Residential School</option>
+                                    <option value="type3">प्राथमिक शाळा / Primary School</option>
+                                    <option value="type4">माध्यमिक शाळा / Secondary School</option>
+                                </select>
+                                <div class="tribal-registration-error-message">कृपया शाळेचा प्रकार निवडा / Please select
+                                    school type</div>
+                            </div>
+                        </div>
+
+                        <div class="tribal-registration-row">
+                            <div class="tribal-registration-column">
+                                <label class="tribal-registration-label" for="udiseNo">
+                                    शाळा UDISE क्र. / School UDISE No.
+                                    <span class="tribal-registration-tooltip">
+                                        <span class="tribal-registration-tooltip-icon">?</span>
+                                        <span class="tribal-registration-tooltip-text">11-digit unique code assigned to
+                                            your school by the Ministry of Education</span>
+                                    </span>
+                                </label>
+                                <input type="text" id="udiseNo" class="tribal-registration-input" pattern="[0-9]{11}"
+                                    maxlength="11" required>
+                                <div class="tribal-registration-error-message">कृपया 11 अंकी UDISE क्रमांक प्रविष्ट करा
+                                    / Please enter 11-digit UDISE number</div>
+                            </div>
+
+                            <div class="tribal-registration-column">
+                                <label class="tribal-registration-label" for="schoolAddress">शाळेचा पत्ता, गाव / School
+                                    Address, Village</label>
+                                <input type="text" id="schoolAddress" class="tribal-registration-input" required>
+                                <div class="tribal-registration-error-message">कृपया शाळेचा पत्ता प्रविष्ट करा / Please
+                                    enter school address</div>
+                            </div>
+                        </div>
+
+                        <div class="tribal-registration-row">
+                            <div class="tribal-registration-column">
+                                <label class="tribal-registration-label" for="district">जिल्हा / District</label>
+                                <input type="text" id="district" class="tribal-registration-input" value="Jalgaon"
+                                    readonly>
+                            </div>
+
+                            <div class="tribal-registration-column">
+                                <label class="tribal-registration-label" for="taluka">तालुका / Taluka</label>
+                                <select id="taluka" class="tribal-registration-select" required>
+                                    <option value="">-- निवडा / Select --</option>
+                                    <option value="taluka1">जळगाव</option>
+                                    <option value="taluka2">भुसावळ</option>
+                                    <option value="taluka3">चोपडा</option>
+                                    <option value="taluka4">यावल</option>
+                                    <option value="taluka5">पाचोरा</option>
+                                    <option value="taluka6">रावेर</option>
+                                </select>
+                                <div class="tribal-registration-error-message">कृपया तालुका निवडा / Please select taluka
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Headmaster Information Section -->
+                    <div class="tribal-registration-section">
+                        <div class="tribal-registration-section-header">
+                            <div class="tribal-registration-section-icon"><svg width="134" height="134"
+                                    viewBox="0 0 134 134" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="134" height="134" fill="#EDE5DD" />
+                                    <path
+                                        d="M85.3696 81.9449C84.5501 81.6769 79.3705 79.3422 82.6071 69.5035H82.5608C90.9976 60.8141 97.4451 46.8317 97.4451 33.0658C97.4451 11.899 83.3699 0.802734 67.0116 0.802734C50.643 0.802734 36.6451 11.8938 36.6451 33.0658C36.6451 46.8884 43.0565 60.9275 51.5449 69.5963C54.8537 78.2753 48.9371 81.4965 47.7001 81.9449C30.5688 88.145 10.4688 99.437 10.4688 110.585V114.765C10.4688 129.953 39.9178 133.406 67.1714 133.406C94.4661 133.406 123.544 129.953 123.544 114.765V110.585C123.544 99.102 103.346 87.8976 85.3696 81.9449ZM56.941 126.83C56.941 113.693 65.3057 95.9582 65.3057 95.9582L59.5179 91.4177C59.5179 87.0781 67.0064 82.5376 67.0064 82.5376C67.0064 82.5376 74.4744 87.1503 74.4744 91.4177L68.7072 95.9582C68.7072 95.9582 77.0719 113.626 77.0719 126.974C77.0719 129.066 56.941 128.582 56.941 126.83Z"
+                                        fill="#7B3F00" />
+                                </svg>
+                            </div>
+                            <div class="tribal-registration-section-title">मुख्याध्यापक माहिती / Headmaster Information
+                            </div>
+                        </div>
+
+                        <div class="tribal-registration-row">
+                            <div class="tribal-registration-column">
+                                <label class="tribal-registration-label" for="headmasterName">मुख्याध्यापक नाव /
+                                    Headmaster Name</label>
+                                <input type="text" id="headmasterName" class="tribal-registration-input" required>
+                                <div class="tribal-registration-error-message">कृपया मुख्याध्यापकाचे नाव प्रविष्ट करा /
+                                    Please enter headmaster name</div>
+                            </div>
+
+                            <div class="tribal-registration-column">
+                                <label class="tribal-registration-label" for="dateOfBirth">जन्म दिनांक / Date of
+                                    Birth</label>
+                                <input type="date" id="dateOfBirth" class="tribal-registration-date" required>
+                                <div class="tribal-registration-error-message">कृपया जन्म दिनांक प्रविष्ट करा / Please
+                                    enter date of birth</div>
+                            </div>
+                        </div>
+
+                        <div class="tribal-registration-row">
+                            <div class="tribal-registration-column">
+                                <label class="tribal-registration-label" for="contactNumber">संपर्क क्रमांक / Contact
+                                    Number</label>
+                                <input type="tel" id="contactNumber" class="tribal-registration-input"
+                                    pattern="[0-9]{10}" maxlength="10" required>
+                                <div class="tribal-registration-error-message">कृपया 10 अंकी मोबाईल क्रमांक प्रविष्ट करा
+                                    / Please enter 10-digit mobile number</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email Verification Section -->
+                    <div class="tribal-registration-section">
+                        <div class="tribal-registration-section-header">
+                            <div class="tribal-registration-section-icon"><svg width="134" height="134"
+                                    viewBox="0 0 134 134" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="134" height="134" fill="#EDE5DD" />
+                                    <path
+                                        d="M122.831 33.5002C122.831 27.3585 117.806 22.3335 111.664 22.3335H22.3307C16.1891 22.3335 11.1641 27.3585 11.1641 33.5002V100.5C11.1641 106.642 16.1891 111.667 22.3307 111.667H111.664C117.806 111.667 122.831 106.642 122.831 100.5V33.5002ZM111.664 33.5002L66.9974 61.4168L22.3307 33.5002H111.664ZM111.664 100.5H22.3307V44.6668L66.9974 72.5835L111.664 44.6668V100.5Z"
+                                        fill="#7B3F00" />
+                                </svg>
+                            </div>
+                            <div class="tribal-registration-section-title">ईमेल सत्यापन / Email Verification</div>
+                        </div>
+
+                        <div class="tribal-registration-row">
+                            <div class="tribal-registration-column">
+                                <label class="tribal-registration-label" for="schoolEmail">शाळा Email ID / School Email
+                                    ID</label>
+                                <div class="tribal-registration-email-group">
+                                    <input type="email" id="schoolEmail" class="tribal-registration-email-input"
+                                        required>
+                                    <button type="button" id="generateOtpBtn" class="tribal-registration-otp-button">
+                                        <span><svg width="30" height="30" viewBox="0 0 74 75" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M67.9375 1.5625C70.3281 0.15625 73.4219 2.125 72.8594 4.9375L62.7344 65.6875C62.4531 67.9375 60.0625 69.2031 58.0938 68.3594L40.6562 60.9062L31.6562 71.875C29.6875 74.2656 25.75 73 25.75 69.625V58.2344L59.5 17.0312C60.2031 16.1875 59.0781 15.2031 58.375 15.9062L18.0156 51.4844L2.96875 45.1562C0.4375 44.1719 0.15625 40.5156 2.6875 39.1094L67.9375 1.5625Z"
+                                                    fill="white" />
+                                            </svg>
+                                        </span> Generate OTP
+                                    </button>
+                                </div>
+                                <div class="tribal-registration-error-message">कृपया वैध ईमेल आयडी प्रविष्ट करा / Please
+                                    enter valid email ID</div>
+                                <div id="otpCountdown" class="tribal-registration-otp-countdown">OTP expires in: <span
+                                        id="countdownTimer">60</span> seconds</div>
+                            </div>
+                        </div>
+
+                        <div class="tribal-registration-row">
+                            <div class="tribal-registration-column">
+                                <label class="tribal-registration-label" for="otpInput">OTP प्रविष्ट करा / Enter
+                                    OTP</label>
+                                <input type="text" id="otpInput" class="tribal-registration-input"
+                                    placeholder="Enter the 6-digit OTP sent to your email" pattern="[0-9]{6}"
+                                    maxlength="6" disabled>
+                                <div class="tribal-registration-error-message">कृपया 6 अंकी OTP प्रविष्ट करा / Please
+                                    enter 6-digit OTP</div>
+                                <div id="otpVerified" class="tribal-registration-otp-verified">✓ OTP verified
+                                    successfully / OTP यशस्वीरित्या सत्यापित</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- User Account Section -->
+                    <div class="tribal-registration-section">
+                        <div class="tribal-registration-section-header">
+                            <div class="tribal-registration-section-icon"><svg width="134" height="134"
+                                    viewBox="0 0 134 134" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="134" height="134" fill="#EDE5DD" />
+                                    <path
+                                        d="M111.667 11.1667H44.6667C41.7051 11.1667 38.8648 12.3432 36.7706 14.4374C34.6765 16.5315 33.5 19.3718 33.5 22.3334V89.3334C33.5 92.295 34.6765 95.1353 36.7706 97.2294C38.8648 99.3236 41.7051 100.5 44.6667 100.5H111.667C114.628 100.5 117.469 99.3236 119.563 97.2294C121.657 95.1353 122.833 92.295 122.833 89.3334V22.3334C122.833 19.3718 121.657 16.5315 119.563 14.4374C117.469 12.3432 114.628 11.1667 111.667 11.1667ZM78.1667 25.1251C81.8686 25.1251 85.419 26.5957 88.0367 29.2134C90.6544 31.8311 92.125 35.3814 92.125 39.0834C92.125 42.7854 90.6544 46.3358 88.0367 48.9534C85.419 51.5711 81.8686 53.0417 78.1667 53.0417C74.4647 53.0417 70.9143 51.5711 68.2966 48.9534C65.6789 46.3358 64.2083 42.7854 64.2083 39.0834C64.2083 35.3814 65.6789 31.8311 68.2966 29.2134C70.9143 26.5957 74.4647 25.1251 78.1667 25.1251ZM106.083 83.7501H50.25V82.3542C50.25 72.0307 62.8348 61.4167 78.1667 61.4167C93.4985 61.4167 106.083 72.0307 106.083 82.3542V83.7501Z"
+                                        fill="#7B3F00" />
+                                    <path
+                                        d="M22.3307 44.6665H11.1641V111.667C11.1641 117.825 16.1723 122.833 22.3307 122.833H89.3307V111.667H22.3307V44.6665Z"
+                                        fill="#7B3F00" />
+                                </svg>
+                            </div>
+                            <div class="tribal-registration-section-title">वापरकर्ता खाते / User Account</div>
+                        </div>
+
+                        <div class="tribal-registration-row">
+                            <div class="tribal-registration-column">
+                                <label class="tribal-registration-label" for="userType">वापरकर्ता प्रकार निवडा / Select
+                                    User Type</label>
+                                <select id="userType" class="tribal-registration-select" required>
+                                    <option value="">-- वापरकर्ता प्रकार निवडा / Select User Type --</option>
+                                    <option value="headmaster">मुख्याध्यापक / Headmaster</option>
+                                    <option value="teacher">शिक्षक / Teacher</option>
+                                    <option value="admin">प्रशासक / Administrator</option>
+                                    <option value="clerk">लिपिक / Clerk</option>
+                                </select>
+                                <div class="tribal-registration-error-message">कृपया वापरकर्ता प्रकार निवडा / Please
+                                    select user type</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="registerBtn" class="tribal-registration-register-button">
+                        <span><svg width="30" height="32" viewBox="0 0 90 72" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M87.75 29.25C88.875 29.25 90 30.375 90 31.5V36C90 37.2656 88.875 38.25 87.75 38.25H78.75V47.25C78.75 48.5156 77.625 49.5 76.5 49.5H72C70.7344 49.5 69.75 48.5156 69.75 47.25V38.25H60.75C59.4844 38.25 58.5 37.2656 58.5 36V31.5C58.5 30.375 59.4844 29.25 60.75 29.25H69.75V20.25C69.75 19.125 70.7344 18 72 18H76.5C77.625 18 78.75 19.125 78.75 20.25V29.25H87.75ZM31.5 36C21.5156 36 13.5 27.9844 13.5 18C13.5 8.15625 21.5156 0 31.5 0C41.3438 0 49.5 8.15625 49.5 18C49.5 27.9844 41.3438 36 31.5 36ZM44.0156 40.5C54.4219 40.5 63 49.0781 63 59.4844V65.25C63 69.0469 59.9062 72 56.25 72H6.75C2.95312 72 0 69.0469 0 65.25V59.4844C0 49.0781 8.4375 40.5 18.8438 40.5H21.2344C24.3281 42.0469 27.8438 42.75 31.5 42.75C35.1562 42.75 38.5312 42.0469 41.625 40.5H44.0156Z"
+                                    fill="white" />
+                            </svg>
+                        </span> Register
+                    </button>
+                </form>
+
+                <div class="tribal-registration-login-link">
+                    Already registered? <a href="#">Login here</a>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+<div data-include="footer.html"></div>
+    <script src="load-layout.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="mr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>शासकीय आश्रमशाळा मुख्याध्यापक संपर्क नंबर यादी</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .grs-header {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px 0;
+            margin: 0 auto;
+        }
+
+        .grs-mandala-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 5% auto;
+        }
+
+        .grs-title {
+            color: #8B4513;
+            font-size: 42px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .grs-mandala {
+            width: 40px;
+            height: 40px;
+            background-image: url('/images/mandala.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Add a decorative dot pattern around the first letter */
+        .grs-title::first-letter {
+            position: relative;
+        }
+
+        .grs-title::before {
+            content: "◌";
+            position: absolute;
+            left: -15px;
+            top: 0;
+            color: #8B4513;
+            font-size: 42px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .grs-mandala-container {
+                gap: 10px;
+            }
+
+            .grs-title {
+                font-size: 32px;
+            }
+
+            .grs-mandala {
+                width: 80px;
+                height: 80px;
+            }
+
+            .grs-title::before {
+                font-size: 32px;
+                left: -10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grs-title {
+                font-size: 24px;
+            }
+
+            .grs-mandala {
+                width: 30px;
+                height: 30px;
+            }
+
+            .grs-title::before {
+                font-size: 24px;
+                left: -8px;
+            }
+        }
+
+        .grs-content-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .grs-content-box {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 30px 40px;
+            position: relative;
+            width: 100%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Left and right borders */
+        .grs-content-box::before,
+        .grs-content-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: #8B4513;
+        }
+
+        .grs-content-box::before {
+            left: 0;
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+
+        .grs-content-box::after {
+            right: 0;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .grs-paragraph {
+            margin-bottom: 20px;
+            text-align: justify;
+            text-align: center;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .grs-paragraph:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .grs-content-box {
+                padding: 20px 30px;
+            }
+
+            .grs-paragraph {
+                font-size: 15px;
+                line-height: 1.7;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .grs-content-box {
+                padding: 15px 25px;
+            }
+
+            .grs-paragraph {
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        }
+
+        .grs-section-header {
+            width: 100%;
+            padding: 15px 0;
+            background-color: #ffffff;
+        }
+
+        .grs-section-header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 5% auto;
+        }
+
+        .grs-section-title {
+            color: #8B4513;
+            font-size: 24px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .grs-section-mandala {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            background-image: url('/images/mandala.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .grs-section-title {
+                font-size: 20px;
+            }
+
+            .grs-section-mandala {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .grs-section-title {
+                font-size: 16px;
+            }
+
+            .grs-section-mandala {
+                width: 25px;
+                height: 25px;
+            }
+
+            .grs-section-header-container {
+                gap: 10px;
+                padding: 0 10px;
+            }
+        }
+
+        .grs-table-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Tribal Border Pattern */
+        .grs-border-left,
+        .grs-border-right {
+            width: 20px;
+            background-repeat: repeat-y;
+            flex-shrink: 0;
+        }
+
+        .grs-border-left {
+            background-image: url('/images/V-border.png');
+        }
+
+        .grs-border-right {
+            background-image: url('/images/V-border.png');
+        }
+
+        /* Table Wrapper */
+        .grs-table-wrapper {
+            flex-grow: 1;
+            overflow-x: auto;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin: auto 3%;
+        }
+
+        /* Table Styles */
+        .grs-hostels-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .grs-hostels-table thead {
+            background-color: #8B4513;
+            color: white;
+        }
+
+        .grs-hostels-table th {
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .grs-hostels-table th:last-child {
+            border-right: none;
+        }
+
+        .grs-hostels-table td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #eee;
+            border-right: 1px solid #eee;
+        }
+
+        .grs-hostels-table td:last-child {
+            border-right: none;
+        }
+
+        .grs-hostels-table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .grs-hostels-table tbody tr:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .grs-hostels-table {
+                font-size: 13px;
+            }
+
+            .grs-hostels-table th,
+            .grs-hostels-table td {
+                padding: 8px 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grs-border-left,
+            .grs-border-right {
+                width: 15px;
+            }
+
+            .grs-hostels-table {
+                font-size: 12px;
+            }
+
+            .grs-hostels-table th,
+            .grs-hostels-table td {
+                padding: 6px 8px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .grs-border-left,
+            .grs-border-right {
+                display: none;
+            }
+
+            .grs-table-container {
+                padding: 0;
+            }
+            .grs-header{
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div data-include="header.html"></div>
+    <header class="grs-header">
+        <div class="grs-mandala-container">
+            <div class="grs-mandala grs-left-mandala"></div>
+            <h1 class="grs-title">शासकीय आश्रमशाळा मुख्याध्यापक संपर्क नंबर यादी</h1>
+            <div class="grs-mandala grs-right-mandala"></div>
+        </div>
+        <div class="grs-content-container">
+            <div class="grs-content-box">
+                <p class="grs-paragraph">
+                    प्रकल्प कार्यालय अंतर्गत कार्यरत असलेल्या आश्रमशाळा मुख्याध्यापकांचे संपर्क नंबर<br>
+
+प्रकल्प अधिकारी, एकात्मिक आदिवासी विकास प्रकल्प, यावल, जि. जळगाव<br>
+
+शैक्षणिक वर्ष 2023-24
+                </p>
+            </div>
+        </div>
+        <div class="grs-section-header">
+            <div class="grs-section-header-container">
+                <div class="grs-section-mandala"></div>
+                <h2 class="grs-section-title">शासकीय आश्रमशाळा मुख्याध्यापक संपर्क नंबर यादी</h2>
+                <div class="grs-section-mandala"></div>
+            </div>
+            <div class="grs-table-container">
+                <div class="grs-border-left"></div>
+
+                <div class="grs-table-wrapper">
+                    <table class="grs-hostels-table">
+                        <thead>
+                        <tr>
+                            <th>अ.क्र.</th>
+                            <th>शाळेचे नाव</th>
+                            <th>गाव</th>
+                            <th>ग्रामपंचायत</th>
+                            <th>पोस्ट</th>
+                            <th>पिनकोड</th>
+                            <th>तालुका</th>
+                            <th>मुख्याध्यापकाचे पूर्ण नाव</th>
+                            <th>मोबाईल क्रमांक</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>शासकीय माध्यमिक व उच्च माध्यमिक कन्या आश्रम शाळा, वैजापुर</td>
+                            <td>वैजापुर</td>
+                            <td>वैजापूर</td>
+                            <td>वैजापूर</td>
+                            <td>425107</td>
+                            <td>चोपडा</td>
+                            <td>श्री.विकास भगवान माळी</td>
+                            <td>9623075642</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>शासकीय माध्यमिक आश्रम शाळा, देवझिरी</td>
+                            <td>देवझिरी</td>
+                            <td>देव्हारी</td>
+                            <td>मेलाने</td>
+                            <td>425107</td>
+                            <td>चोपडा</td>
+                            <td>श्री.ज्ञानेश्वर शांताराम महाजन</td>
+                            <td>7350163247</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>शासकीय प्राथमिक आश्रम शाळा, कृष्णापुर</td>
+                            <td>कृष्णापुर</td>
+                            <td>कृष्णापूर</td>
+                            <td>मामलदे</td>
+                            <td>425107</td>
+                            <td>चोपडा</td>
+                            <td>श्री.संताजी लक्ष्मण देसाई</td>
+                            <td>7588160929</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>शासकीय प्राथमिक आश्रम शाळा, विष्णापुर</td>
+                            <td>विष्णापुर</td>
+                            <td>विष्णापुर</td>
+                            <td>विष्णापुर</td>
+                            <td>425107</td>
+                            <td>चोपडा</td>
+                            <td>श्री.हरिश्चंद्र दत्तात्रय पाटील</td>
+                            <td>7972295622</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>शासकीय माध्यमिक व उच्च माध्यमिक आश्रम शाळा, वाघझिरा</td>
+                            <td>वाघझिरा</td>
+                            <td>मालोद</td>
+                            <td>वाघझिरा</td>
+                            <td>425302</td>
+                            <td>यावल</td>
+                            <td>श्री.किशोर अर्जुन महाजन</td>
+                            <td>9403311075</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>शासकीय माध्यमिक आश्रम शाळा, डोंगर कठोरा</td>
+                            <td>डों.कठोरा</td>
+                            <td>डों.कठोरा</td>
+                            <td>डों.कठोरा</td>
+                            <td>425304</td>
+                            <td>यावल</td>
+                            <td>श्री. शिवहरी नारायण वानखेडे</td>
+                            <td>7020694501</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>शासकीय प्राथमिक आश्रम शाळा, मालोद</td>
+                            <td>मालोद</td>
+                            <td>मालोद</td>
+                            <td>वाघझिरा</td>
+                            <td>425302</td>
+                            <td>यावल</td>
+                            <td>श्री.गजानन चंद्रभान कटारे</td>
+                            <td>9405912785</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>शासकीय माध्यमिक आश्रम शाळा, लालमाती</td>
+                            <td>लालमाती</td>
+                            <td>लालमाती</td>
+                            <td>आभोड़ा</td>
+                            <td>425508</td>
+                            <td>रावेर</td>
+                            <td>श्री.मनेश रज्जाक तडवी</td>
+                            <td>9834738459</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>शासकीय माध्यमिक आश्रम शाळा, जोंधनखेडा</td>
+                            <td>जोंधनखेडा</td>
+                            <td>जोंधनखेडा</td>
+                            <td>पारंबी</td>
+                            <td>425327</td>
+                            <td>मुक्ताईनगर</td>
+                            <td>श्री.सचिन शिवाजी गायकवाड</td>
+                            <td>9403432211</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>शासकीय माध्यमिक आश्रम शाळा, पळसखेडा</td>
+                            <td>पळसखेडा</td>
+                            <td>जलचक्र</td>
+                            <td>मुक्ताळ</td>
+                            <td>425310</td>
+                            <td>बोदवड</td>
+                            <td>श्री.रायभान सूर्यभान तायडे</td>
+                            <td>7350247396</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>शासकीय माध्यमिक आश्रम शाळा, वलठाण</td>
+                            <td>वलठाण</td>
+                            <td>वलठाण</td>
+                            <td>पाटणा</td>
+                            <td>424119</td>
+                            <td>चाळीसगांव</td>
+                            <td>श्री.एस.एस.सोनवणे</td>
+                            <td>9881218373</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>शासकीय माध्यमिक आश्रम शाळा, गंगापुरी</td>
+                            <td>गंगापुरी</td>
+                            <td>गारखेडा</td>
+                            <td>गारखेडा</td>
+                            <td>424206</td>
+                            <td>जामनेर</td>
+                            <td>श्री.मोहन गुणवंतराव तायडे</td>
+                            <td>9404709451</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td>शासकीय माध्यमिक आश्रम शाळा, पिंगळवाडे</td>
+                            <td>पिंगळवाडे</td>
+                            <td>पिंगळवाडे</td>
+                            <td>निंभोरा</td>
+                            <td>425420</td>
+                            <td>अमळनेर</td>
+                            <td>श्री.आनंद शिवदास मंगळे</td>
+                            <td>9881218373</td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td>शासकीय माध्यमिक आश्रम शाळा, दहिवद</td>
+                            <td>दहिवद</td>
+                            <td>दहिवद</td>
+                            <td>दहिवद</td>
+                            <td>425420</td>
+                            <td>अमळनेर</td>
+                            <td>श्री.नितीन वसंत शिरसाठ</td>
+                            <td>9552987044</td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>शासकीय माध्यमिक आश्रम शाळा, चांदसर</td>
+                            <td>चांदसर</td>
+                            <td>चांदसर</td>
+                            <td>चांदसर</td>
+                            <td>425103</td>
+                            <td>धरणगांव</td>
+                            <td>श्री.भैय्यासाहेब नथ्थूमियां देशपांडे</td>
+                            <td>9272731392</td>
+                        </tr>
+                        <tr>
+                            <td>16</td>
+                            <td>शासकीय माध्यमिक आश्रम शाळा, सोनबर्डी</td>
+                            <td>सोनबर्डी</td>
+                            <td>सोनबर्डी</td>
+                            <td>सोनबर्डी</td>
+                            <td>425109</td>
+                            <td>एरंडोल</td>
+                            <td>श्री.प्रल्हाद घनश्याम शिंदे</td>
+                            <td>9021318680</td>
+                        </tr>
+                        <tr>
+                            <td>17</td>
+                            <td>शासकीय माध्यमिक आश्रम शाळा, सार्वे बु.</td>
+                            <td>सार्वे बु.</td>
+                            <td>सार्वे बु.</td>
+                            <td>सार्वे बु.</td>
+                            <td>424303</td>
+                            <td>पाचोरा</td>
+                            <td>श्री.सदाशिव पी. पवार</td>
+                            <td>9423943089</td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+
+                <div class="grs-border-right"></div>
+            </div>
+        </div>
+    </header>
+    <div data-include="footer.html"></div>
+
+    <script src="/load-layout.js"></script>
+</body>
+
+</html>

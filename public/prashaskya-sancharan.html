@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Yatra+One&display=swap');
+     @import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;300;400;500;600;700;800&family=Yatra+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+      .yatra-one-regular {
+            font-family: "Yatra One", system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .mukta-vaani-regular {
+            font-family: "Mukta Vaani", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+.banner {
+    position: relative;
+    width: 80%;
+    height: 120px;
+    background: linear-gradient(to right, #7B3F00, #FFA64A, #7B3F00);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    padding: 20px;
+    margin: 5% auto;
+}
+
+.content {
+    text-align: center;
+    z-index: 2;
+    
+}
+
+.content h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  
+}
+
+.content p {
+    font-size: 18px;
+}
+
+.mandala {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    background-image: url('/images/1.svg');
+}
+
+.left-mandala {
+    left: -50px;
+    top: 50px;
+    
+}
+
+.right-mandala {
+    right: -50px;
+    top: -50px;
+}
+
+@media (max-width: 768px) {
+    .banner {
+        height: 100px;
+
+    
+    }
+    
+    .content h1 {
+        font-size: 24px;
+    }
+    
+    .content p {
+        font-size: 14px;
+    }
+    
+    .mandala {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    line-height: 1.6;
+}
+
+.mh-tribal-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Section Styling */
+.mh-tribal-officials-section {
+    margin-bottom: 60px;
+}
+
+.mh-tribal-section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.mh-tribal-section-header h2 {
+    color: #8B4513;
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.mh-tribal-section-header .mh-tribal-underline {
+    width: 80px;
+    height: 3px;
+    background-color: #4CAF50;
+    margin: 0 auto 10px;
+}
+
+.mh-tribal-section-header p {
+    color: #666;
+    font-size: 16px;
+}
+
+/* Officials Row */
+.mh-tribal-officials-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* Official Card */
+.mh-tribal-official-card {
+    position: relative;
+    width: 280px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+}
+
+.mh-tribal-border-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background-color: #8B4513;
+}
+
+.mh-tribal-pattern-border {
+    width: 30px;
+    background-repeat: repeat-y;
+    position: relative;
+}
+
+.mh-tribal-pattern-border.mh-tribal-left {
+  background-image: url('/images/V-border.png');
+}
+
+.mh-tribal-pattern-border.mh-tribal-right {
+  background-image: url('/images/V-border.png');
+}
+
+.mh-tribal-card-content {
+    flex: 1;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mh-tribal-card-content h3{
+    font: bolder;
+}
+
+.mh-tribal-photo-container {
+    width: 180px;
+    height: 180px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 1px solid #eee;
+}
+
+.mh-tribal-photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mh-tribal-official-card h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #333;
+}
+
+.mh-tribal-designation {
+    background-color: #8B4513;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .mh-tribal-officials-row {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .mh-tribal-official-card {
+        width: 250px;
+    }
+    
+    .mh-tribal-photo-container {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+@media (max-width: 576px) {
+    .mh-tribal-officials-row {
+        flex-direction: ;
+        align-items: center;
+    }
+    
+    .mh-tribal-official-card {
+        width: 280px;
+    }
+}
+
+/* Section Styling */
+.mtd-officials-section {
+    padding: 40px 0;
+    background-color: #ffffff;
+    margin-bottom: 30px;
+}
+
+/* Section Header */
+.mtd-section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.mtd-section-header h2 {
+    color: #8B4513;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.mtd-title-underline {
+    width: 80px;
+    height: 3px;
+    background-color: #4CAF50;
+    margin: 0 auto 15px;
+    border-radius: 2px;
+}
+
+.mtd-section-header p {
+    color: #666;
+    font-size: 16px;
+}
+
+/* Officials Row */
+.mtd-officials-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    
+}
+
+/* Pattern Borders */
+.mtd-pattern-border {
+    width: 20px;
+    height: 600px;
+    background-repeat: repeat-y;
+    position: relative;
+   
+}
+
+.mtd-border-left {
+     background-image: url('/images/V-border.png');
+}
+.mtd-border-right {
+   background-image: url('/images/V-border.png');
+}
+
+/* Official Card */
+.mtd-official-card {
+    position: relative;
+    width: 600px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+   
+}
+
+.mtd-card-top-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background-color: #8B4513;
+}
+
+.mtd-card-content {
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Photo Container */
+.mtd-photo-wrapper {
+    width: 480px;
+    height: 480px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 1px solid #eee;
+}
+
+.mtd-photo-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Name and Designation */
+.mtd-official-card h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #333;
+}
+
+.mtd-position-badge {
+    background-color: #8B4513;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .mtd-official-card {
+        width: 250px;
+    }
+    
+    .mtd-photo-wrapper {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .mtd-pattern-border {
+        width: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .mtd-officials-row {
+        flex-direction: column;
+    }
+    
+    .mtd-pattern-border {
+        display: none;
+    }
+    
+    .mtd-official-card {
+        width: 280px;
+    }
+
+    .banner{
+        width: 300px;
+    }
+}
+
+
+        @media (max-width: 768px) {
+            .banner {
+                width: 95%;
+                padding: 15px;
+            }
+            .content h1 {
+                font-size: 1.5rem;
+            }
+            .content p {
+                font-size: 0.9rem;
+            }
+            .left-mandala, .right-mandala {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .mh-tribal-photo-container,
+            .mtd-photo-wrapper {
+                width: 100%;
+                height: auto;
+            }
+        }
+</style>
+<body>
+      <div data-include="header.html"></div>
+<header class="banner">
+    <div class="mandala left-mandala"></div>
+    <div class="content">
+        <h1 class="yatra-one-regular">प्रशासकीय संरचना</h1>
+        <div class="mh-tribal-underline"></div>
+        <p class="mukta-vaani-regular ">महाराष्ट्र आदिवासी विकास विभाग</p>
+    </div>
+    <div class="mandala right-mandala"></div>
+</header>
+
+<div class="mh-tribal-container">
+    <!-- First Section - Key Leadership -->
+    <section class="mh-tribal-officials-section">
+        <div class="mh-tribal-section-header">
+            <h2 class="yatra-one-regular">प्रमुख नेतृत्व</h2>
+            <div class="mh-tribal-underline"></div>
+            <p  class="mukta-vaani-regular ">महाराष्ट्राचे आदिवासी विकास क्षेत्रातील प्रमुख मार्गदर्शक</p>
+        </div>
+
+        <div class="mh-tribal-officials-row">
+            <!-- Official 1 -->
+            <div class="mh-tribal-pattern-border mh-tribal-left"></div>
+            <div class="mh-tribal-official-card">
+                <div class="mh-tribal-border-top"></div>
+                <div class="mh-tribal-card-content">
+                    <div class="mh-tribal-photo-container">
+                        <img src="/images/d-1.webp"
+                            alt="श्री. देवेंद्र फडणवीस">
+                    </div>
+                    <h3 class="mukta-vaani-regular">श्री. देवेंद्र फडणवीस</h3>
+                    <div class="mh-tribal-designation">
+                        <span class="mukta-vaani-regular">माननीय मुख्यमंत्री</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Official 2 -->
+            <div class="mh-tribal-pattern-border mh-tribal-left"></div>
+            <div class="mh-tribal-official-card">
+                <div class="mh-tribal-border-top"></div>
+                <div class="mh-tribal-card-content">
+                    <div class="mh-tribal-photo-container">
+                        <img src="/images/d-2.webp"
+                            alt="श्री. एकनाथ शिंदे">
+                    </div>
+                    <h3 class="mukta-vaani-regular">श्री. एकनाथ शिंदे</h3>
+                    <div class="mh-tribal-designation">
+                        <span class="mukta-vaani-regular">माननीय उपमुख्यमंत्री</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Official 3 -->
+            <div class="mh-tribal-pattern-border mh-tribal-left"></div>
+            <div class="mh-tribal-official-card">
+                <div class="mh-tribal-border-top"></div>
+                <div class="mh-tribal-card-content">
+                    <div class="mh-tribal-photo-container">
+                        <img src="/images/d-3.webp" alt="श्री. अजित पवार">
+                    </div>
+                    <h3 class="mukta-vaani-regular">श्री. अजित पवार</h3>
+                    <div class="mh-tribal-designation">
+                        <span class="mukta-vaani-regular">माननीय उपमुख्यमंत्री</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mh-tribal-pattern-border mh-tribal-right"></div>
+        </div>
+    </section>
+
+    <!-- Second Section - Tribal Development Department -->
+    <section class="mh-tribal-officials-section">
+        <div class="mh-tribal-section-header">
+            <h2 class="yatra-one-regular">आदिवासी विकास विभाग</h2>
+        </div>
+
+        <div class="mh-tribal-officials-row">
+            <!-- Official 4 -->
+            <div class="mh-tribal-pattern-border mh-tribal-left"></div>
+            <div class="mh-tribal-official-card">
+                <div class="mh-tribal-border-top"></div>
+                <div class="mh-tribal-card-content">
+                    <div class="mh-tribal-photo-container">
+                        <img src="/images/d-4.webp"
+                            alt="श्री. अशोक रामजी उईके">
+                    </div>
+                    <h3 class="mukta-vaani-regular">श्री. अशोक रामजी उईके</h3>
+                    <div class="mh-tribal-designation">
+                        <span class="mukta-vaani-regular">मा.मंत्री, आदिवासी विकास</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Official 5 -->
+            <div class="mh-tribal-pattern-border mh-tribal-left"></div>
+            <div class="mh-tribal-official-card">
+                <div class="mh-tribal-border-top"></div>
+                <div class="mh-tribal-card-content">
+                    <div class="mh-tribal-photo-container">
+                        <img src="/images/d-5.webp"
+                            alt="श्री. गुलाबराव पाटील">
+                    </div>
+                    <h3 class="mukta-vaani-regular">श्री. गुलाबराव पाटील</h3>
+                    <div class="mh-tribal-designation">
+                        <span class="mukta-vaani-regular">मा.मंत्री,पाणीपुरवठा व स्वच्छता विभाग , महाराष्ट्र राज्य तथ मा.पालकमंत्री, जळगाव जिल</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Official 6 -->
+            <div class="mh-tribal-pattern-border mh-tribal-left"></div>
+            <div class="mh-tribal-official-card">
+                <div class="mh-tribal-border-top"></div>
+                <div class="mh-tribal-card-content">
+                    <div class="mh-tribal-photo-container">
+                        <img src="/images/d-6.webp"
+                            alt="श्री. इंद्रनील मनोहरराव नाईक">
+                    </div>
+                    <h3 class="mukta-vaani-regular">श्री. इंद्रनील मनोहरराव नाईक</h3>
+                    <div class="mh-tribal-designation">
+                        <span class="mukta-vaani-regular">मा. राज्यमंत्री, आदिवासी विकास विभाग</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mh-tribal-pattern-border mh-tribal-right"></div>
+        </div>
+    </section>
+
+
+
+    <!-- ----------------------------------------------------- -->
+
+     <section class="mh-tribal-officials-section">
+        <div class="mh-tribal-section-header">
+            <h2 class="yatra-one-regular">प्रशासकीय अधिकार</h2>
+            <div class="mh-tribal-underline"></div>
+            <p class="mukta-vaani-regular">वीभागाचे कार्यकारी नेतृत</p>
+        </div>
+
+        <div class="mh-tribal-officials-row">
+            <!-- Official 1 -->
+            <div class="mh-tribal-pattern-border mh-tribal-left"></div>
+            <div class="mh-tribal-official-card">
+                <div class="mh-tribal-border-top"></div>
+                <div class="mh-tribal-card-content">
+                    <div class="mh-tribal-photo-container">
+                        <img src="/images/d-7.webp"
+                            alt="श्री. देवेंद्र फडणवीस">
+                    </div>
+                    <h3 class="mukta-vaani-regular">मा. श्री विजय वाघमारे, (भा.प्र.से)</h3>
+                    <div class="mh-tribal-designation">
+                        <span class="mukta-vaani-regular">प्रधान सचिव, आदिवासी विकास विभाग</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Official 2 -->
+            <div class="mh-tribal-pattern-border mh-tribal-left"></div>
+            <div class="mh-tribal-official-card">
+                <div class="mh-tribal-border-top"></div>
+                <div class="mh-tribal-card-content">
+                    <div class="mh-tribal-photo-container">
+                        <img src="/images/d-8.webp"
+                            alt="श्री. एकनाथ शिंदे">
+                    </div>
+                    <h3 class="mukta-vaani-regular">श्रीमती लीना बनसोड, (भा.प्र.से.)</h3>
+                    <div class="mh-tribal-designation">
+                        <span class="mukta-vaani-regular">आयुक्त, आदिवासी विकास विभाग</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Official 3 -->
+            <div class="mh-tribal-pattern-border mh-tribal-left"></div>
+            <div class="mh-tribal-official-card">
+                <div class="mh-tribal-border-top"></div>
+                <div class="mh-tribal-card-content">
+                    <div class="mh-tribal-photo-container">
+                        <img src="/images/d-9.webp" alt="श्री. अजित पवार">
+                    </div>
+                    <h3 class="mukta-vaani-regular">श्री.आयुष प्रसाद, (भा.प्र.से.)</h3>
+                    <div class="mh-tribal-designation">
+                        <span class="mukta-vaani-regular">मा.जिल्हाधिकारी, जळगाव</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mh-tribal-pattern-border mh-tribal-right"></div>
+        </div>
+    </section>
+
+
+    <section class="mh-tribal-officials-section">
+        <div class="mh-tribal-officials-row">
+            <!-- Official 4 -->
+            <div class="mh-tribal-pattern-border mh-tribal-left"></div>
+            <div class="mh-tribal-official-card">
+                <div class="mh-tribal-border-top"></div>
+                <div class="mh-tribal-card-content">
+                    <div class="mh-tribal-photo-container">
+                        <img src="/images/d-10.webp"
+                            alt="श्री. अशोक रामजी उईके">
+                    </div>
+                    <h3 class="mukta-vaani-regular">मा.संदीप गोलाईत</h3>
+                    <div class="mh-tribal-designation">
+                        <span class="mukta-vaani-regular">अपर आयुक्त, आदिवासी विकास विभाग नाशिक</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Official 5 -->
+            <div class="mh-tribal-pattern-border mh-tribal-left"></div>
+            <div class="mh-tribal-official-card">
+                <div class="mh-tribal-border-top"></div>
+                <div class="mh-tribal-card-content">
+                    <div class="mh-tribal-photo-container">
+                        <img src="/images/d-11.webp"
+                            alt="श्री. गुलाबराव पाटील">
+                    </div>
+                    <h3 class="mukta-vaani-regular">श्री.अरुण पवार</h3>
+                    <div class="mh-tribal-designation">
+                        <span class="mukta-vaani-regular">प्रकल्प अधिकारी</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mh-tribal-pattern-border mh-tribal-right"></div>
+        </div>
+    </section>
+
+
+
+    <section class="mtd-officials-section">
+    <div class="mtd-section-header">
+        <h2>विभागातील प्रशासन</h2>
+        <div class="mtd-title-underline"></div>
+        <p>आदिवासी विकास विभागाची संरचना</p>
+    </div>
+
+    <div class="mtd-officials-row">
+        <div class="mtd-pattern-border mtd-border-left"></div>
+        <!-- Official 1 -->
+        <div class="mtd-official-card">
+            <div class="mtd-card-top-border"></div>
+            <div class="mtd-card-content">
+                <div class="mtd-photo-wrapper">
+                    <img src="/images/page-2.png" alt="श्री. देवेंद्र फडणवीस">
+                </div>
+            </div>
+        </div>
+        <div class="mtd-pattern-border mtd-border-right"></div>
+    </div>
+</section>
+
+<section class="mtd-officials-section">
+    <div class="mtd-section-header">
+        <h2 class="mukta-vaani-regular">विभागातील प्रशासन</h2>
+        <div class="mtd-title-underline"></div>
+        <p class="mukta-vaani-regular">आदिवासी विकास विभागाची संरचना</p>
+    </div>
+
+    <div class="mtd-officials-row">
+        <div class="mtd-pattern-border mtd-border-left"></div>
+        <!-- Official 1 -->
+        <div class="mtd-official-card">
+            <div class="mtd-card-top-border"></div>
+            <div class="mtd-card-content">
+                <div class="mtd-photo-wrapper">
+                    <img src="/images/page-2(2).png" alt="श्री. देवेंद्र फडणवीस">
+                </div>
+            </div>
+        </div>
+        <div class="mtd-pattern-border mtd-border-right"></div>
+    </div>
+</section>
+</div>
+<div data-include="footer.html"></div>
+
+    <script src="/load-layout.js"></script>
+</body>
+</html>

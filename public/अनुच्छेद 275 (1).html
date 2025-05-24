@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="mr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>शासकीय आश्रमशाळा</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+        flex-direction: column;
+        }
+
+        .ashramshala-header {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px 0;
+            margin: 0 auto;
+
+        }
+
+        .mandala-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 5% auto;
+        }
+
+        .ashramshala-title {
+            color: #8B4513;
+            font-size: 42px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .mandala {
+            width: 40px;
+            height: 40px;
+            background-image: url('/images/mandala.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Add a decorative dot pattern around the first letter */
+        .ashramshala-title::first-letter {
+            position: relative;
+        }
+
+        .ashramshala-title::before {
+            content: "◌";
+            position: absolute;
+            left: -15px;
+            top: 0;
+            color: #8B4513;
+            font-size: 42px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .mandala-container {
+                gap: 10px;
+            }
+
+            .ashramshala-title {
+                font-size: 32px;
+            }
+
+            .mandala {
+                width: 80px;
+                height: 80px;
+            }
+
+            .ashramshala-title::before {
+                font-size: 32px;
+                left: -10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ashramshala-title {
+                font-size: 24px;
+            }
+
+            .mandala {
+                width: 30px;
+                height: 30px;
+            }
+
+            .ashramshala-title::before {
+                font-size: 24px;
+                left: -8px;
+            }
+        }
+
+
+
+        .ashram-content-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            margin: 5% auto;
+        }
+
+        .ashram-content-box {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 30px 40px;
+            position: relative;
+            width: 100%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Left and right borders */
+        .ashram-content-box::before,
+        .ashram-content-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: #8B4513;
+        }
+
+        .ashram-content-box::before {
+            left: 0;
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+
+        .ashram-content-box::after {
+            right: 0;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .ashram-paragraph {
+            margin-bottom: 20px;
+            text-align: justify;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .ashram-paragraph:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .ashram-content-box {
+                padding: 20px 30px;
+            }
+
+            .ashram-paragraph {
+                font-size: 15px;
+                line-height: 1.7;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .ashram-content-box {
+                padding: 15px 25px;
+            }
+
+            .ashram-paragraph {
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        }
+
+
+
+        .tribal-header {
+            width: 100%;
+            padding: 15px 0;
+            background-color: #ffffff;
+        }
+
+        .tribal-header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 5% auto;
+        }
+
+        .tribal-title {
+            color: #8B4513;
+            font-size: 24px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .tribal-mandala {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            background-image: url('/images/mandala.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .tribal-title {
+                font-size: 20px;
+            }
+
+            .tribal-mandala {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .tribal-title {
+                font-size: 16px;
+            }
+
+            .tribal-mandala {
+                width: 25px;
+                height: 25px;
+            }
+
+            .tribal-header-container {
+                gap: 10px;
+                padding: 0 10px;
+            }
+        }
+
+
+.schemes-section, 
+.eligibility-section, 
+.application-section, 
+.contact-section {
+    margin-bottom: 30px;
+}
+
+.section-heading {
+    font-size: 20px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.schemes-list, 
+.eligibility-list {
+    list-style-type: disc;
+    padding-left: 25px;
+}
+
+.schemes-list li, 
+.eligibility-list li {
+    margin-bottom: 12px;
+    text-align: justify;
+}
+
+.sub-list {
+    list-style-type: circle;
+    padding-left: 30px;
+    margin-top: 8px;
+}
+
+.sub-list li {
+    margin-bottom: 8px;
+}
+
+.application-note {
+    text-align: center;
+    font-style: italic;
+    margin: 15px 0;
+}
+
+.contact-section {
+    text-align: center;
+}
+
+.contact-info {
+    margin-bottom: 8px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .schemes-list li, 
+    .eligibility-list li {
+        margin-bottom: 10px;
+    }
+    
+    .section-heading {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 12px;
+    }
+    
+    .schemes-list, 
+    .eligibility-list {
+        padding-left: 20px;
+    }
+    
+    .sub-list {
+        padding-left: 20px;
+    }
+}    
+
+
+</style>
+</head>
+
+<body>
+    <div data-include="header.html"></div>
+    <header class="ashramshala-header">
+        <div class="mandala-container">
+            <div class="mandala left-mandala"></div>
+            <h1 class="ashramshala-title">भारतीय संविधानाचे अनुच्छेद 275 (1)अंतर्गत योजना व विशेष केंद्रीय योजना</h1>
+            <div class="mandala right-mandala"></div>
+        </div>
+        <div class="ashram-content-container">
+            <div class="ashram-content-box">
+                <div class="tribal-container">
+                    <div class="container">
+        <div class="schemes-section">
+            <ul class="schemes-list">
+
+                 <div class="scheme-container">
+        <h1 class="scheme-title">योजनेचे स्वरूप</h1>
+        
+        <ul class="scheme-list">
+            <li>आदिवासी शेतक-यांच्या शेतात सिंचन सुविधेसाठी कुपनलिका खोदून बोअरवेल वसमुत देणे</li>
+            <li>आदिवासी मत्स व्यवसाय संस्थांना व्यवसायाकरीता वार्षीक बोट व मत्स्य जाळे पुरवठा करणे</li>
+            <li>अनु जमातीच्या दारिद्रय रेषेखालील आदिवासी युवकांना सरक्षा रखवाचे प्रशिक्षण देणे</li>
+            <li>अ.जमातीच्या दारिद्रयरेषाखालील युवकांना स्वयंरोजगारासाठी (इंचार्जी, चारचाकी, इलेक्ट्रिशियन, वायरमन, वेल्डर, सुतारकाम) करीता अर्थसहाय्य</li>
+            <li>अ.जमातीच्या दारिद्रयरेषाखालील युवकांना अॅटोमोबाईलचे प्रशिक्षण देणे</li>
+            <li>अ.जमातीच्या दारिद्रयरेषाखालील युवकांना वार्डबॉय प्रशिक्षण देणे</li>
+            <li>अ. जमातीच्या दारिद्रयरेषाखालील आदिवासी युवक/युवतींना संगणक प्रशिक्षण देणे</li>
+            <li>महिला बचत गटांना शेळी युनिट्स पुरवठा</li>
+            <li>टयुबवेल आणि पंप सेट</li>
+            <li>सरकारी वस्तिगृहात संगणक प्रयोगशाळेची स्थापना आणि संगणकीय पुस्तिका उपलब्ध करून देणे</li>
+            <li>सरकारी शाळेत वॉट तलावर संगणक प्रयोगशाळा आणि संगणक प्रशिक्षण केंद्राची स्थापना</li>
+            <li>१२ इयत्ता माध्यमिक, १२ एमआयटीएस आणि १२३ उच्च माध्यमिक शाळांमध्ये ग्रंथालयाची स्थापना</li>
+            <li>वस्तिगृहांचे संगणकीकरण</li>
+            <li>आश्रम शाळा आणि एमआयटीएसचे संगणकीकरण</li>
+            <li>आयटीडीपी आणि एटीसी ऑफिसचे संगणकीकरण</li>
+            <li>विद्यार्थ्यांना शुद्ध पाणी पुरवठ्यासाठी वस्तिगृहात आरओ वॉटर प्लांट बसवणे</li>
+            <li>अ.जमातीच्या दारिद्रयरेषाखालील शेतक-यांच्या आर्थिक उन्नतीसाठी मोफत लागवड</li>
+            <li>अ.जमातीच्या दारिद्रयरेषाखालील शेतक-यांच्या आर्थिक उन्नतीसाठी हळद लागवड</li>
+            <li>शासकीय आश्रमशाळेत वर्गखोल्यांचे बांधकाम करणे</li>
+            <li>उपसा सिंचन सुविधा</li>
+            <li>अनु जमातींसाठी सिंचन तथा पेयजल सुविधेसाठी नवीन विहिरीचे बांधकाम करणे</li>
+            <li>शासकीय आश्रमशाळेला पाणी पुरवठा करणे</li>
+            <li>शासकीय आश्रमशाळेला सौरऊर्जा पित्र बांधणे</li>
+            <li>अनु. जमातींच्या कुटुंबासाठी घरकुल बांधणे</li>
+            <li>शासकीय आश्रमशाळेतील स्वयंपाकगृहाचे आधुनिकीकरण व बांधकाम करणे</li>
+            <li>व्यवस्थापन व संनियंत्रण करणे</li>
+            <li>शासकीय वस्तीगृहात मैदानास स्थापन करणे</li>
+            <li>शासकीय आश्रमशाळा सोनवडी ता. पुरंदर येथील जोडरस्ते तयार करणे</li>
+            <li>Development of sport facilities in govt. ashram school</li>
+            <li>अ.जमातीच्या शेतक-यांच्या शेतात टयुबवेल बसविणे</li>
+            <li>अ.जमातीच्या शेतक-यांच्या अस्तित्वातील विहिरीत बोअर करणे</li>
+            <li>अ.जमातीच्या शेतक-यांच्या जमीनीवर वाटर शेड डेव्हलपमेंट, म्हैरीकल्चर/गोंद वनउत्पज औषधी वनस्पती लागवड करणे</li>
+            <li>वनहक्क संरक्षण कायद्यांतर्गत स्वाभिमान संवर्धीकरण अंतर्गत लाभ दिलेल्या जमिनीवर नवीन विहीर खोदून विद्युत पंप / तेल पंप, HDPE पाइप / PVC पाइप वसमुत देणे</li>
+            <li>अ.जमातीच्या शेतक-यांच्या शेतात ठिबक सिंचन बसविणे</li>
+            <li>अ.जमातीच्या शेतक-यांच्या शेतात तुषार सिंचन बसविणे</li>
+            <li>गांडूळ खत निर्मिती व प्रशिक्षण</li>
+            <li>आदिवासी महिला बचत गटातील अ.जमातीच्या शेतक-यांच्या शेतात हरीतगृह उभारणे</li>
+            <li>आदिवासींच्या नवीन फळझाड लागवड करणे</li>
+        </ul>
+    </div>
+                <li>वनहक्क संरक्षण कायद्यांतर्गत स्वाभिमान वडडीकरण अंतर्गत लाभ दिलेल्या जमिनीवर नवीन विहीर खोदून विद्युत पंप / सेट पंप, HDPE पाइप / PVC पाइप वसमुत देणे</li>
+                <li>अ.जमातीच्या शेतक-यांच्या शेतात ठिबक सिंचन बसविणे</li>
+                <li>अ.जमातीच्या शेतक-यांच्या शेतात तुषार सिंचन बसविणे</li>
+                <li>गांडूळ खत निर्मिती व प्रशिक्षण</li>
+                <li>आदिवासी महिला बचत गटातील अ.जमातीच्या शेतक-यांच्या शेतात हरभरा उभारणे</li>
+                <li>आदिवासींच्या नवीन फळझाड लागवड करणे</li>
+                <li>अ.जमातीच्या शेतक-यांच्या शेतात शेततळ्याचे खोदकाम करून प्लास्टिक अस्तरीकरणासह तार कुंपण करणे</li>
+                <li>अ.जमातीच्या लाभार्थ्यांकरीता शेतक-यांच्या शेतात वर्षभर फळभाजीपाला उत्पादनासाठी शेडनेट उभारणे</li>
+                <li>मक्यासाठीतील शाश्वत क्षेत्राचा जमिनीचा विकास करण्यासाठी अ.जमातीच्या दारिद्रयरेषेखालील लाभार्थ्यांना अर्थसहाय्य देणे:
+                    <ul class="sub-list">
+                        <li>जैवी खतांचे/संसाधने (₹11.50)</li>
+                        <li>खते व बी बियाणे (₹14.80)</li>
+                        <li>फळभाजी लागवड (₹6.10)</li>
+                    </ul>
+                </li>
+                <li>बांबू क्राफ्ट प्रशिक्षण (आदर्श इचा) महिला बचत गटासाठी</li>
+                <li>सोपचे, पापड, मसाले तयार करण्याचे प्रशिक्षण (आदर्श इचा) महिला बचत गटासाठी</li>
+                <li>स्थानीय शेतमाल व गोण वनउत्पज प्रक्रिया उद्योग प्रशिक्षण (आदर्श इचा) महिला बचत गटासाठी</li>
+                <li>स्थानीय जीवन उत्पादनापासून कलात्मक वस्तु बनविण्याचे प्रशिक्षण (आदर्श इचा) महिला बचत गटासाठी</li>
+                <li>अगरबत्ती, मेणबत्ती बनविणे प्रशिक्षण</li>
+                <li>अ.जमातीच्या दारिद्रयरेषेखालील लाभार्थ्यांना कृषी माल प्रक्रिया प्रशिक्षण देणे</li>
+                <li>जनउत्कर्ष जनउत्थान महिला आर्थिक विकास महामंडळ मार्फत स्थापन करण्यात आलेल्या अथवा नव्याने स्थापन झालेल्या आदिवासी स्वयंसहायता बचत गटांना पोल्ट्री फार्म व्यवसाय व प्रशिक्षण</li>
+                <li>अ.जमातीच्या शेतक-यांच्या शेतात शेततळ्याचे खोदकाम करून प्लास्टिक अस्तरीकरण, ठिबक सिंचन व भाजीपाला/फळभाजी लागवडीसाठी अर्थसहाय्य</li>
+                <li>Integrated Agriculture Development Program for IFR beneficiaries अंतर्गत 95% अनुदानावर 0.20 आर क्षेत्रावर शेडनेट उभारण्यासाठी अर्थसहाय्य</li>
+            </ul>
+        </div>
+
+        <div class="eligibility-section">
+            <h2 class="section-heading">लाभार्थी पात्रता</h2>
+            <ul class="eligibility-list">
+                <li>महाराष्ट्र राज्यातील अनुसूचित जमातीचे गाव/वाडे/पाडे या अंतर्गत यावे.</li>
+                <li>शासन निर्णय व शासनाने वेळोवेळी निर्गमित करून दिलेल्या मार्गदर्शक सुचनेनुसार आवश्यक कागदपत्रे.</li>
+                <li>बांधकाम विषयक बाबींमध्ये संबंधित बांधकाम विभागाची तांत्रिक मान्यता असणे आवश्यक आहे.</li>
+                <li>शासन निर्णय व शासनाने वेळोवेळी निर्गमित करून दिलेल्या मार्गदर्शक सुचनेप्रमाणे योजनेच्या निकषानुसार आवश्यक कागदपत्रे.</li>
+            </ul>
+        </div>
+
+        <div class="application-section">
+            <h2 class="section-heading">लाभार्थी अर्ज (नमुना)</h2>
+            <p class="application-note">गरज नाही</p>
+        </div>
+
+        <div class="contact-section">
+            <h2 class="section-heading">संपर्काचे पत्ते</h2>
+            <p class="contact-info">फोन नंबर: (02584) 252433</p>
+            <p class="contact-info">ईमेल: poitdp_yawal-mh@gov.in</p>
+        </div>
+    </div>
+            </div>
+        </div>
+        </div>
+    </header>
+    </header>
+     <div data-include="footer.html"></div>
+    <script src="load-layout.js"></script>
+
+
+</body>
+
+</html>
