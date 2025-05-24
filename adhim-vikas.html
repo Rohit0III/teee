@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>शासकीय आश्रमशाळा</title>
+
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Yatra+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;300;400;500;600;700;800&family=Yatra+One&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -17,9 +21,22 @@
             background-color: #ffffff;
             display: flex;
             justify-content: center;
-           
+
             flex-direction: column;
         }
+
+        .yatra-one-regular {
+            font-family: "Yatra One", system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .mukta-vaani-regular {
+            font-family: "Mukta Vaani", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
 
         .ashramshala-header {
             width: 100%;
@@ -39,9 +56,10 @@
 
         .ashramshala-title {
             color: #8B4513;
-            font-size: 42px;
+            font-size: 32px;
             text-align: center;
             font-weight: 600;
+            padding-top: 25px;
         }
 
         .mandala {
@@ -64,7 +82,7 @@
             left: -15px;
             top: 0;
             color: #8B4513;
-            font-size: 42px;
+            font-size: 32px;
         }
 
         /* Responsive styles */
@@ -89,10 +107,11 @@
         }
 
         @media (max-width: 480px) {
-            .ashramshala-header{
+            .ashramshala-header {
                 padding-left: 10px;
                 padding-right: 10px;
             }
+
             .ashramshala-title {
                 font-size: 24px;
             }
@@ -153,7 +172,7 @@
         .ashram-paragraph {
             margin-bottom: 20px;
             text-align: justify;
-            font-size: 16px;
+            font-size: 12px;
             line-height: 1.8;
         }
 
@@ -365,7 +384,13 @@
         }
 
         h1 {
-            color: #005e2f;
+            color: #7B3F00;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #7B3F00;
             text-align: center;
             margin-bottom: 20px;
         }
@@ -402,20 +427,21 @@
 <body>
     <div>
         <div data-include="header.html"></div>
-        
+
     </div>
     <header class="ashramshala-header">
         <div class="mandala-container">
             <div class="mandala left-mandala"></div>
-            <h1 class="ashramshala-title">आदिम जमातीचे संरक्षण तथा विकासाच्या योजना</h1>
+            <h1 class="ashramshala-title yatra-one-regular">आदिम जमातीचे संरक्षण तथा विकासाच्या योजना</h1>
             <div class="mandala right-mandala"></div>
         </div>
         <div class="ashram-content-container">
             <div class="ashram-content-box">
                 <div class="tribal-container">
-                    <h1 class="tribal-heading">योजनेचे स्वरूप</h1>
+                    <h2 class="tribal-heading yatra-one-regular">योजनेचे स्वरूप</h2>
 
-                    <p class="tribal-description">सदर योजना ही केंद्रीय सहाय्य योजना असून या अंतर्गत अग्रक्रमाच्या
+                    <p class="tribal-description mukta-vaani-regular">सदर योजना ही केंद्रीय सहाय्य योजना असून या अंतर्गत
+                        अग्रक्रमाच्या
                         अनुषंगाने आदिम समाजाच्या लाभार्थ्यांना लाभ मिळणेकरिता नवीनतम व कार्योपयोगी योजनेचा यामध्ये
                         समावेश केला जातो. तसेच आदिम जमातीची योजना ही चंद्रपूर, गडचिरोली, अहेरी व भामरागड या प्रकल्प
                         कार्यालयातील माडिया, कोलाम व कालकरी या जमातीकरिता राबविली जाताता. या योजनेअंतर्गत दरवर्षी नवीन
@@ -507,7 +533,7 @@
 
 
 
-                <h1>आवश्यक कागदपत्रे</h1>
+                <h2>आवश्यक कागदपत्रे</h2>
 
                 <ul>
                     <li>शासन निर्णय व शासनाने निर्गमित करून दिलेल्या मार्गदर्शक सुचनेनुसार व कालकरी, माडिया व कोलाम गोंड
@@ -573,14 +599,14 @@
         </div>
         </div>
     </header>
-</header>
-<div>
+    </header>
+    <div>
 
-    <div data-include="footer.html"></div>
-</div>
+        <div data-include="footer.html"></div>
+    </div>
 
 
-     <script src="/load-layout.js"></script>
+    <script src="/load-layout.js"></script>
 
 
 </body>

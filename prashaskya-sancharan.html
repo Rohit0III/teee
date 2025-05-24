@@ -8,28 +8,37 @@
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Yatra+One&display=swap');
-    
+     @import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;300;400;500;600;700;800&family=Yatra+One&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Yatra One', cursive;
-}
+      .yatra-one-regular {
+            font-family: "Yatra One", system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .mukta-vaani-regular {
+            font-family: "Mukta Vaani", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
 
 .banner {
     position: relative;
-    width: 60%;
+    width: 80%;
     height: 120px;
-    background: linear-gradient(to right, #8B4513, #CD853F, #8B4513);
+    background: linear-gradient(to right, #7B3F00, #FFA64A, #7B3F00);
     border-radius: 10px;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: #ffffff;
     padding: 20px;
     margin: 5% auto;
 }
@@ -37,14 +46,14 @@ body {
 .content {
     text-align: center;
     z-index: 2;
-    font-family: 'Yatra one',cursive;
+    
 }
 
 .content h1 {
     font-size: 32px;
     font-weight: bold;
     margin-bottom: 8px;
-    font-family: s;
+  
 }
 
 .content p {
@@ -190,6 +199,10 @@ body {
     align-items: center;
 }
 
+.mh-tribal-card-content h3{
+    font: bolder;
+}
+
 .mh-tribal-photo-container {
     width: 180px;
     height: 180px;
@@ -241,7 +254,7 @@ body {
 
 @media (max-width: 576px) {
     .mh-tribal-officials-row {
-        flex-direction: column;
+        flex-direction: ;
         align-items: center;
     }
     
@@ -403,14 +416,41 @@ body {
         width: 300px;
     }
 }
+
+
+        @media (max-width: 768px) {
+            .banner {
+                width: 95%;
+                padding: 15px;
+            }
+            .content h1 {
+                font-size: 1.5rem;
+            }
+            .content p {
+                font-size: 0.9rem;
+            }
+            .left-mandala, .right-mandala {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .mh-tribal-photo-container,
+            .mtd-photo-wrapper {
+                width: 100%;
+                height: auto;
+            }
+        }
 </style>
 <body>
       <div data-include="header.html"></div>
 <header class="banner">
     <div class="mandala left-mandala"></div>
     <div class="content">
-        <h1>रशासकीय संरचना</h1>
-        <p>महाराष्ट्र आदिवासी विकास विभाग</p>
+        <h1 class="yatra-one-regular">प्रशासकीय संरचना</h1>
+        <div class="mh-tribal-underline"></div>
+        <p class="mukta-vaani-regular ">महाराष्ट्र आदिवासी विकास विभाग</p>
     </div>
     <div class="mandala right-mandala"></div>
 </header>
@@ -419,9 +459,9 @@ body {
     <!-- First Section - Key Leadership -->
     <section class="mh-tribal-officials-section">
         <div class="mh-tribal-section-header">
-            <h2>प्रमुख नेतृत्व</h2>
+            <h2 class="yatra-one-regular">प्रमुख नेतृत्व</h2>
             <div class="mh-tribal-underline"></div>
-            <p>महाराष्ट्राचे आदिवासी विकास क्षेत्रातील प्रमुख मार्गदर्शक</p>
+            <p  class="mukta-vaani-regular ">महाराष्ट्राचे आदिवासी विकास क्षेत्रातील प्रमुख मार्गदर्शक</p>
         </div>
 
         <div class="mh-tribal-officials-row">
@@ -431,12 +471,12 @@ body {
                 <div class="mh-tribal-border-top"></div>
                 <div class="mh-tribal-card-content">
                     <div class="mh-tribal-photo-container">
-                        <img src="https://placeholder.svg?height=200&width=200&query=Devendra+Fadnavis"
+                        <img src="/images/d-1.webp"
                             alt="श्री. देवेंद्र फडणवीस">
                     </div>
-                    <h3>श्री. देवेंद्र फडणवीस</h3>
+                    <h3 class="mukta-vaani-regular">श्री. देवेंद्र फडणवीस</h3>
                     <div class="mh-tribal-designation">
-                        <span>माननीय मुख्यमंत्री</span>
+                        <span class="mukta-vaani-regular">माननीय मुख्यमंत्री</span>
                     </div>
                 </div>
             </div>
@@ -448,12 +488,12 @@ body {
                 <div class="mh-tribal-border-top"></div>
                 <div class="mh-tribal-card-content">
                     <div class="mh-tribal-photo-container">
-                        <img src="https://placeholder.svg?height=200&width=200&query=Eknath+Shinde"
+                        <img src="/images/d-2.webp"
                             alt="श्री. एकनाथ शिंदे">
                     </div>
-                    <h3>श्री. एकनाथ शिंदे</h3>
+                    <h3 class="mukta-vaani-regular">श्री. एकनाथ शिंदे</h3>
                     <div class="mh-tribal-designation">
-                        <span>माननीय उपमुख्यमंत्री</span>
+                        <span class="mukta-vaani-regular">माननीय उपमुख्यमंत्री</span>
                     </div>
                 </div>
             </div>
@@ -465,11 +505,11 @@ body {
                 <div class="mh-tribal-border-top"></div>
                 <div class="mh-tribal-card-content">
                     <div class="mh-tribal-photo-container">
-                        <img src="https://placeholder.svg?height=200&width=200&query=Ajit+Pawar" alt="श्री. अजित पवार">
+                        <img src="/images/d-3.webp" alt="श्री. अजित पवार">
                     </div>
-                    <h3>श्री. अजित पवार</h3>
+                    <h3 class="mukta-vaani-regular">श्री. अजित पवार</h3>
                     <div class="mh-tribal-designation">
-                        <span>माननीय उपमुख्यमंत्री</span>
+                        <span class="mukta-vaani-regular">माननीय उपमुख्यमंत्री</span>
                     </div>
                 </div>
             </div>
@@ -480,7 +520,7 @@ body {
     <!-- Second Section - Tribal Development Department -->
     <section class="mh-tribal-officials-section">
         <div class="mh-tribal-section-header">
-            <h2>आदिवासी विकास विभाग</h2>
+            <h2 class="yatra-one-regular">आदिवासी विकास विभाग</h2>
         </div>
 
         <div class="mh-tribal-officials-row">
@@ -490,12 +530,12 @@ body {
                 <div class="mh-tribal-border-top"></div>
                 <div class="mh-tribal-card-content">
                     <div class="mh-tribal-photo-container">
-                        <img src="https://placeholder.svg?height=200&width=200&query=Ashok+Uike"
+                        <img src="/images/d-4.webp"
                             alt="श्री. अशोक रामजी उईके">
                     </div>
-                    <h3>श्री. अशोक रामजी उईके</h3>
+                    <h3 class="mukta-vaani-regular">श्री. अशोक रामजी उईके</h3>
                     <div class="mh-tribal-designation">
-                        <span>मा.मंत्री, आदिवासी विकास</span>
+                        <span class="mukta-vaani-regular">मा.मंत्री, आदिवासी विकास</span>
                     </div>
                 </div>
             </div>
@@ -507,12 +547,12 @@ body {
                 <div class="mh-tribal-border-top"></div>
                 <div class="mh-tribal-card-content">
                     <div class="mh-tribal-photo-container">
-                        <img src="https://placeholder.svg?height=200&width=200&query=Gulabrao+Patil"
+                        <img src="/images/d-5.webp"
                             alt="श्री. गुलाबराव पाटील">
                     </div>
-                    <h3>श्री. गुलाबराव पाटील</h3>
+                    <h3 class="mukta-vaani-regular">श्री. गुलाबराव पाटील</h3>
                     <div class="mh-tribal-designation">
-                        <span>मा.मंत्री,पाणीपुरवठा व स्वच्छता विभाग , महाराष्ट्र राज्य तथ मा.पालकमंत्री, जळगाव जिल</span>
+                        <span class="mukta-vaani-regular">मा.मंत्री,पाणीपुरवठा व स्वच्छता विभाग , महाराष्ट्र राज्य तथ मा.पालकमंत्री, जळगाव जिल</span>
                     </div>
                 </div>
             </div>
@@ -524,12 +564,12 @@ body {
                 <div class="mh-tribal-border-top"></div>
                 <div class="mh-tribal-card-content">
                     <div class="mh-tribal-photo-container">
-                        <img src="https://placeholder.svg?height=200&width=200&query=Indranil+Naik"
+                        <img src="/images/d-6.webp"
                             alt="श्री. इंद्रनील मनोहरराव नाईक">
                     </div>
-                    <h3>श्री. इंद्रनील मनोहरराव नाईक</h3>
+                    <h3 class="mukta-vaani-regular">श्री. इंद्रनील मनोहरराव नाईक</h3>
                     <div class="mh-tribal-designation">
-                        <span>मा. राज्यमंत्री, आदिवासी विकास विभाग</span>
+                        <span class="mukta-vaani-regular">मा. राज्यमंत्री, आदिवासी विकास विभाग</span>
                     </div>
                 </div>
             </div>
@@ -543,9 +583,9 @@ body {
 
      <section class="mh-tribal-officials-section">
         <div class="mh-tribal-section-header">
-            <h2>प्रशासकीय अधिकार</h2>
+            <h2 class="yatra-one-regular">प्रशासकीय अधिकार</h2>
             <div class="mh-tribal-underline"></div>
-            <p>वीभागाचे कार्यकारी नेतृत</p>
+            <p class="mukta-vaani-regular">वीभागाचे कार्यकारी नेतृत</p>
         </div>
 
         <div class="mh-tribal-officials-row">
@@ -555,12 +595,12 @@ body {
                 <div class="mh-tribal-border-top"></div>
                 <div class="mh-tribal-card-content">
                     <div class="mh-tribal-photo-container">
-                        <img src="https://placeholder.svg?height=200&width=200&query=Devendra+Fadnavis"
+                        <img src="/images/d-7.webp"
                             alt="श्री. देवेंद्र फडणवीस">
                     </div>
-                    <h3>मा. श्री विजय वाघमारे, (भा.प्र.से)</h3>
+                    <h3 class="mukta-vaani-regular">मा. श्री विजय वाघमारे, (भा.प्र.से)</h3>
                     <div class="mh-tribal-designation">
-                        <span>प्रधान सचिव, आदिवासी विकास विभाग</span>
+                        <span class="mukta-vaani-regular">प्रधान सचिव, आदिवासी विकास विभाग</span>
                     </div>
                 </div>
             </div>
@@ -572,12 +612,12 @@ body {
                 <div class="mh-tribal-border-top"></div>
                 <div class="mh-tribal-card-content">
                     <div class="mh-tribal-photo-container">
-                        <img src="https://placeholder.svg?height=200&width=200&query=Eknath+Shinde"
+                        <img src="/images/d-8.webp"
                             alt="श्री. एकनाथ शिंदे">
                     </div>
-                    <h3>श्रीमती लीना बनसोड, (भा.प्र.से.)</h3>
+                    <h3 class="mukta-vaani-regular">श्रीमती लीना बनसोड, (भा.प्र.से.)</h3>
                     <div class="mh-tribal-designation">
-                        <span>आयुक्त, आदिवासी विकास विभाग</span>
+                        <span class="mukta-vaani-regular">आयुक्त, आदिवासी विकास विभाग</span>
                     </div>
                 </div>
             </div>
@@ -589,11 +629,11 @@ body {
                 <div class="mh-tribal-border-top"></div>
                 <div class="mh-tribal-card-content">
                     <div class="mh-tribal-photo-container">
-                        <img src="https://placeholder.svg?height=200&width=200&query=Ajit+Pawar" alt="श्री. अजित पवार">
+                        <img src="/images/d-9.webp" alt="श्री. अजित पवार">
                     </div>
-                    <h3>श्री.आयुष प्रसाद, (भा.प्र.से.)</h3>
+                    <h3 class="mukta-vaani-regular">श्री.आयुष प्रसाद, (भा.प्र.से.)</h3>
                     <div class="mh-tribal-designation">
-                        <span>मा.जिल्हाधिकारी, जळगाव</span>
+                        <span class="mukta-vaani-regular">मा.जिल्हाधिकारी, जळगाव</span>
                     </div>
                 </div>
             </div>
@@ -610,12 +650,12 @@ body {
                 <div class="mh-tribal-border-top"></div>
                 <div class="mh-tribal-card-content">
                     <div class="mh-tribal-photo-container">
-                        <img src="https://placeholder.svg?height=200&width=200&query=Ashok+Uike"
+                        <img src="/images/d-10.webp"
                             alt="श्री. अशोक रामजी उईके">
                     </div>
-                    <h3>मा.संदीप गोलाईत</h3>
+                    <h3 class="mukta-vaani-regular">मा.संदीप गोलाईत</h3>
                     <div class="mh-tribal-designation">
-                        <span>अपर आयुक्त, आदिवासी विकास विभाग नाशिक</span>
+                        <span class="mukta-vaani-regular">अपर आयुक्त, आदिवासी विकास विभाग नाशिक</span>
                     </div>
                 </div>
             </div>
@@ -627,12 +667,12 @@ body {
                 <div class="mh-tribal-border-top"></div>
                 <div class="mh-tribal-card-content">
                     <div class="mh-tribal-photo-container">
-                        <img src="https://placeholder.svg?height=200&width=200&query=Gulabrao+Patil"
+                        <img src="/images/d-11.webp"
                             alt="श्री. गुलाबराव पाटील">
                     </div>
-                    <h3>श्री.अरुण पवार</h3>
+                    <h3 class="mukta-vaani-regular">श्री.अरुण पवार</h3>
                     <div class="mh-tribal-designation">
-                        <span>प्रकल्प अधिकारी</span>
+                        <span class="mukta-vaani-regular">प्रकल्प अधिकारी</span>
                     </div>
                 </div>
             </div>
@@ -666,9 +706,9 @@ body {
 
 <section class="mtd-officials-section">
     <div class="mtd-section-header">
-        <h2>विभागातील प्रशासन</h2>
+        <h2 class="mukta-vaani-regular">विभागातील प्रशासन</h2>
         <div class="mtd-title-underline"></div>
-        <p>आदिवासी विकास विभागाची संरचना</p>
+        <p class="mukta-vaani-regular">आदिवासी विकास विभागाची संरचना</p>
     </div>
 
     <div class="mtd-officials-row">
