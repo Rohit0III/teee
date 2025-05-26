@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>एकात्मिक आदिवासी विकास प्रकल्प यावल</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+
+
+
+<script>
+   // Import PDF.js library
+const pdfjsLib = window['pdfjs-dist/build/pdf'];
+
+document.addEventListener('DOMContentLoaded', function() {
+    // PDF.js setup
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+    
+    // PDF file URL - replace with your actual PDF file
+    const pdfUrl = '/images/pdf.pdf';
+    
+    // Elements
+    const pdfContainer = document.getElementById('pdf-container');
+    const pdfLoader = document.getElementById('pdf-loader');
+    const pdfPagesContainer = document.getElementById('pdf-pages-container');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+    const zoomInBtn = document.getElementById('zoomInBtn');
+    const zoomOutBtn = document.getElementById('zoomOutBtn');
+    const pdfContent = document.querySelector('.pdf-content');
+    
+    // PDF.js variables
+    let pdfDoc = null;
+    let scale = 1.5; // Initial scale
+    let currentZoom = 100; // Current zoom percentage
+    
+    /**
+     * Load the PDF document
+     */
+    function loadPdf() {
+        pdfjsLib.getDocument(pdfUrl).promise.then(function(pdf) {
+            pdfDoc = pdf;
+            
+            // Hide loader
+            pdfLoader.style.display = 'none';
+            
+            // Render all pages
+            renderAllPages();
+        }).catch(function(error) {
+            console.error('Error loading PDF:', error);
+            pdfLoader.textContent = 'Error loading PDF. Please try again later.';
+        });
+    }
+    
+    /**
+     * Render all pages of the PDF
+     */
+    function renderAllPages() {
+        // Clear the container
+        pdfPagesContainer.innerHTML = '';
+        
+        // Get total pages
+        const numPages = pdfDoc.numPages;
+        
+        // Render each page
+        for (let i = 1; i <= numPages; i++) {
+            renderPage(i);
+        }
+    }
+    
+    /**
+     * Render a specific page of the PDF
+     */
+    function renderPage(pageNumber) {
+        // Create page container
+        const pageContainer = document.createElement('div');
+        pageContainer.className = 'pdf-page';
+        pageContainer.id = `page-${pageNumber}`;
+        pdfPagesContainer.appendChild(pageContainer);
+        
+        // Create canvas for this page
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        pageContainer.appendChild(canvas);
+        
+        // Add page number indicator
+        const pageNumberDiv = document.createElement('div');
+        pageNumberDiv.className = 'page-number';
+        pageNumberDiv.textContent = `Page ${pageNumber}`;
+        pageContainer.appendChild(pageNumberDiv);
+        
+        // Get the page
+        pdfDoc.getPage(pageNumber).then(function(page) {
+            // Adjust canvas size to page size with scale
+            const viewport = page.getViewport({ scale: scale });
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+            
+            // Set width of page container
+            pageContainer.style.width = `${viewport.width}px`;
+            
+            // Render PDF page into canvas context
+            const renderContext = {
+                canvasContext: ctx,
+                viewport: viewport
+            };
+            
+            page.render(renderContext);
+        });
+    }
+    
+    /**
+     * Change zoom level
+     */
+    function changeZoom(zoomIn) {
+        if (zoomIn) {
+            currentZoom += 25;
+            if (currentZoom > 300) currentZoom = 300; // Max zoom 300%
+        } else {
+            currentZoom -= 25;
+            if (currentZoom < 50) currentZoom = 50; // Min zoom 50%
+        }
+        
+        // Calculate new scale
+        scale = currentZoom / 100 * 1.0;
+        
+        // Re-render all pages with new scale
+        renderAllPages();
+    }
+    
+    // Zoom buttons event listeners
+    zoomInBtn.addEventListener('click', function() {
+        changeZoom(true);
+    });
+    
+    zoomOutBtn.addEventListener('click', function() {
+        changeZoom(false);
+    });
+    
+    // Download PDF functionality
+    downloadBtn.addEventListener('click', function() {
+        // Create a temporary link to download the PDF
+        const link = document.createElement('a');
+        link.href = pdfUrl;
+        link.download = 'document.pdf';
+        link.target = '_blank';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    });
+    
+    // Fullscreen functionality
+    fullscreenBtn.addEventListener('click', function() {
+        if (!document.fullscreenElement) {
+            if (pdfContent.requestFullscreen) {
+                pdfContent.requestFullscreen();
+            } else if (pdfContent.mozRequestFullScreen) { // Firefox
+                pdfContent.mozRequestFullScreen();
+            } else if (pdfContent.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                pdfContent.webkitRequestFullscreen();
+            } else if (pdfContent.msRequestFullscreen) { // IE/Edge
+                pdfContent.msRequestFullscreen();
+            }
+            fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i> Exit Full Screen';
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.mozCancelFullScreen) { // Firefox
+                document.mozCancelFullScreen();
+            } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) { // IE/Edge
+                document.msExitFullscreen();
+            }
+            fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i> Open Full Screen';
+        }
+    });
+    
+    // Listen for fullscreen change
+    document.addEventListener('fullscreenchange', updateFullscreenButton);
+    document.addEventListener('webkitfullscreenchange', updateFullscreenButton);
+    document.addEventListener('mozfullscreenchange', updateFullscreenButton);
+    document.addEventListener('MSFullscreenChange', updateFullscreenButton);
+    
+    function updateFullscreenButton() {
+        if (document.fullscreenElement) {
+            fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i> Exit Full Screen';
+        } else {
+            fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i> Open Full Screen';
+        }
+    }
+    
+    // Keyboard shortcuts
+    document.addEventListener('keydown', function(e) {
+        // Zoom in: Ctrl + Plus
+        if (e.ctrlKey && (e.key === '+' || e.key === '=')) {
+            e.preventDefault();
+            changeZoom(true);
+        }
+        // Zoom out: Ctrl + Minus
+        else if (e.ctrlKey && e.key === '-') {
+            e.preventDefault();
+            changeZoom(false);
+        }
+    });
+    
+    // Load the PDF when the page loads
+    loadPdf();
+});
+</script>
+
+<body>
+    <div data-include="header.html"></div>
+    <div style="display: flex; flex-direction: column;">
+    <header class="ashram-header" style="display: flex; flex-direction: column;" >
+        <div class="header-container">
+            <div class="mandala-left "></div>
+            <h1 class="ashram-title yatra-one-regular">एकात्मिक आदिवासी विकास प्रकल्प यावल</h1>
+            <div class="mandala-right"></div>
+        </div>
+        <main style="display: flex; flex-direction: column;">
+        <!-- Outer container with borders -->
+        <div class="bordered-container">
+            <!-- Border elements -->
+           
+            <div class="border border-right"></div>
+           
+            <div class="border border-left"></div>
+            
+            <!-- PDF viewer container -->
+            <div class="pdf-viewer-container">
+                <div class="pdf-content">
+                    <div class="pdf-document" id="pdf-container">
+                        <div id="pdf-loader">Loading PDF...</div>
+                        <div id="pdf-pages-container"></div>
+                    </div>
+                    
+                    <div class="pdf-controls">
+                        <button id="zoomInBtn" class="pdf-btn">
+                            <i class="fas fa-search-plus"></i> Zoom In
+                        </button>
+                        <button id="zoomOutBtn" class="pdf-btn">
+                            <i class="fas fa-search-minus"></i> Zoom Out
+                        </button>
+                        <button id="downloadBtn" class="pdf-btn">
+                            <i class="fas fa-download"></i> Download PDF
+                        </button>
+                        <button id="fullscreenBtn" class="pdf-btn">
+                            <i class="fas fa-expand"></i> Open Full Screen
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</div>
+
+        <div data-include="footer.html"></div>
+
+    <script src="/load-layout.js"></script>
+    </header>
+
+</body>
+
+</html>

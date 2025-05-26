@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>सरकारच्या महत्वाच्या पत्र</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Function to create a full header with the image
+        function createFullHeader() {
+            // Get the header elements
+            const header = document.querySelector('.ashram-header');
+            const title = document.querySelector('.ashram-title');
+
+            // Add a subtle animation to the header on load
+            setTimeout(() => {
+                header.style.transition = 'transform 0.5s ease-in-out';
+                header.style.transform = 'translateY(0)';
+                title.style.transition = 'opacity 1s ease-in-out';
+                title.style.opacity = '1';
+            }, 100);
+        }
+
+        // Initialize the header
+        createFullHeader();
+
+        // Optional: Add scroll effect
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('.ashram-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    });
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get form elements
+        const subjectInput = document.getElementById('subject');
+        const docTypeInput = document.getElementById('docType');
+        const dateInput = document.getElementById('date');
+        const sizeInput = document.getElementById('size');
+        const searchBtn = document.getElementById('searchBtn');
+        const resetBtn = document.getElementById('resetBtn');
+
+        // Add date picker functionality (simple implementation)
+        dateInput.addEventListener('focus', function () {
+            // This is a simple approach - in a real application, you might use a date picker library
+            if (this.type !== 'date') {
+                this.type = 'date';
+            }
+        });
+
+        dateInput.addEventListener('blur', function () {
+            if (this.value === '') {
+                this.type = 'text';
+            }
+        });
+
+        // Search button click handler
+        searchBtn.addEventListener('click', function () {
+            // Collect filter values
+            const filters = {
+                subject: subjectInput.value.trim(),
+                docType: docTypeInput.value.trim(),
+                date: dateInput.value,
+                size: sizeInput.value.trim()
+            };
+
+            // Log the filter values (in a real application, you would send these to a server)
+            console.log('Search filters:', filters);
+
+            // Example of how you might use these filters
+            if (Object.values(filters).some(value => value !== '')) {
+                alert('Searching with the specified filters...');
+                // Here you would typically make an API call with these filters
+            } else {
+                alert('Please specify at least one filter criterion');
+            }
+        });
+
+        // Reset button click handler
+        resetBtn.addEventListener('click', function () {
+            // Clear all input fields
+            subjectInput.value = '';
+            docTypeInput.value = '';
+            dateInput.value = '';
+            dateInput.type = 'text'; // Reset date input to text type
+            sizeInput.value = '';
+
+            // Optional: Return focus to the first input
+            subjectInput.focus();
+        });
+
+        // Optional: Add keyboard support for form submission
+        document.querySelector('.filter-container').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                searchBtn.click();
+            }
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get all download buttons
+        const downloadButtons = document.querySelectorAll('.download-btn');
+
+        // Add click event listeners to each button
+        downloadButtons.forEach((button, index) => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Get the document details from the row
+                const row = this.closest('tr');
+                const documentName = row.cells[1].textContent;
+                const documentType = row.cells[2].textContent;
+                const documentDate = row.cells[3].textContent;
+                const documentSize = row.cells[4].textContent;
+
+                // In a real application, you would initiate a download here
+                // For this example, we'll just show an alert
+                alert(`Downloading: ${documentName}\nType: ${documentType}\nDate: ${documentDate}\nSize: ${documentSize} MB`);
+
+                // Log download activity
+                console.log(`Document downloaded: ${documentName} (${documentDate})`);
+
+                // You could also track downloads with analytics
+                trackDownload(index + 1, documentName);
+            });
+        });
+
+        // Function to track downloads (placeholder)
+        function trackDownload(id, name) {
+            console.log(`Download tracked: ID ${id}, Name: ${name}`);
+            // In a real application, you might send this data to an analytics service
+        }
+
+        // Optional: Add sorting functionality
+        const tableHeaders = document.querySelectorAll('th');
+        tableHeaders.forEach(header => {
+            header.addEventListener('click', function () {
+                const table = this.closest('table');
+                const index = Array.from(this.parentNode.children).indexOf(this);
+                sortTable(table, index);
+            });
+        });
+
+        // Function to sort the table
+        function sortTable(table, column) {
+            const tbody = table.querySelector('tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            const isNumeric = column === 0 || column === 4; // ID and Size columns are numeric
+
+            // Get current sort direction
+            const currentDir = table.getAttribute('data-sort-dir') || 'asc';
+            const newDir = currentDir === 'asc' ? 'desc' : 'asc';
+
+            // Sort the rows
+            rows.sort((a, b) => {
+                let aValue = a.cells[column].textContent.trim();
+                let bValue = b.cells[column].textContent.trim();
+
+                if (isNumeric) {
+                    aValue = parseFloat(aValue);
+                    bValue = parseFloat(bValue);
+                    return currentDir === 'asc' ? aValue - bValue : bValue - aValue;
+                } else {
+                    return currentDir === 'asc'
+                        ? aValue.localeCompare(bValue, 'mr')
+                        : bValue.localeCompare(aValue, 'mr');
+                }
+            });
+
+            // Update the table
+            rows.forEach(row => tbody.appendChild(row));
+            table.setAttribute('data-sort-dir', newDir);
+        }
+    });
+</script>
+
+<body>
+
+    <div data-include="header.html"></div>
+    <header class="ashram-header">
+        <div class="header-container">
+            <div class="mandala-left"></div>
+            <h1 class="ashram-title yatra-one-regular ">सरकारच्या महत्वाच्या पत्र</h1>
+            <div class="mandala-right"></div>
+        </div>
+    </header>
+
+    <main style="display: flex; flex-direction: column; height: 1000px;">
+        <div class="filter-container">
+            <div class="filter-header mukta-vaani-regular">
+                <i class="fas fa-search"> <img src="/images/search-logo.svg" alt="search-logo" height="30"
+                        width="30"></i>
+                <h2>शोध फिल्टर</h2>
+            </div>
+            <hr class="divider">
+
+            <div class="filter-grid">
+                <div class="filter-group mukta-vaani-regular">
+                    <div class="filter-label">
+                        <i class="fas fa-file-alt"><img src="/images/vvishya.svg" alt="search-logo" height="30"
+                                width="20"></i>
+                        <label for="subject">विषय</label>
+                    </div>
+                    <input type="text" id="subject" class="filter-input" placeholder="विषय शोधा...">
+                </div>
+
+                <div class="filter-group">
+                    <div class="filter-label mukta-vaani-regular">
+                        <i class="fas fa-folder"><img src="/images/folder.svg" alt="search-logo" height="30"
+                                width="20"></i>
+                        <label for="docType">दस्तावेजाचे प्रकार</label>
+                    </div>
+                    <input type="text" id="docType" class="filter-input" placeholder="प्रकार शोधा...">
+                </div>
+
+                <div class="filter-group">
+                    <div class="filter-label mukta-vaani-regular">
+                        <i class="fas fa-calendar-alt"><img src="/images/date.svg" alt="search-logo" height="30"
+                                width="20"></i>
+                        <label for="date">दिनांक</label>
+                    </div>
+                    <input type="text" id="date" class="filter-input" placeholder="दिनांक शोधा...">
+                </div>
+
+                <div class="filter-group">
+                    <div class="filter-label mukta-vaani-regular">
+                        <i class="fas fa-weight"><img src="/images/akar-mb.svg" alt="search-logo" height="30"
+                                width="20"></i>
+                        <label for="size">आकार (एमबी)</label>
+                    </div>
+                    <input type="text" id="size" class="filter-input" placeholder="आकार शोधा...">
+                </div>
+            </div>
+
+            <div class="filter-buttons mukta-vaani-regular">
+                <button id="searchBtn" class="btn btn-search">Search</button>
+                <button id="resetBtn" class="btn btn-reset">Reset</button>
+            </div>
+        </div>
+
+
+
+        <div class="container mukta-vaani-regular">
+            <table class="documents-table">
+                <thead>
+                    <tr>
+                        <th class="column-number">#<br>क्रमांक</th>
+                        <th class="column-subject">
+                            <i class="fas fa-file-alt"><img src="/images/vishya-2.svg" alt="" height="30"  width="20" c ></i> विषय
+                        </th>
+                        <th class="column-type">
+                            <i class="fas fa-folder"><img src="/images/folder-2.svg" alt="" height="30"  width="20" ></i> दस्तावेजाचे प्रकार
+                        </th>
+                        <th class="column-date">
+                            <i class="fas fa-calendar-alt"><img src="/images/date-2.svg" alt="" height="30"  width="20" > </i>दिनांक
+                        </th>
+                        <th class="column-size">
+                            <i class="fas fa-weight"><img src="/images/akar-mb-2.svg" alt="" height="30"  width="20" ></i> आकार (एमबी)
+                        </th>
+                        <th class="column-download">
+                            <i class="fas fa-download"><img src="/images/download.svg" alt=""  height="30"  width="20"> </i>डाऊनलोड
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <a href="#" class="download-btn">
+                            <i class="fas fa-file-pdf"></i>पीडीएफ
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <a href="#" class="download-btn">
+                            <i class="fas fa-file-pdf"></i> पीडीएफ
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+
+    </main>
+<div data-include="footer.html"></div>
+
+    <script src="/load-layout.js"></script>
+</body>
+
+</html>

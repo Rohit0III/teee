@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>एकात्मिक आदिवासी विकास</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-main">
+            <div class="header-left">
+                <img src="image/logo.png" alt="Logo" srcset="image/logo.png">
+                <div class="header-title">
+                    <h4>एकात्मिक आदिवासी विकास</h4>
+                    <p>रकल्प, यावल</p>
+                </div>
+            </div>
+            <div class="header-center">
+                <p>महाराष</p>
+                <img src="image/mid_img.png" alt="Mid Image" srcset="image/mid_img.png">
+                <p>शासन</p>
+            </div>
+            <div class="header-search">
+                <input type="text" placeholder="शोधा...">
+                <button>लॉगिन</button>
+            </div>
+            <!-- Updated mobile menu toggle button -->
+            <button class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+    <nav class="bottom-nav">
+        <ul style="font-size: 15px;" class="bottom-nav-list">
+            <li>मुख्यपृष्ठ</li>
+            <li>योजना</li>
+            <li>आंतरशालेय आदिवासी</li>
+            <li>वित्त विभाग</li>
+            <li>विकास विभाग</li>
+            <li>शिक्षा विभाग</li>
+            <li>रजिस्टर्डशाळा</li>
+            <li>आदिवासी अधिकार</li>
+            <li>उपक्रम</li>
+            <li>अर्ह</li>
+            <li>वेतन</li>
+        </ul>
+    </nav>
+
+    <script>
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const bottomNav = document.querySelector('.bottom-nav');
+
+        menuToggle.addEventListener('click', function () {
+            bottomNav.classList.toggle('active');
+            this.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>पोलीस स्टेशन - यावल</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <style>
+     
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #7B3F00;
+            border-right: 5px solid #7B3F00;
+            padding: 30px;
+        }
+
+        .image-section {
+            position: relative;
+        }
+
+        .office-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .map-section {
+            position: relative;
+            background-color: #e8f5e8;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(45deg, #a8e6cf, #dcedc1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-size: 14px;
+            color: #333;
+        }
+
+        .map-controls {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .map-btn {
+            width: 30px;
+            height: 30px;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            color: #666;
+        }
+
+        .map-btn:hover {
+            background: #f0f0f0;
+        }
+
+        .location-marker {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            background: #d32f2f;
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg) translate(-50%, -50%);
+            transform-origin: 0 0;
+        }
+
+        .location-marker::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .contact-info {
+            grid-column: 1 / -1;
+            padding: 30px;
+            background: #ffffff;
+            
+        }
+
+        .contact-title {
+            font-size: 24px;
+            color: #7B3F00;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .contact-details {
+            flex: 1;
+        }
+
+        .contact-text {
+            color: #333;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .contact-subtext {
+            color: #666;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .services-section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-right: 5px solid #7B3F00;
+            border-left: 5px solid #7B3F00;
+        }
+
+        .services-title {
+            text-align: center;
+            font-size: 28px;
+            color: #7B3F00;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            text-align: center;
+            padding: 25px;
+            border-radius: 10px;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-color: #7B3F00;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: white;
+            font-size: 24px;
+        }
+
+        .service-title {
+            font-size: 20px;
+            color: #000000;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .service-details {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .service-time {
+            color: #333;
+            font-weight: 500;
+            margin-top: 8px;
+        }
+
+        .service-contact {
+            color: #000000;
+            font-weight: 500;
+            margin-top: 8px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            .contact-info {
+                padding: 20px;
+            }
+
+            .services-section {
+                padding: 20px;
+            }
+        }
+
+        /* Animation for map marker */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: rotate(-45deg) translate(-50%, -50%) translateY(0);
+            }
+            40% {
+                transform: rotate(-45deg) translate(-50%, -50%) translateY(-10px);
+            }
+            60% {
+                transform: rotate(-45deg) translate(-50%, -50%) translateY(-5px);
+            }
+        }
+
+        .location-marker {
+            animation: bounce 2s infinite;
+        }
+
+           @import url('https://fonts.googleapis.com/css2?family=Yatra+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;300;400;500;600;700;800&family=Yatra+One&display=swap');
+
+        .yatra-one-regular {
+            font-family: "Yatra One", system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .mukta-vaani-regular {
+            font-family: "Mukta Vaani", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            color: #8B4513;
+            padding: 10px 20px;
+            margin: 0 5%;
+            width: 90%;
+        }
+
+        .left,
+        .center,
+        .right {
+            display: flex;
+            align-items: center;
+        }
+
+        .left img,
+        .center img {
+            height: 55px;
+            max-width: 100%;
+            margin-right: 10px;
+        }
+
+        .left h1 {
+            font-size: 1.5em;
+            margin: 0;
+            color: #E2550B;
+            font-weight: 800;
+        }
+
+        .left p {
+            font-size: 1em;
+            margin: 0;
+        }
+
+        .center h3 {
+            font-size: 1.5em;
+            margin: 0;
+        }
+
+        .right form {
+            display: flex;
+        }
+
+        .right input {
+            padding: 5px;
+            margin-right: 5px;
+            width: 150px;
+        }
+
+        .right button {
+            padding: 5px 10px;
+            background-color: #A0522D;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .menu-toggle {
+            display: none;
+            color: #8B4513;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        nav {
+            background-color: #A0522D;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 50px;
+        }
+
+        .main-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            padding-left: 5%;
+        }
+
+        .main-menu>li {
+            position: relative;
+        }
+
+        .main-menu>li>a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+        }
+
+        .sub-menu,
+        .sub-sub-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            color: #A0522D;
+            background-color: rgb(236, 148, 81);
+            min-width: 160px;
+            z-index: 1000;
+           
+        }
+
+        .sub-sub-menu {
+            left: 100%;
+            top: 0;
+        }
+
+        .has-dropdown.open>.sub-menu,
+        .has-dropdown.open>.sub-sub-menu {
+            display: block;
+        }
+
+        .sub-menu a,
+        .sub-sub-menu a {
+            color: #f1f1f1;
+            background-color: #A0522D;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            margin-top: 2px;
+            margin-left: 2px;
+            margin-right: 2px;
+        }
+
+        .sub-menu a:hover,
+        .sub-sub-menu a:hover {
+            background-color: #dd7342;
+            color: #f1f1f1;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+            }
+
+            .left,
+            .center,
+            .right {
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+
+            .left h1 {
+                font-size: 1.2em;
+            }
+
+            .left p {
+                font-size: 0.9em;
+            }
+
+            .center h3 {
+                font-size: 1.2em;
+            }
+
+            .right input {
+                width: 100%;
+                max-width: 200px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+            }
+
+            nav.open {
+                display: block;
+            }
+
+            .main-menu {
+                flex-direction: column;
+                padding-left: 0;
+            }
+
+            .main-menu>li {
+                width: 100%;
+            }
+
+            .sub-menu,
+            .sub-sub-menu {
+                position: static;
+                width: 100%;
+                background-color: #f5e6d3;
+            }
+
+            .sub-menu a,
+            .sub-sub-menu a {
+                padding-left: 30px;
+            }
+
+            .sub-sub-menu a {
+                padding-left: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .left img,
+            .center img {
+                height: 40px;
+            }
+
+            .left h1 {
+                font-size: 1em;
+            }
+
+            .left p {
+                font-size: 0.8em;
+            }
+
+            .center h3 {
+                font-size: 1em;
+            }
+
+            .right input {
+                max-width: 150px;
+            }
+        }
+.grren{
+    color: #046A3A;
+}
+
+.blacck{
+    color: #000000;
+}
+        /* Additional responsive tweaks */
+        @media (max-width: 1024px) {
+            .main-menu {
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-wrap: wrap;
+                text-align: center;
+            }
+
+            .right form {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+            .right input,
+            .right button {
+                margin-bottom: 5px;
+                width: 90%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .menu-toggle {
+                font-size: 28px;
+                padding: 5px 15px;
+            }
+
+            .main-menu>li>a {
+                padding: 10px;
+                font-size: 0.9em;
+            }
+
+            .sub-menu a,
+            .sub-sub-menu a {
+                font-size: 0.85em;
+                padding: 10px 15px;
+            }
+
+            .right input {
+                width: 100%;
+            }
+        }
+
+        /* Smooth dropdown on hover for desktop */
+        @media (min-width: 769px) {
+
+            .has-dropdown:hover>.sub-menu,
+            .has-dropdown:hover>.sub-sub-menu {
+                display: block;
+            }
+        }
+
+           
+        .footer {
+            background: linear-gradient(135deg, #8B4513, #A0522D);
+            color: white;
+            padding: 40px 20px 20px;
+            font-size: 14px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .footer-section p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .contact-info-1 {
+            list-style: none;
+        }
+
+        .contact-info-1 li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info-1 i {
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .quick-links {
+            list-style: none;
+        }
+
+        .quick-links li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .quick-links li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #FFD700;
+            font-size: 10px;
+        }
+
+        .quick-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .quick-links a:hover {
+            color: #FFD700;
+        }
+
+        .social-media {
+            margin-top: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            padding: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links a:hover {
+            color: #FFD700;
+            background: rgba(255, 215, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .footer {
+                padding: 30px 15px 15px;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <div class="left">
+            <img src="/images/Adivasi-logo.png" alt="Logo">
+            <div>
+                <h1 class="mukta-vaani-regular">एकात्मिक आदिवासी विकास</h1>
+                <p class="grren">रायगड, यवतमाळ</p>
+            </div>
+        </div>
+        <div class="center blacck">
+            <h3>महाराष्ट्र</h3>
+            <img src="/images/emblem-logo.png" alt="Emblem">
+            <h3>शासन</h3>
+        </div>
+        <div class="right">
+            <form>
+                <input type="text" placeholder="शोधा...">
+                <button type="submit">शोधा</button>
+            </form>
+            <div class="menu-toggle">☰</div>
+        </div>
+    </header>
+
+    <nav>
+        <ul class="main-menu" class="mukta-vaani-regular">
+            <li class="has-dropdown " class="mukta-vaani-regular">
+                <a href="#">मुख्यपृष्ठ</a>
+            </li>
+            <li class="has-dropdown">
+                <a href="">प्रशासन</a>
+                <ul class="sub-menu">
+                    <li class="has-dropdown">
+                        <a href="/38.html">प्रशासकीय संरचना</a>
+                    </li>
+                    <li><a href="/1.html">शासकीय आश्रमशाळा</a></li>
+                    <li><a href="/2.html">अनुदानित आश्रमशाळा</a></li>
+                    <li><a href="/3.html">शासकीय वसतिगृह</a></li>
+                    <li><a href="/4.html">मुख्याध्यापक संपर्क नंबर यादी</a></li>
+                    <li><a href="/5.html">विद्यार्थी पटसंख्या</a></li>
+                </ul>
+            </li>
+            <li class="has-dropdown">
+                <a href="#">ऑनलाईन पोर्टल</a>
+                <ul class="sub-menu">
+                    <li class="has-dropdown">
+                        <a href="https://mahadbt.maharashtra.gov.in/Login/Login">डिबिटी पोर्टल</a>
+                    </li>
+                    <li><a href="https://swayam.mahaonline.gov.in/">स्वयं पोर्टल</a></li>
+                </ul>
+            </li>
+            <li class="has-dropdown">
+                <a href="#">नियोजन विभाग</a>
+                <ul class="sub-menu">
+                    <li class="has-dropdown">
+                        <a href="/6.html">निधी वितरण बाबी</a>
+                    </li>
+                    <li><a href="/7.html">वार्षिक आराखडा</a></li>
+                    <li><a href="">मासिक प्रगती अहवाल</a></li>
+                    <li><a href="/8.html">प्रशासकीय मान्यता</a></li>
+                    <li><a href="/81.html">पत्रव्यवहार</a></li>
+                    <li><a href="/9.html">पेसा क्षेत्र</a></li>
+                    <li><a href="">उपयोजन क्षेत्र</a></li>
+                </ul>
+            </li>
+            <li class="has-dropdown">
+                <a href="#">विकास विभाग</a>
+                <ul class="sub-menu">
+                    <li class="has-dropdown">
+                        <a href="">केन्द्रीय योजनाएं</a>
+                        <ul class="sub-sub-menu">
+                            <li><a href="/10.html">वृद्धक कायदा</a></li>
+                            <li><a href="/11.html">आदिम विकास</a></li>
+                            <li><a href="/12.html">अनुजेद 275(1)</a></li>
+                            <li><a href="/13.html">PM AAGY</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#">राज्य योजना</a>
+                        <ul class="sub-sub-menu">
+                            <li><a href="/14.html">केंद्रवर्ती अर्थसंकल्प</a></li>
+                            <li><a href="/15.html">घरकुल</a></li>
+                            <li><a href="/16.html">वनधन</a></li>
+                            <li><a href="/17.html">कन्यादान</a></li>
+                            <li><a href="/18.html">स्वाभिमान योजना</a></li>
+                            <li><a href="/19.html">ठक्कर बाप्पा</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="has-dropdown">
+                <a href="#">शिक्षण विभाग</a>
+                <ul class="sub-menu">
+                    <li class="has-dropdown">
+                        <a href="#">शाळा नोंदणी आणि लॉगिन</a>
+                        <ul class="sub-sub-menu">
+                            <li><a href="/20.html">शाळा नोंदणी</a></li>
+                            <li><a href="/21.html">शाळा लॉगिन</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#">शासकीय आश्रमशाळा</a>
+                        <ul class="sub-sub-menu">
+                            <li><a href="/22.html">1 ली ते ७ वी</a></li>
+                            <li><a href="/221.html">१ ली ते १२ वी</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#">शासकीय वसतिगृह</a>
+                        <ul class="sub-sub-menu">
+                            <li><a href="">पंडित दिन दयाल योजना</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="/23.html">अनुदानित आश्रमशाळा</a>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="/24.html">इंग्रजी माध्यम निवासी शाळा</a>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="25.html">सैनिकी आश्रमशाळा</a>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="26.html">आदर्श आश्रमशाळा</a>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="261.html">शिष्यवृत्ती</a>
+                    </li>
+                   
+                </ul>
+            </li>
+            <li class="has-dropdown">
+                <a href="#">लेखा विभाग</a>
+                <ul class="sub-menu">
+                    <li class="has-dropdown">
+                        <a href="">लेखापरिक्षण</a>
+                    </li>
+                    <li><a href="">भांडार पडताळणी</a></li>
+                </ul>
+            </li>
+            <li class="has-dropdown">
+                <a href="#">रजिस्ट्रेशन</a>
+                <ul class="sub-menu">
+                    <li class="has-dropdown">
+                        <a href="">लाभार्थी रजिस्ट्रेशन</a>
+                        <ul class="sub-sub-menu">
+                            <li><a href="/27.html">वैयक्तिक Registration</a></li>
+                            <li><a href="/28.html">वैयक्तिक login</a></li>
+                            <li><a href="/29.html">बचत गट Registration</a></li>
+                            <li><a href="/30.html">बचत गट login</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">कार्यालयीन रजिस्ट्रेशन</a></li>
+                </ul>
+            </li>
+            <li class="has-dropdown">
+                <a href="/31.html">लोकसेवा हक्क अधिनियम</a>
+            </li>
+            <li class="has-dropdown">
+                <a href="/33.html">माहितीचा अधिकार</a>
+            </li>
+            <li class="has-dropdown">
+                <a href="/34.html">उपक्रम</a>
+            </li>
+            <li class="has-dropdown">
+                <a href="">गॅलरी</a>
+                <ul class="sub-menu">
+                    <li class="has-dropdown">
+                        <a href="/35.html">उपक्रमाचे फोटो</a>
+                    </li>
+                    <li><a href="/36.html">मीडिया कव्हरेज</a></li>
+                </ul>
+            </li>
+            <li class="has-dropdown">
+                <a href="https://grievance.mahatribal.in/home/home.html">तक्रार निवारण</a>
+            </li>
+            <li class="has-dropdown">
+                <a href="/38.html">संपर्क</a>
+            </li>
+        </ul>
+    </nav> 
+    <div class="container">
+        <div class="main-content">
+            <!-- Image Section -->
+            <div class="image-section">
+                <img src="/images/pexels-melaudelo-28558960.jpg" alt="पोलीस स्टेशन यावल" class="office-image">
+            </div>
+
+            <!-- Map Section -->
+            <div class="map-section">
+                <div class="map-container">
+                    <div class="map-overlay">
+                        <strong>Yawal</strong><br>
+                        <a href="#" style="color: #1a73e8; text-decoration: none;">Directions</a><br>
+                        <a href="#" style="color: #1a73e8; text-decoration: none; font-size: 12px;">View larger map</a>
+                    </div>
+                    <div class="map-controls">
+                        <button class="map-btn" onclick="zoomIn()">+</button>
+                        <button class="map-btn" onclick="zoomOut()">−</button>
+                    </div>
+                    <div class="location-marker"></div>
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="contact-info mukta-vaani-regular">
+                <h2 class="contact-title yatra-one-regular">कार्यालयाचा पत्ता</h2>
+                
+                <div class="contact-item">
+                    <div class="contact-icon"></div>
+                    <div class="contact-details">
+                        <div class="contact-text">
+                          📍  एकात्मिक आदिवासी विकास प्रकल्प कार्यालय, यावल<br>
+                            सर्वजनिक बांधकाम विभाग कार्यालय अंदाजे,<br>
+                            चौधरी रोड, यावल जि. जळगाव
+                        </div>
+                        <div class="contact-subtext">पिन नं. ४२५३०१</div>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon"></div>
+                    <div class="contact-details">
+                        <div class="contact-text"> 📞 दूरध्वनी क्र.: (०२५८५) २६१४९२</div>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon"></div>
+                    <div class="contact-details">
+                        <div class="contact-text"> ✉️ईमेल: polldp.yawal-mh@gov.in</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services Section -->
+        <div class="services-section">
+            <h2 class="services-title yatra-one-regular">सुपक माध्यमे</h2>
+            
+            <div class="services-grid ,mukta-vaani-regular">
+                <!-- Office Hours -->
+                <div class="service-card">
+                    <div class="service-icon">🕐</div>
+                    <h3 class="service-title">कार्यालयीन वेळ</h3>
+                    <div class="service-details">
+                        सोमवार - शनिवार
+                    </div>
+                    <div class="service-time">सकाळी १०:०० - संध्याकाळी ६:००</div>
+                </div>
+
+                <!-- Helpline -->
+                <div class="service-card">
+                    <div class="service-icon">📞</div>
+                    <h3 class="service-title">हेल्पलाइन</h3>
+                    <div class="service-contact">011-23345770</div>
+                    <div class="service-details">२४x७ उपलब्ध</div>
+                </div>
+
+                <!-- Email -->
+                <div class="service-card">
+                    <div class="service-icon">📧</div>
+                    <h3 class="service-title">ईमेल पत्ता</h3>
+                    <div class="service-contact">polldp.yawal-mh@gov.in</div>
+                    <div class="service-details">२४ तासात प्रतिसाद</div>
+                </div>
+            </div>
+        </div>
+    </div>
+<footer class="footer">
+        <div class="footer-container">
+            <!-- Company Information Section -->
+            <div class="footer-section">
+                <h3>एकात्मक आदिवासी विकास</h3>
+                <p>आदिवासी समुदाय के कल्याण और विकास के लिए समर्पित संस्था। हमारा उद्देश्य स्थानीय संस्कृति और परंपराओं का संरक्षण करते हुए आधुनिक विकास के अवसर प्रदान करना है।</p>
+                
+                <div class="social-media">
+                    <h4>सामाजिक मीडिया</h4>
+                    <div class="social-links">
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Information Section -->
+            <div class="footer-section">
+                <h3>संपर्क सूत्र</h3>
+                <ul class="contact-info-1">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>पता: आदिवासी भवन, मुख्य मार्ग, विकास नगर, राज्य - पिन</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <span>दूरभाष संख्या: (+९१) ९८७६५४३२१०</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>ईमेल: info@adivasi-vikas.gov.in</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="footer-section">
+                <h3>त्वरित लिंक</h3>
+                <ul class="quick-links">
+                    <li><a href="#">मुख्यमंत्री कार्यक्रम और योजनाएं</a></li>
+                    <li><a href="#">ग्रामीण आदिवासी विकास कार्यक्रम</a></li>
+                    <li><a href="#">स्वदेशी समुदाय वित्तीय सहायता और अनुदान</a></li>
+                    <li><a href="#">युवा कल्याण कार्यक्रम और छात्रवृत्ति</a></li>
+                    <li><a href="#">आदिवासी आवास योजना निर्माण और विकास</a></li>
+                    <li><a href="#">स्वरोजगार योजना और कौशल विकास</a></li>
+                    <li><a href="#">शिक्षा कैरियर सहायता योजना और अवसर</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2023 एकात्मक आदिवासी विकास। सभी अधिकार सुरक्षित।</p>
+        </div>
+    </footer>
+    <script src="/load-layout.js"></script>
+    <script>
+        // Map zoom functionality
+        let zoomLevel = 1;
+
+        function zoomIn() {
+            zoomLevel = Math.min(zoomLevel + 0.2, 3);
+            updateMapZoom();
+        }
+
+        function zoomOut() {
+            zoomLevel = Math.max(zoomLevel - 0.2, 0.5);
+            updateMapZoom();
+        }
+
+        function updateMapZoom() {
+            const mapContainer = document.querySelector('.map-container');
+            mapContainer.style.transform = `scale(${zoomLevel})`;
+            mapContainer.style.transformOrigin = 'center center';
+        }
+
+        // Add click effect to service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+                setTimeout(() => {
+                    this.style.transform = 'translateY(-5px)';
+                }, 150);
+            });
+        });
+
+        // Add hover effect to contact items
+        document.querySelectorAll('.contact-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.backgroundColor = '#f8f9fa';
+                this.style.borderRadius = '8px';
+                this.style.padding = '10px';
+                this.style.transition = 'all 0.3s ease';
+            });
+
+            item.addEventListener('mouseleave', function() {
+                this.style.backgroundColor = 'transparent';
+                this.style.padding = '0';
+            });
+        });
+
+        // Simulate map loading
+        window.addEventListener('load', function() {
+            const mapContainer = document.querySelector('.map-container');
+            mapContainer.style.opacity = '0';
+            mapContainer.style.transition = 'opacity 1s ease';
+            
+            setTimeout(() => {
+                mapContainer.style.opacity = '1';
+            }, 500);
+        });
+
+        // Add click functionality to map overlay links
+        document.addEventListener('DOMContentLoaded', function() {
+            const directionsLink = document.querySelector('.map-overlay a[href="#"]');
+            if (directionsLink) {
+                directionsLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('दिशा-निर्देश खुल रहे हैं...');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

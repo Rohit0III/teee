@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<style>
+     .tribal-crown {
+            background-color: #ffffff;
+            padding: 20px;
+            padding-bottom: 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .emblem-nest {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .emblem-crest {
+            width: 100px;
+            height: auto;
+        }
+
+        .script-vault {
+            text-align: center;
+        }
+
+        .maharashtra-reign {
+            font-size: 24px;
+            color: #7B3F00;
+            margin: 0;
+        }
+
+        .adivasi-progress {
+            font-size: 24px;
+            color: #7B3F00;
+            margin: 10px 0;
+        }
+
+        .virtual-registry {
+            font-size: 24px;
+            color: #7B3F00;
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .emblem-crest {
+                width: 80px;
+            }
+            .maharashtra-reign {
+                font-size: 20px;
+            }
+            .adivasi-progress {
+                font-size: 18px;
+            }
+            .virtual-registry {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .emblem-crest {
+                width: 60px;
+            }
+            .maharashtra-reign {
+                font-size: 18px;
+            }
+            .adivasi-progress {
+                font-size: 16px;
+            }
+            .virtual-registry {
+                font-size: 14px;
+            }
+        }
+</style>
+<body>
+
+
+<div data-include="header.html"></div>
+<header class="tribal-crown">
+        <div class="emblem-nest">
+            <img src="/images/emblem-logo.png" alt="Government of India Emblem" class="emblem-crest">
+        </div>
+        <div class="script-vault">
+            <h1 class="maharashtra-reign yatra-one-regular">महाराष्ट्र शासन <br> आदिवासी विकास विभाग <br>ाभार्थी रजिस्ट्रेशन-वैयक्तिक
+       </h1>
+           
+        </div>
+    </header>
+    
+    <div class="form-container">
+        <div class="inner-border-wrapper">
+            <div class="form-content">
+                <div class="success-message" id="successMessage">
+                    🎉 Registration successful! / पंजीकरण सफल! 🎉
+                </div>
+
+                <form id="registrationForm">
+                    <!-- Basic Details Section -->
+                    <div class="section-title">Basic Details / मूलभूत विवरण</div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">आवेदकाचे First Name / प्रथम नाव (मराठी)</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                            <span class="error" id="firstNameError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="firstNameEng">आवेदकाचे First Name / प्रथम नाव (इंग्रजी)</label>
+                            <input type="text" id="firstNameEng" name="firstNameEng" required>
+                            <span class="error" id="firstNameEngError"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="middleName">आवेदकाचे Middle Name / मध्यम नाव (मराठी)</label>
+                            <input type="text" id="middleName" name="middleName">
+                        </div>
+                        <div class="form-group">
+                            <label for="middleNameEng">आवेदकाचे Middle Name / मध्यम नाव (इंग्रजी)</label>
+                            <input type="text" id="middleNameEng" name="middleNameEng">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="surname">आवेदकाचे Surname / आडनाव (मराठी)</label>
+                            <input type="text" id="surname" name="surname" required>
+                            <span class="error" id="surnameError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="surnameEng">आवेदकाचे Surname / आडनाव (इंग्रजी)</label>
+                            <input type="text" id="surnameEng" name="surnameEng" required>
+                            <span class="error" id="surnameEngError"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="mobile">मोबाईल क्रमांक / Mobile No.</label>
+                            <input type="tel" id="mobile" name="mobile" required maxlength="10">
+                            <span class="error" id="mobileError"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="email">ईमेल / Email</label>
+                            <input type="email" id="email" name="email" required>
+                            <span class="error" id="emailError"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group password-toggle">
+                            <label for="password">पासवर्ड / Password</label>
+                            <input type="password" id="password" name="password" required>
+                            <button type="button" class="toggle-btn" onclick="togglePassword('password')">👁️</button>
+                            <span class="error" id="passwordError"></span>
+                        </div>
+                        <div class="form-group password-toggle">
+                            <label for="confirmPassword">पुष्टी करा पासवर्ड / Confirm Password</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required>
+                            <button type="button" class="toggle-btn" onclick="togglePassword('confirmPassword')">👁️</button>
+                            <span class="error" id="confirmPasswordError"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="profileImage">Profile Image / Passport Image</label>
+                            <div class="file-upload">
+                                <input type="file" id="profileImage" name="profileImage" accept="image/*">
+                                <label for="profileImage" class="file-upload-label" id="profileImageLabel">📁 Choose File / No file chosen</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Details Section -->
+                    <div class="section-title">Additional Details / अतिरिक्त माहिती</div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="aadharNo">आधार क्रमांक / Aadhaar no.</label>
+                            <input type="text" id="aadharNo" name="aadharNo" maxlength="12">
+                            <span class="error" id="aadharError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="panNo">पॅन क्रमांक / Pan no.</label>
+                            <input type="text" id="panNo" name="panNo" maxlength="10" style="text-transform: uppercase;">
+                            <span class="error" id="panError"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="religion">धर्म / Religion</label>
+                            <select id="religion" name="religion">
+                                <option value="">Select</option>
+                                <option value="hindu">Hindu / हिंदू</option>
+                                <option value="muslim">Muslim / मुस्लिम</option>
+                                <option value="christian">Christian / ख्रिश्चन</option>
+                                <option value="sikh">Sikh / शीख</option>
+                                <option value="buddhist">Buddhist / बौद्ध</option>
+                                <option value="jain">Jain / जैन</option>
+                                <option value="other">Other / इतर</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="caste">जात / Caste</label>
+                            <select id="caste" name="caste">
+                                <option value="">Select</option>
+                                <option value="general">General / सामान्य</option>
+                                <option value="obc">OBC / मागासवर्गीय</option>
+                                <option value="sc">SC / अनुसूचित जाती</option>
+                                <option value="st">ST / अनुसूचित जमाती</option>
+                                <option value="nt">NT / भटक्या विमुक्त जाती</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="address">पत्ता / Address</label>
+                            <textarea id="address" name="address" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="district">जिल्हा / District</label>
+                            <select id="district" name="district">
+                                <option value="">Select</option>
+                                <option value="mumbai">Mumbai / मुंबई</option>
+                                <option value="pune">Pune / पुणे</option>
+                                <option value="nagpur">Nagpur / नागपूर</option>
+                                <option value="nashik">Nashik / नाशिक</option>
+                                <option value="aurangabad">Aurangabad / औरंगाबाद</option>
+                                <option value="solapur">Solapur / सोलापूर</option>
+                                <option value="kolhapur">Kolhapur / कोल्हापूर</option>
+                                <option value="sangli">Sangli / सांगली</option>
+                                <option value="satara">Satara / सातारा</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="state">राज्य / State</label>
+                            <select id="state" name="state">
+                                <option value="">Select State</option>
+                                <option value="maharashtra">Maharashtra / महाराष्ट्र</option>
+                                <option value="gujarat">Gujarat / गुजरात</option>
+                                <option value="karnataka">Karnataka / कर्नाटक</option>
+                                <option value="goa">Goa / गोवा</option>
+                                <option value="mp">Madhya Pradesh / मध्य प्रदेश</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="taluka">तालुका / Taluka</label>
+                            <select id="taluka" name="taluka">
+                                <option value="">Select</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="village">गाव / Village</label>
+                            <input type="text" id="village" name="village">
+                        </div>
+                    </div>
+
+                    <!-- Submit Buttons -->
+                    <div class="button-group">
+                        <button type="submit" class="btn btn-submit"> Submit</button>
+                        <button type="reset" class="btn btn-reset"> Reset</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<footer data-include="footer.html"></footer>
+<script src="/load-layout.js"></script>
+    <script>
+        // Form validation and submission
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (validateForm()) {
+                // Show success message
+                document.getElementById('successMessage').style.display = 'block';
+                
+                // Scroll to top to show success message
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // Reset form after showing success message
+                setTimeout(() => {
+                    this.reset();
+                    document.getElementById('successMessage').style.display = 'none';
+                    updateFileLabel('profileImage', '📁 Choose File / No file chosen');
+                }, 3000);
+            }
+        });
+
+        // Form validation function
+        function validateForm() {
+            let isValid = true;
+            clearErrors();
+
+            // Required field validation
+            const requiredFields = [
+                { id: 'firstName', message: 'First name is required / प्रथम नाव आवश्यक आहे' },
+                { id: 'firstNameEng', message: 'First name in English is required / इंग्रजीत प्रथम नाव आवश्यक आहे' },
+                { id: 'surname', message: 'Surname is required / आडनाव आवश्यक आहे' },
+                { id: 'surnameEng', message: 'Surname in English is required / इंग्रजीत आडनाव आवश्यक आहे' },
+                { id: 'mobile', message: 'Mobile number is required / मोबाईल क्रमांक आवश्यक आहे' },
+                { id: 'email', message: 'Email is required / ईमेल आवश्यक आहे' },
+                { id: 'password', message: 'Password is required / पासवर्ड आवश्यक आहे' },
+                { id: 'confirmPassword', message: 'Confirm password is required / पासवर्ड पुष्टी आवश्यक आहे' }
+            ];
+
+            requiredFields.forEach(field => {
+                const element = document.getElementById(field.id);
+                if (!element.value.trim()) {
+                    showError(field.id + 'Error', field.message);
+                    isValid = false;
+                }
+            });
+
+            // Mobile number validation
+            const mobile = document.getElementById('mobile').value;
+            if (mobile && !/^[6-9]\d{9}$/.test(mobile)) {
+                showError('mobileError', 'Invalid mobile number / अवैध मोबाईल क्रमांक');
+                isValid = false;
+            }
+
+            // Email validation
+            const email = document.getElementById('email').value;
+            if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                showError('emailError', 'Invalid email format / अवैध ईमेल स्वरूप');
+                isValid = false;
+            }
+
+            // Password validation
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password && password.length < 6) {
+                showError('passwordError', 'Password must be at least 6 characters / पासवर्ड किमान 6 अक्षरांचा असावा');
+                isValid = false;
+            }
+
+            if (password && confirmPassword && password !== confirmPassword) {
+                showError('confirmPasswordError', 'Passwords do not match / पासवर्ड जुळत नाही');
+                isValid = false;
+            }
+
+            // Aadhaar validation
+            const aadhar = document.getElementById('aadharNo').value;
+            if (aadhar && !/^\d{12}$/.test(aadhar)) {
+                showError('aadharError', 'Aadhaar must be 12 digits / आधार 12 अंकी असावा');
+                isValid = false;
+            }
+
+            // PAN validation
+            const pan = document.getElementById('panNo').value;
+            if (pan && !/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/.test(pan)) {
+                showError('panError', 'Invalid PAN format / अवैध पॅन स्वरूप');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        // Helper functions
+        function showError(elementId, message) {
+            document.getElementById(elementId).textContent = message;
+        }
+
+        function clearErrors() {
+            const errorElements = document.querySelectorAll('.error');
+            errorElements.forEach(element => {
+                element.textContent = '';
+            });
+        }
+
+        function togglePassword(fieldId) {
+            const field = document.getElementById(fieldId);
+            const type = field.getAttribute('type') === 'password' ? 'text' : 'password';
+            field.setAttribute('type', type);
+        }
+
+        // File upload handling
+        document.getElementById('profileImage').addEventListener('change', function() {
+            updateFileLabel('profileImage', this.files[0] ? '📁 ' + this.files[0].name : '📁 Choose File / No file chosen');
+        });
+
+        function updateFileLabel(inputId, text) {
+            document.getElementById(inputId + 'Label').textContent = text;
+        }
+
+        // District-Taluka mapping
+        const districtTalukaMap = {
+            'mumbai': ['Andheri', 'Borivali', 'Kurla', 'Mulund'],
+            'pune': ['Pune City', 'Pimpri-Chinchwad', 'Baramati', 'Indapur'],
+            'nagpur': ['Nagpur Rural', 'Nagpur Urban', 'Kamptee', 'Hingna'],
+            'nashik': ['Nashik East', 'Nashik West', 'Malegaon', 'Sinnar'],
+            'aurangabad': ['Aurangabad East', 'Aurangabad West', 'Paithan', 'Khultabad']
+        };
+
+        document.getElementById('district').addEventListener('change', function() {
+            const selectedDistrict = this.value;
+            const talukaSelect = document.getElementById('taluka');
+            
+            // Clear existing options
+            talukaSelect.innerHTML = '<option value="">Select</option>';
+            
+            if (selectedDistrict && districtTalukaMap[selectedDistrict]) {
+                districtTalukaMap[selectedDistrict].forEach(taluka => {
+                    const option = document.createElement('option');
+                    option.value = taluka.toLowerCase().replace(' ', '-');
+                    option.textContent = taluka;
+                    talukaSelect.appendChild(option);
+                });
+            }
+        });
+
+        // Auto-format inputs
+        document.getElementById('mobile').addEventListener('input', function(e) {
+            this.value = this.value.replace(/\D/g, '');
+        });
+
+        document.getElementById('aadharNo').addEventListener('input', function(e) {
+            this.value = this.value.replace(/\D/g, '');
+        });
+
+        document.getElementById('panNo').addEventListener('input', function(e) {
+            this.value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+        });
+
+        // Form reset handling
+        document.querySelector('.btn-reset').addEventListener('click', function() {
+            clearErrors();
+            updateFileLabel('profileImage', '📁 Choose File / No file chosen');
+            document.getElementById('successMessage').style.display = 'none';
+        });
+    </script>
+</body>
+</html>

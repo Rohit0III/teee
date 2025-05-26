@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>उपक्रमाचे फोटो - Photo Gallery</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+    <div data-include="header.html"></div>s
+    <div class="mandala-container" style="margin-top: 15px;">
+        <div class="mandala-left"></div>
+        <h1 class="ashramshala-title yatra-one-regular">उपक्रमाचे फोटो</h1>
+        <div class="mandala-right"></div>
+    </div>
+    <div class="gallery-container">
+        <div class="ashram-content-container">
+            <div class="ashram-content-box">
+        <!-- Gallery Header -->
+
+        <!-- Photo Grid -->
+        <div class="photo-grid">
+            <div class="photo-item">
+                <img src="/images/asd.webp" alt="पुरस्कार समारोह">
+            </div>
+            <div class="photo-item">
+                <img src="/images/asdf.webp" alt="महाराष्ट्र शासन भाषण">
+            </div>
+            <div class="photo-item">
+                <img src="/images/asdfg.webp" alt="सामुदायिक सभा">
+            </div>
+            <div class="photo-item">
+                <img src="/images/asdfgh.webp" alt="सन्मान कार्यक्रम">
+            </div>
+            <div class="photo-item">
+                <img src="/images/asdfghj.webp" alt="अधिकारी बैठक">
+            </div>
+            <div class="photo-item">
+                <img src="/images/asdfghjk.webp" alt="क्षेत्रीय कार्यक्रम">
+            </div>
+            <div class="photo-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-05-25%20070942-QWKpo8z9pqrrjNHUQE6nHGuWw9rPoa.png" alt="विकास कार्यक्रम">
+            </div>
+            <div class="photo-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-05-25%20070942-QWKpo8z9pqrrjNHUQE6nHGuWw9rPoa.png" alt="सामुदायिक कार्यक्रम">
+            </div>
+            <div class="photo-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-05-25%20070942-QWKpo8z9pqrrjNHUQE6nHGuWw9rPoa.png" alt="शासकीय बैठक">
+            </div>
+        </div>
+    </div>
+ </div>
+    </div>
+    <script>
+        // Simple script to ensure images load properly
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img');
+            
+            images.forEach(img => {
+                img.addEventListener('error', function() {
+                    this.src = '/placeholder.svg?height=250&width=300';
+                });
+            });
+
+            // Log container width for verification
+            const container = document.querySelector('.gallery-container');
+            console.log('Container width:', container.offsetWidth + 'px');
+        });
+    </script>
+
+    <div data-include="footer.html"></div>
+
+    <script src="/load-layout.js"></script>
+</body>
+</html>
+
+
