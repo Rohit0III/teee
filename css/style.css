@@ -230,6 +230,7 @@
 
     .tribal-table-container {
       padding: 0;
+      width: 300px;
     }
 
     .ashramshala-header {
@@ -298,7 +299,8 @@
 
   .tribal-table-container {
     display: flex;
-    width: 1200px;
+    max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
 
   }
