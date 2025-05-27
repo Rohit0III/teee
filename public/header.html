@@ -199,26 +199,45 @@
     }
 
      @media (max-width: 542px) {
-      .left{
-        margin: 0% auto;
+      .left img{
+        height: 35px;
+       
       }
-      .center{
-        margin: 0% auto;
+      .left {
+        font-size: small;
+      }
+      .center img{
+      height: 35px;
+        
+      }
+
+      .center {
+        font-size: x-small;
       }
 
       .right form {
-        margin: 0% 3%; 
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        padding-left: 90px;
+       display:flex;
+       flex-direction: row;
       }
+
+      .right form input{
+        width: 250px;
+      }
+      .right form button{
+        width: 70px;
+      }
+
+      .right form {
+        padding-left: 50px;
+      }
+ 
+     
     }
   </style>
 </head>
 <body>
   <header>
+    
     <div class="left">
       <img src="/images/Adivasi-logo.png" alt="Logo">
       <div>
@@ -231,8 +250,9 @@
       <img src="/images/emblem-logo.png" alt="Emblem">
       <h3>शासन</h3>
     </div>
+   
     <div class="right">
-      <form>
+      <form >
         <input type="text" placeholder="शोधा...">
         <button type="submit">Login</button>
         <div class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('open')">☰</div>
