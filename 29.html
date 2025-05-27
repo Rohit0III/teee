@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/responsive.css">
-</head>
-<style>
-     .tribal-crown {
+    <style>
+        .tribal-crown {
             background-color: #ffffff;
             padding: 20px;
             padding-bottom: 0;
@@ -53,12 +53,15 @@
             .emblem-crest {
                 width: 80px;
             }
+
             .maharashtra-reign {
                 font-size: 20px;
             }
+
             .adivasi-progress {
                 font-size: 18px;
             }
+
             .virtual-registry {
                 font-size: 16px;
             }
@@ -68,32 +71,34 @@
             .emblem-crest {
                 width: 60px;
             }
+
             .maharashtra-reign {
                 font-size: 18px;
             }
+
             .adivasi-progress {
                 font-size: 16px;
             }
+
             .virtual-registry {
                 font-size: 14px;
             }
         }
-</style>
+    </style>
+</head>
+
 <body>
-
-
-<div data-include="header.html"></div>
-<header class="tribal-crown">
+    <div data-include="header.html"></div>
+    <header class="tribal-crown">
         <div class="emblem-nest">
             <img src="/images/emblem-logo.png" alt="Government of India Emblem" class="emblem-crest">
         </div>
         <div class="script-vault">
-            <h1 class="maharashtra-reign yatra-one-regular">महाराष्ट्र शासन <br> आदिवासी विकास विभाग <br>ाभार्थी रजिस्ट्रेशन-वैयक्तिक
-       </h1>
-           
+            <h1 class="maharashtra-reign yatra-one-regular">महाराष्ट्र शासन <br> आदिवासी विकास विभाग <br> अभार्ती
+                रजिस्ट्रेशन-वैयक्तिक</h1>
         </div>
     </header>
-    
+
     <div class="form-container">
         <div class="inner-border-wrapper">
             <div class="form-content">
@@ -103,16 +108,44 @@
 
                 <form id="registrationForm">
                     <!-- Basic Details Section -->
-                    <div class="section-title">Basic Details / मूलभूत विवरण</div>
-                    
+                    <div class="section-title">Basic Details/मूलभूत तपशील</div>
+
+                    <!-- Organization Name and Registration Number -->
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="firstName">आवेदकाचे First Name / प्रथम नाव (मराठी)</label>
+                            <label for="organizationName">बचत गट/समूह/संस्थेचे नांव</label>
+                            <input type="text" id="organizationName" name="organizationName" required>
+                            <span class="error" id="organizationNameError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="registrationNumber">बचत गट/समूह/संस्था नोंदणी क्रमांक</label>
+                            <input type="text" id="registrationNumber" name="registrationNumber" required>
+                            <span class="error" id="registrationNumberError"></span>
+                        </div>
+                    </div>
+
+                    <!-- Applicant Type -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="applicantType">Applicant Type / अर्जदाराचा प्रकार</label>
+                            <select id="applicantType" name="applicantType" required>
+                                <option value="">Select</option>
+                                <option value="president">अध्यक्ष / President</option>
+                                <option value="secretary">सचिव / Secretary</option>
+                            </select>
+                            <span class="error" id="applicantTypeError"></span>
+                        </div>
+                    </div>
+
+                    <!-- Applicant Names -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">अध्यक्ष/सचिव यांचे पहिले नाव (इंग्रजी)</label>
                             <input type="text" id="firstName" name="firstName" required>
                             <span class="error" id="firstNameError"></span>
                         </div>
                         <div class="form-group">
-                            <label for="firstNameEng">आवेदकाचे First Name / प्रथम नाव (इंग्रजी)</label>
+                            <label for="firstNameEng">अध्यक्ष/सचिव यांचे पहिले नाव (मराठी)</label>
                             <input type="text" id="firstNameEng" name="firstNameEng" required>
                             <span class="error" id="firstNameEngError"></span>
                         </div>
@@ -120,31 +153,32 @@
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="middleName">आवेदकाचे Middle Name / मध्यम नाव (मराठी)</label>
+                            <label for="middleName">अध्यक्ष/सचिव यांचे मधले नाव (मराठी)</label>
                             <input type="text" id="middleName" name="middleName">
                         </div>
                         <div class="form-group">
-                            <label for="middleNameEng">आवेदकाचे Middle Name / मध्यम नाव (इंग्रजी)</label>
+                            <label for="middleNameEng">अध्यक्ष/सचिव यांचे मधले नाव (मराठी)</label>
                             <input type="text" id="middleNameEng" name="middleNameEng">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="surname">आवेदकाचे Surname / आडनाव (मराठी)</label>
+                            <label for="surname">अध्यक्ष/सचिव यांचे आडनाव (इंग्रजी)</label>
                             <input type="text" id="surname" name="surname" required>
                             <span class="error" id="surnameError"></span>
                         </div>
                         <div class="form-group">
-                            <label for="surnameEng">आवेदकाचे Surname / आडनाव (इंग्रजी)</label>
+                            <label for="surnameEng">अध्यक्ष/सचिव यांचे आडनाव (इंग्रजी)</label>
                             <input type="text" id="surnameEng" name="surnameEng" required>
                             <span class="error" id="surnameEngError"></span>
                         </div>
                     </div>
 
+                    <!-- Organization Mobile and Email -->
                     <div class="form-row">
                         <div class="form-group full-width">
-                            <label for="mobile">मोबाईल क्रमांक / Mobile No.</label>
+                            <label for="mobile">बचत गट/समूह/संस्था मोबाईल क्रमांक/Mobile No.</label>
                             <input type="tel" id="mobile" name="mobile" required maxlength="10">
                             <span class="error" id="mobileError"></span>
                         </div>
@@ -152,33 +186,37 @@
 
                     <div class="form-row">
                         <div class="form-group full-width">
-                            <label for="email">ईमेल / Email</label>
+                            <label for="email">बचत गट/समूह/संस्था ईमेल/Email</label>
                             <input type="email" id="email" name="email" required>
                             <span class="error" id="emailError"></span>
                         </div>
                     </div>
 
+                    <!-- Password Fields (Unchanged) -->
                     <div class="form-row">
                         <div class="form-group password-toggle">
-                            <label for="password">पासवर्ड / Password</label>
+                            <label for="password">पासवर्ड/Password</label>
                             <input type="password" id="password" name="password" required>
                             <button type="button" class="toggle-btn" onclick="togglePassword('password')">👁️</button>
                             <span class="error" id="passwordError"></span>
                         </div>
                         <div class="form-group password-toggle">
-                            <label for="confirmPassword">पुष्टी करा पासवर्ड / Confirm Password</label>
+                            <label for="confirmPassword">पुष्टी करा पासवर्ड/Confirm Password</label>
                             <input type="password" id="confirmPassword" name="confirmPassword" required>
-                            <button type="button" class="toggle-btn" onclick="togglePassword('confirmPassword')">👁️</button>
+                            <button type="button" class="toggle-btn"
+                                onclick="togglePassword('confirmPassword')">👁️</button>
                             <span class="error" id="confirmPasswordError"></span>
                         </div>
                     </div>
 
+                    <!-- Profile Image (Unchanged) -->
                     <div class="form-row">
                         <div class="form-group full-width">
                             <label for="profileImage">Profile Image / Passport Image</label>
                             <div class="file-upload">
                                 <input type="file" id="profileImage" name="profileImage" accept="image/*">
-                                <label for="profileImage" class="file-upload-label" id="profileImageLabel">📁 Choose File / No file chosen</label>
+                                <label for="profileImage" class="file-upload-label" id="profileImageLabel">📁 Choose
+                                    File / No file chosen</label>
                             </div>
                         </div>
                     </div>
@@ -186,19 +224,21 @@
                     <!-- Additional Details Section -->
                     <div class="section-title">Additional Details / अतिरिक्त माहिती</div>
 
+                    <!-- Aadhaar and TAN -->
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="aadharNo">आधार क्रमांक / Aadhaar no.</label>
+                            <label for="aadharNo">बचत गट/समूह/संस्था अध्यक्षा/सचिवाचा आधार क्र</label>
                             <input type="text" id="aadharNo" name="aadharNo" maxlength="12">
                             <span class="error" id="aadharError"></span>
                         </div>
                         <div class="form-group">
-                            <label for="panNo">पॅन क्रमांक / Pan no.</label>
-                            <input type="text" id="panNo" name="panNo" maxlength="10" style="text-transform: uppercase;">
-                            <span class="error" id="panError"></span>
+                            <label for="tanNo">बचत गट/समूह/संस्था टॅन क्रमांक/Tan no.</label>
+                            <input type="text" id="tanNo" name="tanNo" maxlength="10">
+                            <span class="error" id="tanError"></span>
                         </div>
                     </div>
 
+                    <!-- Religion and Main Caste -->
                     <div class="form-row">
                         <div class="form-group">
                             <label for="religion">धर्म / Religion</label>
@@ -214,7 +254,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="caste">जात / Caste</label>
+                            <label for="caste">घोटजात</label>
                             <select id="caste" name="caste">
                                 <option value="">Select</option>
                                 <option value="general">General / सामान्य</option>
@@ -226,16 +266,27 @@
                         </div>
                     </div>
 
+                    <!-- Sub-Caste -->
                     <div class="form-row">
                         <div class="form-group full-width">
-                            <label for="address">पत्ता / Address</label>
+                            <label for="subCaste">पोटजात / Sub-Caste</label>
+                            <input type="text" id="subCaste" name="subCaste">
+                        </div>
+                    </div>
+
+                    <!-- Organization Address -->
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="address">गट/समूह/संस्था पत्ता / Address of Savings Group/Organization</label>
                             <textarea id="address" name="address" rows="3"></textarea>
                         </div>
                     </div>
 
+                    <!-- District and State -->
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="district">जिल्हा / District</label>
+                            <label for="district">
+                                गट/समूह/संस्था पत्याचा जिल्हा</label>
                             <select id="district" name="district">
                                 <option value="">Select</option>
                                 <option value="mumbai">Mumbai / मुंबई</option>
@@ -262,43 +313,56 @@
                         </div>
                     </div>
 
+                    <!-- Taluka and Village/City -->
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="taluka">तालुका / Taluka</label>
+                            <label for="taluka">गट/समूह/संस्था पत्याचा तालुका</label>
                             <select id="taluka" name="taluka">
                                 <option value="">Select</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="village">गाव / Village</label>
+                            <label for="village">गट/समूह/संस्था पत्त्याचा गांव/शहर / Village/City of Savings
+                                Group/Organization</label>
                             <input type="text" id="village" name="village">
+                        </div>
+                    </div>
+
+                    <!-- Post Office and Pin Code -->
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="postOffice">गट/समूह/संस्था पत्त्याचा पोस्ट</label>
+                            <input type="text" id="postOffice" name="postOffice">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="pinCode">
+                                गट/समूह/संस्था पत्याचा पिनकोड क्रमांक</label>
+                            <input type="text" id="pinCode" name="pinCode" maxlength="6">
                         </div>
                     </div>
 
                     <!-- Submit Buttons -->
                     <div class="button-group">
-                        <button type="submit" class="btn btn-submit"> Submit</button>
-                        <button type="reset" class="btn btn-reset"> Reset</button>
+                        <button type="submit" class="btn btn-submit">Submit</button>
+                        <button type="reset" class="btn btn-reset">Reset</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-<footer data-include="footer.html"></footer>
-<script src="/load-layout.js"></script>
+    <footer data-include="footer.html"></footer>
+    <script src="/load-layout.js"></script>
     <script>
         // Form validation and submission
-        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+        document.getElementById('registrationForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             if (validateForm()) {
-                // Show success message
                 document.getElementById('successMessage').style.display = 'block';
-                
-                // Scroll to top to show success message
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-                
-                // Reset form after showing success message
                 setTimeout(() => {
                     this.reset();
                     document.getElementById('successMessage').style.display = 'none';
@@ -307,13 +371,14 @@
             }
         });
 
-        // Form validation function
         function validateForm() {
             let isValid = true;
             clearErrors();
 
-            // Required field validation
             const requiredFields = [
+                { id: 'organizationName', message: 'Organization name is required / संस्थेचे नांव आवश्यक आहे' },
+                { id: 'registrationNumber', message: 'Registration number is required / नोंदणी क्रमांक आवश्यक आहे' },
+                { id: 'applicantType', message: 'Applicant type is required / अर्जदाराचा प्रकार आवश्यक आहे' },
                 { id: 'firstName', message: 'First name is required / प्रथम नाव आवश्यक आहे' },
                 { id: 'firstNameEng', message: 'First name in English is required / इंग्रजीत प्रथम नाव आवश्यक आहे' },
                 { id: 'surname', message: 'Surname is required / आडनाव आवश्यक आहे' },
@@ -332,24 +397,20 @@
                 }
             });
 
-            // Mobile number validation
             const mobile = document.getElementById('mobile').value;
             if (mobile && !/^[6-9]\d{9}$/.test(mobile)) {
                 showError('mobileError', 'Invalid mobile number / अवैध मोबाईल क्रमांक');
                 isValid = false;
             }
 
-            // Email validation
             const email = document.getElementById('email').value;
             if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
                 showError('emailError', 'Invalid email format / अवैध ईमेल स्वरूप');
                 isValid = false;
             }
 
-            // Password validation
             const password = document.getElementById('password').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
-            
             if (password && password.length < 6) {
                 showError('passwordError', 'Password must be at least 6 characters / पासवर्ड किमान 6 अक्षरांचा असावा');
                 isValid = false;
@@ -360,24 +421,21 @@
                 isValid = false;
             }
 
-            // Aadhaar validation
             const aadhar = document.getElementById('aadharNo').value;
             if (aadhar && !/^\d{12}$/.test(aadhar)) {
                 showError('aadharError', 'Aadhaar must be 12 digits / आधार 12 अंकी असावा');
                 isValid = false;
             }
 
-            // PAN validation
-            const pan = document.getElementById('panNo').value;
-            if (pan && !/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/.test(pan)) {
-                showError('panError', 'Invalid PAN format / अवैध पॅन स्वरूप');
+            const tan = document.getElementById('tanNo').value;
+            if (tan && !/^[A-Z]{4}[0-9]{5}[A-Z]{1}$/.test(tan)) {
+                showError('tanError', 'Invalid TAN format / अवैध टॅन स्वरूप');
                 isValid = false;
             }
 
             return isValid;
         }
 
-        // Helper functions
         function showError(elementId, message) {
             document.getElementById(elementId).textContent = message;
         }
@@ -395,8 +453,7 @@
             field.setAttribute('type', type);
         }
 
-        // File upload handling
-        document.getElementById('profileImage').addEventListener('change', function() {
+        document.getElementById('profileImage').addEventListener('change', function () {
             updateFileLabel('profileImage', this.files[0] ? '📁 ' + this.files[0].name : '📁 Choose File / No file chosen');
         });
 
@@ -404,7 +461,6 @@
             document.getElementById(inputId + 'Label').textContent = text;
         }
 
-        // District-Taluka mapping
         const districtTalukaMap = {
             'mumbai': ['Andheri', 'Borivali', 'Kurla', 'Mulund'],
             'pune': ['Pune City', 'Pimpri-Chinchwad', 'Baramati', 'Indapur'],
@@ -413,13 +469,10 @@
             'aurangabad': ['Aurangabad East', 'Aurangabad West', 'Paithan', 'Khultabad']
         };
 
-        document.getElementById('district').addEventListener('change', function() {
+        document.getElementById('district').addEventListener('change', function () {
             const selectedDistrict = this.value;
             const talukaSelect = document.getElementById('taluka');
-            
-            // Clear existing options
             talukaSelect.innerHTML = '<option value="">Select</option>';
-            
             if (selectedDistrict && districtTalukaMap[selectedDistrict]) {
                 districtTalukaMap[selectedDistrict].forEach(taluka => {
                     const option = document.createElement('option');
@@ -430,25 +483,24 @@
             }
         });
 
-        // Auto-format inputs
-        document.getElementById('mobile').addEventListener('input', function(e) {
+        document.getElementById('mobile').addEventListener('input', function (e) {
             this.value = this.value.replace(/\D/g, '');
         });
 
-        document.getElementById('aadharNo').addEventListener('input', function(e) {
+        document.getElementById('aadharNo').addEventListener('input', function (e) {
             this.value = this.value.replace(/\D/g, '');
         });
 
-        document.getElementById('panNo').addEventListener('input', function(e) {
+        document.getElementById('tanNo').addEventListener('input', function (e) {
             this.value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
         });
 
-        // Form reset handling
-        document.querySelector('.btn-reset').addEventListener('click', function() {
+        document.querySelector('.btn-reset').addEventListener('click', function () {
             clearErrors();
             updateFileLabel('profileImage', '📁 Choose File / No file chosen');
             document.getElementById('successMessage').style.display = 'none';
         });
     </script>
 </body>
+
 </html>

@@ -3092,3 +3092,13 @@ body {
             }
         }
 
+.tribal-schemes-container{
+  padding-left: 5%;
+}
+.ui-pad-left{
+  padding-left: 5%;
+}
+
+.width-1{
+  width: 1000px;
+}
