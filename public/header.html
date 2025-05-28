@@ -1,7 +1,6 @@
-
-
 <!DOCTYPE html>
 <html lang="hi">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,14 +30,17 @@
       padding: 10px 20px;
     }
 
-    .left, .center, .right {
+    .left,
+    .center,
+    .right {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      
+
     }
 
-    .left img, .center img {
+    .left img,
+    .center img {
       height: 55px;
       margin-right: 10px;
     }
@@ -102,21 +104,22 @@
       display: flex;
       flex-wrap: wrap;
       padding-left: 10px;
-     
+
     }
 
     .main-menu li {
       position: relative;
     }
 
-    .main-menu > li > a {
+    .main-menu>li>a {
       color: white;
       text-decoration: none;
       padding: 10px 20px;
       display: block;
     }
 
-    .sub-menu, .sub-sub-menu {
+    .sub-menu,
+    .sub-sub-menu {
       list-style: none;
       padding: 0;
       margin: 0;
@@ -134,12 +137,13 @@
       top: 0;
     }
 
-    .has-dropdown:hover > .sub-menu,
-    .has-dropdown:hover > .sub-sub-menu {
+    .has-dropdown:hover>.sub-menu,
+    .has-dropdown:hover>.sub-sub-menu {
       display: block;
     }
 
-    .sub-menu a, .sub-sub-menu a {
+    .sub-menu a,
+    .sub-sub-menu a {
       color: #f1f1f1;
       background-color: #A0522D;
       text-decoration: none;
@@ -147,7 +151,8 @@
       display: block;
     }
 
-    .sub-menu a:hover, .sub-sub-menu a:hover {
+    .sub-menu a:hover,
+    .sub-sub-menu a:hover {
       background-color: #dd7342;
     }
 
@@ -164,7 +169,8 @@
         gap: 5px;
       }
 
-      .right input, .right button {
+      .right input,
+      .right button {
         width: 100%;
       }
 
@@ -180,16 +186,18 @@
 
       .main-menu {
         flex-direction: column;
-  
+
 
       }
 
-      .sub-menu, .sub-sub-menu {
+      .sub-menu,
+      .sub-sub-menu {
         position: static;
         width: 100%;
       }
 
-      .sub-menu a, .sub-sub-menu a {
+      .sub-menu a,
+      .sub-sub-menu a {
         padding-left: 30px;
       }
 
@@ -198,7 +206,7 @@
       }
     }
 
-     @media (max-width: 542px) {
+    @media (max-width: 542px) {
       .left img{
         height: 35px;
        
@@ -235,14 +243,15 @@
     }
   </style>
 </head>
+
 <body>
   <header>
-    
+
     <div class="left">
       <img src="/images/Adivasi-logo.png" alt="Logo">
       <div>
         <h1>एकात्मिक आदिवासी विकास</h1>
-        <p>रायगड, यवतमाळ</p>
+        <p>प्रकल्प यावल</p>
       </div>
     </div>
     <div class="center">
@@ -250,173 +259,174 @@
       <img src="/images/emblem-logo.png" alt="Emblem">
       <h3>शासन</h3>
     </div>
-   
     <div class="right">
-      <form >
+      <form>
         <input type="text" placeholder="शोधा...">
         <button type="submit">Login</button>
         <div class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('open')">☰</div>
-    </form>
+      </form>
     </div>
   </header>
-   <nav>
-        <ul class="main-menu mukta-vaani-regular">
-            <li class="has-dropdown">
-                <a href="#">मुख्यपृष्ठ</a>
-            </li>
-            <li class="has-dropdown">
-                <a href="#">प्रशासन</a>
-                <ul class="sub-menu">
-                    <li class="has-dropdown">
-                        <a href="/38.html">प्रशासकीय संरचना</a>
-                    </li>
-                    <li><a href="/index.html">शासकीय आश्रमशाळा</a></li>
-                    <li><a href="/2.html">अनुदानित आश्रमशाळा</a></li>
-                    <li><a href="/3.html">शासकीय वसतिगृह</a></li>
-                    <li><a href="/4.html">मुख्याध्यापक संपर्क नंबर यादी</a></li>
-                    <li><a href="/5.html">विद्यार्थी पटसंख्या</a></li>
-                </ul>
-            </li>
-            <li class="has-dropdown">
-                <a href="#">ऑनलाईन पोर्टल</a>
-                <ul class="sub-menu">
-                    <li class="has-dropdown">
-                        <a href="https://mahadbt.maharashtra.gov.in/Login/Login">डिबिटी पोर्टल</a>
-                    </li>
-                    <li><a href="https://swayam.mahaonline.gov.in/">स्वयं पोर्टल</a></li>
-                </ul>
-            </li>
-            <li class="has-dropdown">
-                <a href="#">नियोजन विभाग</a>
-                <ul class="sub-menu">
-                    <li class="has-dropdown">
-                        <a href="/6.html">निधी वितरण बाबी</a>
-                    </li>
-                    <li><a href="/7.html">वार्षिक आराखडा</a></li>
-                    <li><a href="#">मासिक प्रगती अहवाल</a></li>
-                    <li><a href="/8.html">प्रशासकीय मान्यता</a></li>
-                    <li><a href="/81.html">पत्रव्यवहार</a></li>
-                    <li><a href="/9.html">पेसा क्षेत्र</a></li>
-                    <li><a href="#">उपयोजन क्षेत्र</a></li>
-                </ul>
-            </li>
-            <li class="has-dropdown">
-                <a href="#">विकास विभाग</a>
-                <ul class="sub-menu">
-                    <li class="has-dropdown">
-                        <a href="#">केंद्रीय योजना</a>
-                        <ul class="sub-sub-menu">
-                            <li><a href="/10.html">वनहक्क कायदा</a></li>
-                            <li><a href="/11.html">आदिम विकास</a></li>
-                            <li><a href="/12.html">अनुच्छेद 275(1)</a></li>
-                            <li><a href="/13.html">PMAAGY</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-dropdown">
-                        <a href="#">राज्य योजना</a>
-                        <ul class="sub-sub-menu">
-                            <li><a href="/14.html">केंद्रवर्ती अर्थसंकल्प</a></li>
-                            <li><a href="/15.html">घरकुल</a></li>
-                            <li><a href="/16.html">वनधन</a></li>
-                            <li><a href="/17.html">कन्यादान</a></li>
-                            <li><a href="/18.html">स्वाभिमान योजना</a></li>
-                            <li><a href="/19.html">ठक्कर बाप्पा</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li class="has-dropdown">
-                <a href="#">शिक्षण विभाग</a>
-                <ul class="sub-menu">
-                    <li class="has-dropdown">
-                        <a href="#">शाळा नोंदणी आणि लॉगिन</a>
-                        <ul class="sub-sub-menu">
-                            <li><a href="/20.html">शाळा नोंदणी</a></li>
-                            <li><a href="/21.html">शाळा लॉगिन</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-dropdown">
-                        <a href="#">शासकीय आश्रमशाळा</a>
-                        <ul class="sub-sub-menu">
-                            <li><a href="/22.html">1 ली ते ७ वी</a></li>
-                            <li><a href="/221.html">१ ली ते १२ वी</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-dropdown">
-                        <a href="#">शासकीय वसतिगृह</a>
-                        <ul class="sub-sub-menu">
-                            <li><a href="#">पंडित दिन दयाल योजना</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-dropdown">
-                        <a href="/23.html">अनुदानित आश्रमशाळा</a>
-                    </li>
-                    <li class="has-dropdown">
-                        <a href="/24.html">इंग्रजी माध्यम निवासी शाळा</a>
-                    </li>
-                    <li class="has-dropdown">
-                        <a href="/25.html">सैनिकी आश्रमशाळा</a>
-                    </li>
-                    <li class="has-dropdown">
-                        <a href="/26.html">आदर्श आश्रमशाळा</a>
-                    </li>
-                    <li class="has-dropdown">
-                        <a href="/261.html">शिष्यवृत्ती</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="has-dropdown">
-                <a href="#">लेखा विभाग</a>
-                <ul class="sub-menu">
-                    <li class="has-dropdown">
-                        <a href="#">लेखापरिक्षण</a>
-                    </li>
-                    <li><a href="#">भांडार पडताळणी</a></li>
-                </ul>
-            </li>
-            <li class="has-dropdown">
-                <a href="#">रजिस्ट्रेशन</a>
-                <ul class="sub-menu">
-                    <li class="has-dropdown">
-                        <a href="#">लाभार्थी रजिस्ट्रेशन</a>
-                        <ul class="sub-sub-menu">
-                            <li><a href="/27.html">वैयक्तिक Registration</a></li>
-                            <li><a href="/28.html">वैयक्तिक login</a></li>
-                            <li><a href="/29.html">बचत गट Registration</a></li>
-                            <li><a href="/30.html">बचत गट login</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">कार्यालयीन रजिस्ट्रेशन</a></li>
-                </ul>
-            </li>
-            <li class="has-dropdown">
-                <a href="/31.html">लोकसेवा हक्क अधिनियम</a>
-            </li>
-            <li class="has-dropdown">
-                <a href="/33.html">माहितीचा अधिकार</a>
-            </li>
-            <li class="has-dropdown">
-                <a href="/34.html">उपक्रम</a>
-            </li>
-            <li class="has-dropdown">
-                <a href="#">गॅलरी</a>
-                <ul class="sub-menu">
-                    <li class="has-dropdown">
-                        <a href="/35.html">उपक्रमाचे फोटो</a>
-                    </li>
-                    <li><a href="/36.html">मीडिया कव्हरेज</a></li>
-                </ul>
-            </li>
-            <li class="has-dropdown">
-                <a href="https://grievance.mahatribal.in/home/home.html">तक्रार निवारण</a>
-            </li>
-            <li class="has-dropdown">
-                <a href="/39.html">संपर्क</a>
-            </li>
+
+  <nav>
+    <ul class="main-menu mukta-vaani-regular">
+      <li class="has-dropdown">
+        <a href="#">मुख्यपृष्ठ</a>
+      </li>
+      <li class="has-dropdown">
+        <a href="#">प्रशासन</a>
+        <ul class="sub-menu">
+          <li class="has-dropdown">
+            <a href="/38.html">प्रशासकीय संरचना</a>
+          </li>
+          <li><a href="/index.html">शासकीय आश्रमशाळा</a></li>
+          <li><a href="/2.html">अनुदानित आश्रमशाळा</a></li>
+          <li><a href="/3.html">शासकीय वसतिगृह</a></li>
+          <li><a href="/4.html">मुख्याध्यापक संपर्क नंबर यादी</a></li>
+          <li><a href="/5.html">विद्यार्थी पटसंख्या</a></li>
         </ul>
-    </nav>
-      <!-- Add other menu items as needed -->
+      </li>
+      <li class="has-dropdown">
+        <a href="#">ऑनलाईन पोर्टल</a>
+        <ul class="sub-menu">
+          <li class="has-dropdown">
+            <a href="https://mahadbt.maharashtra.gov.in/Login/Login">डिबिटी पोर्टल</a>
+          </li>
+          <li><a href="https://swayam.mahaonline.gov.in/">स्वयं पोर्टल</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown">
+        <a href="#">नियोजन विभाग</a>
+        <ul class="sub-menu">
+          <li class="has-dropdown">
+            <a href="/6.html">निधी वितरण बाबी</a>
+          </li>
+          <li><a href="/7.html">वार्षिक आराखडा</a></li>
+          <li><a href="#">मासिक प्रगती अहवाल</a></li>
+          <li><a href="/8.html">प्रशासकीय मान्यता</a></li>
+          <li><a href="/81.html">पत्रव्यवहार</a></li>
+          <li><a href="/9.html">पेसा क्षेत्र</a></li>
+          <li><a href="#">उपयोजन क्षेत्र</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown">
+        <a href="#">विकास विभाग</a>
+        <ul class="sub-menu">
+          <li class="has-dropdown">
+            <a href="#">केंद्रीय योजना</a>
+            <ul class="sub-sub-menu">
+              <li><a href="/10.html">वनहक्क कायदा</a></li>
+              <li><a href="/11.html">आदिम विकास</a></li>
+              <li><a href="/12.html">अनुच्छेद 275(1)</a></li>
+              <li><a href="/13.html">PMAAGY</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#">राज्य योजना</a>
+            <ul class="sub-sub-menu">
+              <li><a href="/14.html">केंद्रवर्ती अर्थसंकल्प</a></li>
+              <li><a href="/15.html">घरकुल</a></li>
+              <li><a href="/16.html">वनधन</a></li>
+              <li><a href="/17.html">कन्यादान</a></li>
+              <li><a href="/18.html">स्वाभिमान योजना</a></li>
+              <li><a href="/19.html">ठक्कर बाप्पा</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="has-dropdown">
+        <a href="#">शिक्षण विभाग</a>
+        <ul class="sub-menu">
+          <li class="has-dropdown">
+            <a href="#">शाळा नोंदणी आणि लॉगिन</a>
+            <ul class="sub-sub-menu">
+              <li><a href="/20.html">शाळा नोंदणी</a></li>
+              <li><a href="/21.html">शाळा लॉगिन</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#">शासकीय आश्रमशाळा</a>
+            <ul class="sub-sub-menu">
+              <li><a href="/22.html">१ ली ते ७ वी</a></li>
+              <li><a href="/221.html">७ ली ते १२ वी</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#">शासकीय वसतिगृह</a>
+            <ul class="sub-sub-menu">
+              <li><a href="#">पंडित दिन दयाल योजना</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="/23.html">अनुदानित आश्रमशाळा</a>
+          </li>
+          <li class="has-dropdown">
+            <a href="/24.html">इंग्रजी माध्यम निवासी शाळा</a>
+          </li>
+          <li class="has-dropdown">
+            <a href="/25.html">सैनिकी आश्रमशाळा</a>
+          </li>
+          <li class="has-dropdown">
+            <a href="/26.html">आदर्श आश्रमशाळा</a>
+          </li>
+          <li class="has-dropdown">
+            <a href="/261.html">शिष्यवृत्ती</a>
+          </li>
+        </ul>
+      </li>
+      <li class="has-dropdown">
+        <a href="#">लेखा विभाग</a>
+        <ul class="sub-menu">
+          <li class="has-dropdown">
+            <a href="#">लेखापरिक्षण</a>
+          </li>
+          <li><a href="#">भांडार पडताळणी</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown">
+        <a href="#">रजिस्ट्रेशन</a>
+        <ul class="sub-menu">
+          <li class="has-dropdown">
+            <a href="#">लाभार्थी रजिस्ट्रेशन</a>
+            <ul class="sub-sub-menu">
+              <li><a href="/27.html">वैयक्तिक रजिस्ट्रेशन</a></li>
+              <li><a href="/28.html">वैयक्तिक लॉगिन</a></li>
+              <li><a href="/29.html">बचत गट रजिस्ट्रेशन</a></li>
+              <li><a href="/30.html">बचत गट लॉगिन</a></li>
+            </ul>
+          </li>
+          <li><a href="#">कार्यालयीन रजिस्ट्रेशन</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown">
+        <a href="/31.html">लोकसेवा हक्क अधिनियम</a>
+      </li>
+      <li class="has-dropdown">
+        <a href="/33.html">माहितीचा अधिकार</a>
+      </li>
+      <li class="has-dropdown">
+        <a href="/34.html">उपक्रम</a>
+      </li>
+      <li class="has-dropdown">
+        <a href="#">गॅलरी</a>
+        <ul class="sub-menu">
+          <li class="has-dropdown">
+            <a href="/35.html">उपक्रमाचे फोटो</a>
+          </li>
+          <li><a href="/36.html">मीडिया कव्हरेज</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown">
+        <a href="https://grievance.mahatribal.in/home/home.html">तक्रार निवारण</a>
+      </li>
+      <li class="has-dropdown">
+        <a href="/39.html">संपर्क</a>
+      </li>
     </ul>
   </nav>
+  <!-- Add other menu items as needed -->
+  </ul>
+  </nav>
 </body>
+
 </html>
